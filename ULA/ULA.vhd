@@ -6,8 +6,8 @@ entity ULA is
     port(
         in_A, in_B : in unsigned(15 downto 0);
         Sel0, Sel1 : in std_logic;
-        Resultado : out unsigned(15 downto 0)
-        Carry, Overflow, Zero, Sinal : out std_logic;
+        Resultado : out unsigned(15 downto 0);
+        Carry, Overflow, Zero, Sinal : out std_logic
     );
 end entity;
 
