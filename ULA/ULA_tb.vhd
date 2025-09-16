@@ -24,25 +24,25 @@ begin
                         Carry => carry, Overflow => overflow, Zero => zero, Sinal => negativo);
     process
     begin
-        --soma
+        --soma os dois positivos
         in_A <= "0000000000000001";
         in_B <= "0000000000000010";
         Sel0 <= '0';
         Sel1 <= '0';
         wait for 50 ns;
-        --soma
+        --soma os dois negativos
         in_A <= "1111111111111001";
         in_B <= "1111111000000010";
         Sel0 <= '0';
         Sel1 <= '0';
         wait for 50 ns;
-        --soma
+        --soma os dois positivos com overflow
         in_A <= "0110000000000001";
         in_B <= "0111111110000010";
         Sel0 <= '0';
         Sel1 <= '0';
         wait for 50 ns;
-        --soma negativos
+        --soma os dois negativos com overflow
         in_A <= "1000000001100001";
         in_B <= "1111011100000010";
         Sel0 <= '0';
@@ -54,59 +54,61 @@ begin
         Sel0 <= '0';
         Sel1 <= '0';
         wait for 50 ns;
-        --subtracao
+        --subtracao os dois positivos
         in_A <= "0000001100001110";
         in_B <= "0000000000101001";
         Sel0 <= '1';
         Sel1 <= '0';
         wait for 50 ns;
-        --subtracao negativos 
+        --subtracao os dois negativos 
         in_A <= "1000001100001110";
         in_B <= "1111111111101001";
         Sel0 <= '1';
         Sel1 <= '0';
         wait for 50 ns;
-        --subtracao
+        --subtracao os dois negativos
         in_A <= "1000000000000000";
         in_B <= "1111000000101001";
         Sel0 <= '1';
         Sel1 <= '0';
         wait for 50 ns;
-        --subtracao
+        --subtracao com overflow
         in_A <= "1000000000000000";
         in_B <= "0111111100101001";
         Sel0 <= '1';
         Sel1 <= '0';
         wait for 50 ns;
-        --and
+        --and com zero
         in_A <= "0000000000000001";
-        in_B <= "0000000000000001";
+        in_B <= "0000000000000010";
         Sel0 <= '0';
         Sel1 <= '1';
         wait for 50 ns;
-        --and com números diferentes
+        --and "positivos"
         in_A <= "0000000100101000";
         in_B <= "0000000100001011";
         Sel0 <= '0';
         Sel1 <= '1';
         wait for 50 ns;
-        --and com números diferentes
+        --and "negativos"
         in_A <= "1110000100101000";
         in_B <= "1000000100001011";
         Sel0 <= '0';
         Sel1 <= '1';
         wait for 50 ns;
-        --or
+        --or "positivos"
         in_A <= "0001010100001100";
         in_B <= "0000000100000011";
         Sel0 <= '1';
         Sel1 <= '1';
         wait for 50 ns;
+        --or "positivos"
         in_A <= "0000000000000000";
         in_B <= "0000000100000011";
         Sel0 <= '1';
         Sel1 <= '1';
         wait for 50 ns;
+        --or "negativo"
         in_A <= "0000000000000000";
         in_B <= "1110000100000011";
         Sel0 <= '1';

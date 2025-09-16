@@ -1,7 +1,7 @@
 v 4
-file . "ULA_tb.vhd" "7033821d3faeaafb205df5886e203d6534787cd0" "20250915211604.522":
-  entity ula_tb at 1( 0) + 0 on 57;
-  architecture struct of ula_tb at 8( 107) + 0 on 58;
-file . "ULA.vhd" "064f840cb596536c9e5370dbd082284307e38949" "20250915211601.527":
-  entity ula at 1( 0) + 0 on 55;
-  architecture struct of ula at 14( 309) + 0 on 56;
+file . "ULA_tb.vhd" "9bf5b77771b5889b10eb82d121a7a5d50213dfa6" "20250916235410.072":
+  entity ula_tb at 1( 0) + 0 on 65;
+  architecture struct of ula_tb at 8( 107) + 0 on 66;
+file . "ULA.vhd" "064f840cb596536c9e5370dbd082284307e38949" "20250916235406.418":
+  entity ula at 1( 0) + 0 on 63;
+  architecture struct of ula at 14( 309) + 0 on 64;
