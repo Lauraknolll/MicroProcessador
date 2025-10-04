@@ -62,9 +62,4 @@ begin
     accs_ula <= acc0_ula when escolhe_acc else acc1_ula; --será que é o mesmo sinal do wr deles?
     uut1 : ULA port map (in_A => banco_ula, in_B => accs_ula, Sel0 => sel0, Sel1 => sel1, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
 
-    process
-    begin
-        --os valores pros testes
-    end process;
-
 end struct ; 
