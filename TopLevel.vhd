@@ -37,7 +37,7 @@ architecture struct of TopLevel is
             wr_en         : in std_logic; 
             sel_reg_wr    : in unsigned(3 downto 0); 
             sel_reg_rd    : in unsigned(3 downto 0); 
-            acc           : in std_logic; 
+            --acc           : in std_logic; 
             data_wr       : in unsigned(15 downto 0); 
             data_out_r1   : out unsigned(15 downto 0) 
         );
@@ -56,7 +56,7 @@ architecture struct of TopLevel is
 
 begin
 
-    uut0 : BancoReg port map (clk_b => clock, rst_b => reset_b, wr_en => escreve_banco, sel_reg_wr => qual_reg_escreve, sel_reg_rd => qual_reg_le, acc => '0', data_wr => dado_escrita_banco, data_out_r1 => banco_ula);
+    uut0 : BancoReg port map (clk_b => clock, rst_b => reset_b, wr_en => escreve_banco, sel_reg_wr => qual_reg_escreve, sel_reg_rd => qual_reg_le, data_wr => dado_escrita_banco, data_out_r1 => banco_ula);
     uutA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => escolhe_acc, data_in => ula_accs, data_out => acc0_ula); --acumulador A/0
     uutB : reg16bits port map (clk => clock, rst => reset_acc, wr_en => not(escolhe_acc), data_in => ula_accs, data_out => acc1_ula); --acumulador B/1
     accs_ula <= acc0_ula when escolhe_acc else acc1_ula; --será que é o mesmo sinal do wr deles?
