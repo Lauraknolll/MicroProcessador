@@ -35,7 +35,7 @@ begin
     begin
         reset_b <= '1';
         reset_acc <= '1';
-        wait for 100 ns; -- espera 2 clocks, pra garantir
+        wait for 100 ns; 
         reset_b <= '0';
         reset_acc <= '0';
         wait for 100 ns;
@@ -60,31 +60,31 @@ begin
         wait;
     end process clk_proc;
 
+    --o que importa é o data_out dos acumuladores, porque isso que diz se o valor da instrução foi guardado neles
+
     process                      -- sinais dos casos de teste (p.ex.)
     begin
       wait for 200 ns;
-      --ADD A, R3
+      --ADD A, R3!!!!
       --coloco 7 no r3
       escreve_banco <= '1'; 
       qual_reg_escreve <= "0011"; 
       dado_escrita_banco <= "0000000000000111"; 
-
-      --só pra deixar tudo zerado 
       escolhe_accA <= '0';
       escolhe_accB <= '0'; 
 
       wait for 100 ns;
       --leio o r3
-      qual_reg_le <= "0011"; 
       sel0 <= '0'; --só pra dizer que fica fazendo soma
-      sel1 <= '0'; 
-      escolhe_accA <= '1'; --escolho o accA pra somar com o r3    
+      sel1 <= '0';  
+      escolhe_accA <= '1'; --escolho o accA pra somar com o r3 
+      qual_reg_le <= "0011";   
       
       wait for 100 ns;
       escolhe_accA <= '0'; --desabilito ele de novo porque já usei
 
       wait for 100 ns;
-      --ADD A, r6
+      --ADD A, r6!!!
       --coloco 5 no r6
       escreve_banco <= '1'; 
       qual_reg_escreve <= "0110"; 
@@ -93,25 +93,19 @@ begin
       wait for 100 ns;
       --le o que foi colocado no r6
       qual_reg_le <= "0110"; 
-
-      wait for 100 ns;
-      --o r6 já foi pra ula  
       escolhe_accA <= '1'; --escolho o accA    
 
       wait for 100 ns;
       escolhe_accA <= '0';
 
       wait for 100 ns;
-      --ADD B, r3
+      --ADD B, r3!!!
       --le o que foi colocado no r3 pra ficar disponível na saída da ula
       qual_reg_le <= "0011"; 
-
-      wait for 100 ns;
       escolhe_accB <= '1'; --pra escolher o accB
 
       wait for 100 ns;
       escolhe_accB <= '0';
-      
 
       wait;                    
    end process;

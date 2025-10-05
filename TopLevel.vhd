@@ -60,8 +60,9 @@ begin
     uut0 : BancoReg port map (clk_b => clock, rst_b => reset_b, wr_en => escreve_banco, sel_reg_wr => qual_reg_escreve, sel_reg_rd => qual_reg_le, data_wr => dado_escrita_banco, data_out_r1 => banco_ula);
     uutA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => escolhe_accA, data_in => ula_accs, data_out => acc0_ula); --acumulador A/0
     uutB : reg16bits port map (clk => clock, rst => reset_acc, wr_en => escolhe_accB, data_in => ula_accs, data_out => acc1_ula); --acumulador B/1
-    accs_ula <= acc0_ula when escolhe_accA = '1'; 
-    accs_ula <= acc1_ula when escolhe_accB = '1';
+    accs_ula <= acc0_ula when escolhe_accA = '1' else
+                acc1_ula when escolhe_accB = '1' else
+                (others => '0');
     uut1 : ULA port map (in_A => banco_ula, in_B => accs_ula, Sel0 => sel0, Sel1 => sel1, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
 
 end struct ; 
