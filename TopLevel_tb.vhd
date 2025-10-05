@@ -15,7 +15,7 @@ architecture struct of TopLevel_tb is
         qual_reg_escreve, qual_reg_le : in unsigned(3 downto 0); --no banco
         escreve_banco : in std_logic;
 
-        escolhe_acc0 : in std_logic; --se for 1 escolhe o accA, se for 0 escolhe o accB
+        escolhe_accA, escolhe_accB : in std_logic; --se for 1 escolhe o accA, se for 0 escolhe o accB
 
         sel0, sel1 : in std_logic; --operações da ula
         carry, overflow, zero, sinal : out std_logic
@@ -23,13 +23,13 @@ architecture struct of TopLevel_tb is
     );
     end component;
 
-    signal clock, reset_b, reset_acc, escreve_banco, escolhe_acc0, sel0, sel1, carry, overflow, zero, sinal : std_logic;
+    signal clock, reset_b, reset_acc, escreve_banco, escolhe_accA, escolhe_accB, sel0, sel1, carry, overflow, zero, sinal, finished : std_logic;
     signal dado_escrita_banco : unsigned(15 downto 0);
     signal qual_reg_escreve, qual_reg_le : unsigned(3 downto 0);
 
 begin
     uut : TopLevel port map (clock => clock, dado_escrita_banco => dado_escrita_banco, reset_b => reset_b, reset_acc => reset_acc, qual_reg_escreve => qual_reg_escreve, qual_reg_le => qual_reg_le,
-    escreve_banco => escreve_banco, escolhe_acc0 => escolhe_acc0, sel0 => sel0, sel1 => sel1, carry => carry, overflow => overflow, zero => zero, sinal => sinal);
+    escreve_banco => escreve_banco, escolhe_accA => escolhe_accA, escolhe_accB => escolhe_accB, sel0 => sel0, sel1 => sel1, carry => carry, overflow => overflow, zero => zero, sinal => sinal);
 
     reset_global: process
     begin
@@ -41,5 +41,80 @@ begin
         wait for 100 ns;
         wait;
     end process;
+
+    sim_time_proc: process
+    begin
+        wait for 10 us;         -- <== TEMPO TOTAL DA SIMULAÇÃO!!!
+        finished <= '1';
+        wait;
+    end process sim_time_proc;
+
+    clk_proc: process
+    begin                       -- gera clock até que sim_time_proc termine
+        while finished /= '1' loop
+            clock <= '0';
+            wait for 50 ns;
+            clock <= '1';
+            wait for 50 ns;
+        end loop;
+        wait;
+    end process clk_proc;
+
+    process                      -- sinais dos casos de teste (p.ex.)
+    begin
+      wait for 200 ns;
+      --ADD A, R3
+      --coloco 7 no r3
+      escreve_banco <= '1'; 
+      qual_reg_escreve <= "0011"; 
+      dado_escrita_banco <= "0000000000000111"; 
+
+      --só pra deixar tudo zerado 
+      escolhe_accA <= '0';
+      escolhe_accB <= '0'; 
+
+      wait for 100 ns;
+      --leio o r3
+      qual_reg_le <= "0011"; 
+      sel0 <= '0'; --só pra dizer que fica fazendo soma
+      sel1 <= '0'; 
+      escolhe_accA <= '1'; --escolho o accA pra somar com o r3    
+      
+      wait for 100 ns;
+      escolhe_accA <= '0'; --desabilito ele de novo porque já usei
+
+      wait for 100 ns;
+      --ADD A, r6
+      --coloco 5 no r6
+      escreve_banco <= '1'; 
+      qual_reg_escreve <= "0110"; 
+      dado_escrita_banco <= "0000000000000101"; 
+
+      wait for 100 ns;
+      --le o que foi colocado no r6
+      qual_reg_le <= "0110"; 
+
+      wait for 100 ns;
+      --o r6 já foi pra ula  
+      escolhe_accA <= '1'; --escolho o accA    
+
+      wait for 100 ns;
+      escolhe_accA <= '0';
+
+      wait for 100 ns;
+      --ADD B, r3
+      --le o que foi colocado no r3 pra ficar disponível na saída da ula
+      qual_reg_le <= "0011"; 
+
+      wait for 100 ns;
+      escolhe_accB <= '1'; --pra escolher o accB
+
+      wait for 100 ns;
+      escolhe_accB <= '0';
+      
+
+      wait;                    
+   end process;
+
 
 end architecture;
