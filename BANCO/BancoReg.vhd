@@ -9,7 +9,7 @@ entity BancoReg is
         wr_en         : in std_logic; --write enable do banco
         sel_reg_wr    : in unsigned(3 downto 0); --seleciona o registrados que vai ser escrito
         sel_reg_rd    : in unsigned(3 downto 0); --seleciona o registrador que vai ser lido
-        acc           : in std_logic; --se for 0 será o acumulador acc0 e se for 1 será o acc1
+        --acc           : in std_logic; --se for 0 será o acumulador acc0 e se for 1 será o acc1
         data_wr       : in unsigned(15 downto 0); --dado que vai ser escrito
         data_out_r1   : out unsigned(15 downto 0) --dado de saída que foi lido
    );
