@@ -75,6 +75,7 @@ begin
       escreve_banco <= '1'; 
       qual_reg_escreve <= "0011"; 
       dado_escrita_banco <= "0000000000000111"; 
+      --seta as coisas em zero pra não ficar indefinido
       escolhe_accA <= '0';
       escolhe_accB <= '0'; 
       op_com_cte <= '0';
@@ -87,7 +88,7 @@ begin
       qual_reg_le <= "0011";   
       
       wait for 100 ns;
-      escolhe_accA <= '0'; --desabilito ele de novo porque já usei
+      escolhe_accA <= '0'; --desabilito ele porque já usei
 
       wait for 100 ns;
       --ADD A, r6!!!
@@ -114,13 +115,14 @@ begin
       escolhe_accB <= '0';
 
       wait for 100 ns;
-      --testando a soma com cte ADDI B, 17
+      --com cte ADDI B, 17!!!
       escolhe_accB <= '1';
       op_com_cte <= '1';
       cte <= "0000000000010001";
 
       wait for 100 ns;
       escolhe_accB <= '0';
+      op_com_cte <= '0';
 
       wait;                    
    end process;
