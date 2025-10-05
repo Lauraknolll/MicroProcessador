@@ -17,19 +17,24 @@ architecture struct of TopLevel_tb is
 
         escolhe_accA, escolhe_accB : in std_logic; --se for 1 escolhe o accA, se for 0 escolhe o accB
 
+        op_com_cte : in std_logic; --se for 1 é ADDI ou SUBI 
+        cte : in unsigned(15 downto 0); --a cte que vem da instrução
+
         sel0, sel1 : in std_logic; --operações da ula
         carry, overflow, zero, sinal : out std_logic
         --descobrir quais as entradas e saídas que precisa
     );
     end component;
 
-    signal clock, reset_b, reset_acc, escreve_banco, escolhe_accA, escolhe_accB, sel0, sel1, carry, overflow, zero, sinal, finished : std_logic;
-    signal dado_escrita_banco : unsigned(15 downto 0);
+    signal clock, reset_b, reset_acc, escreve_banco, escolhe_accA, escolhe_accB, sel0, sel1, carry, overflow, zero, sinal, finished, op_com_cte : std_logic;
+    signal dado_escrita_banco, cte : unsigned(15 downto 0);
     signal qual_reg_escreve, qual_reg_le : unsigned(3 downto 0);
 
 begin
-    uut : TopLevel port map (clock => clock, dado_escrita_banco => dado_escrita_banco, reset_b => reset_b, reset_acc => reset_acc, qual_reg_escreve => qual_reg_escreve, qual_reg_le => qual_reg_le,
-    escreve_banco => escreve_banco, escolhe_accA => escolhe_accA, escolhe_accB => escolhe_accB, sel0 => sel0, sel1 => sel1, carry => carry, overflow => overflow, zero => zero, sinal => sinal);
+    uut : TopLevel port map (clock => clock, dado_escrita_banco => dado_escrita_banco, reset_b => reset_b, reset_acc => reset_acc, 
+    qual_reg_escreve => qual_reg_escreve, qual_reg_le => qual_reg_le, escreve_banco => escreve_banco, escolhe_accA => escolhe_accA, 
+    escolhe_accB => escolhe_accB, op_com_cte => op_com_cte, cte => cte, sel0 => sel0, sel1 => sel1, carry => carry, overflow => overflow, 
+    zero => zero, sinal => sinal);
 
     reset_global: process
     begin
@@ -72,6 +77,7 @@ begin
       dado_escrita_banco <= "0000000000000111"; 
       escolhe_accA <= '0';
       escolhe_accB <= '0'; 
+      op_com_cte <= '0';
 
       wait for 100 ns;
       --leio o r3
@@ -103,6 +109,15 @@ begin
       --le o que foi colocado no r3 pra ficar disponível na saída da ula
       qual_reg_le <= "0011"; 
       escolhe_accB <= '1'; --pra escolher o accB
+
+      wait for 100 ns;
+      escolhe_accB <= '0';
+
+      wait for 100 ns;
+      --testando a soma com cte ADDI B, 17
+      escolhe_accB <= '1';
+      op_com_cte <= '1';
+      cte <= "0000000000010001";
 
       wait for 100 ns;
       escolhe_accB <= '0';

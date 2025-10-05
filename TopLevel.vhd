@@ -12,6 +12,9 @@ entity TopLevel is
 
         escolhe_accA, escolhe_accB : in std_logic; 
 
+        op_com_cte : in std_logic; --se for 1 é ADDI ou SUBI 
+        cte : in unsigned(15 downto 0); --a cte que vem da instrução
+
         sel0, sel1 : in std_logic; --operações da ula
         carry, overflow, zero, sinal : out std_logic
         --descobrir quais as entradas e saídas que precisa
@@ -52,7 +55,7 @@ architecture struct of TopLevel is
         );
     end component;
 
-    signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula : unsigned(15 downto 0);
+    signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula : unsigned(15 downto 0);
     signal escolhe_acc1 : std_logic;
 
 begin
@@ -60,9 +63,14 @@ begin
     uut0 : BancoReg port map (clk_b => clock, rst_b => reset_b, wr_en => escreve_banco, sel_reg_wr => qual_reg_escreve, sel_reg_rd => qual_reg_le, data_wr => dado_escrita_banco, data_out_r1 => banco_ula);
     uutA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => escolhe_accA, data_in => ula_accs, data_out => acc0_ula); --acumulador A/0
     uutB : reg16bits port map (clk => clock, rst => reset_acc, wr_en => escolhe_accB, data_in => ula_accs, data_out => acc1_ula); --acumulador B/1
+    --MUX da saída do banco e da cte na entrada A
+    dado_ula <= banco_ula when op_com_cte = '0' else
+                cte when op_com_cte = '1' else
+                (others => '0');
+    --MUX da saída dos acc na entrada B
     accs_ula <= acc0_ula when escolhe_accA = '1' else
                 acc1_ula when escolhe_accB = '1' else
                 (others => '0');
-    uut1 : ULA port map (in_A => banco_ula, in_B => accs_ula, Sel0 => sel0, Sel1 => sel1, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
+    uut1 : ULA port map (in_A => dado_ula, in_B => accs_ula, Sel0 => sel0, Sel1 => sel1, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
 
 end struct ; 
