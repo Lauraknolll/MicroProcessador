@@ -1,0 +1,43 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Sun Oct 05 13:55:01 2025
+[*]
+[dumpfile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\TopLevel_tb.ghw"
+[dumpfile_mtime] "Sun Oct 05 13:53:24 2025"
+[dumpfile_size] 6905
+[savefile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\teste.gtkw"
+[timestart] 194000000
+[size] 1327 600
+[pos] -1 -1
+*-27.830368 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.toplevel_tb.
+[treeopen] top.toplevel_tb.uut.
+[treeopen] top.toplevel_tb.uut.uuta.
+[treeopen] top.toplevel_tb.uut.uutb.
+[sst_width] 197
+[signals_width] 222
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@28
+top.toplevel_tb.uut.clock
+@24
+#{top.toplevel_tb.qual_reg_le[3:0]} top.toplevel_tb.qual_reg_le[3] top.toplevel_tb.qual_reg_le[2] top.toplevel_tb.qual_reg_le[1] top.toplevel_tb.qual_reg_le[0]
+#{top.toplevel_tb.qual_reg_escreve[3:0]} top.toplevel_tb.qual_reg_escreve[3] top.toplevel_tb.qual_reg_escreve[2] top.toplevel_tb.qual_reg_escreve[1] top.toplevel_tb.qual_reg_escreve[0]
+#{top.toplevel_tb.dado_escrita_banco[15:0]} top.toplevel_tb.dado_escrita_banco[15] top.toplevel_tb.dado_escrita_banco[14] top.toplevel_tb.dado_escrita_banco[13] top.toplevel_tb.dado_escrita_banco[12] top.toplevel_tb.dado_escrita_banco[11] top.toplevel_tb.dado_escrita_banco[10] top.toplevel_tb.dado_escrita_banco[9] top.toplevel_tb.dado_escrita_banco[8] top.toplevel_tb.dado_escrita_banco[7] top.toplevel_tb.dado_escrita_banco[6] top.toplevel_tb.dado_escrita_banco[5] top.toplevel_tb.dado_escrita_banco[4] top.toplevel_tb.dado_escrita_banco[3] top.toplevel_tb.dado_escrita_banco[2] top.toplevel_tb.dado_escrita_banco[1] top.toplevel_tb.dado_escrita_banco[0]
+#{top.toplevel_tb.uut.banco_ula[15:0]} top.toplevel_tb.uut.banco_ula[15] top.toplevel_tb.uut.banco_ula[14] top.toplevel_tb.uut.banco_ula[13] top.toplevel_tb.uut.banco_ula[12] top.toplevel_tb.uut.banco_ula[11] top.toplevel_tb.uut.banco_ula[10] top.toplevel_tb.uut.banco_ula[9] top.toplevel_tb.uut.banco_ula[8] top.toplevel_tb.uut.banco_ula[7] top.toplevel_tb.uut.banco_ula[6] top.toplevel_tb.uut.banco_ula[5] top.toplevel_tb.uut.banco_ula[4] top.toplevel_tb.uut.banco_ula[3] top.toplevel_tb.uut.banco_ula[2] top.toplevel_tb.uut.banco_ula[1] top.toplevel_tb.uut.banco_ula[0]
+#{top.toplevel_tb.uut.ula_accs[15:0]} top.toplevel_tb.uut.ula_accs[15] top.toplevel_tb.uut.ula_accs[14] top.toplevel_tb.uut.ula_accs[13] top.toplevel_tb.uut.ula_accs[12] top.toplevel_tb.uut.ula_accs[11] top.toplevel_tb.uut.ula_accs[10] top.toplevel_tb.uut.ula_accs[9] top.toplevel_tb.uut.ula_accs[8] top.toplevel_tb.uut.ula_accs[7] top.toplevel_tb.uut.ula_accs[6] top.toplevel_tb.uut.ula_accs[5] top.toplevel_tb.uut.ula_accs[4] top.toplevel_tb.uut.ula_accs[3] top.toplevel_tb.uut.ula_accs[2] top.toplevel_tb.uut.ula_accs[1] top.toplevel_tb.uut.ula_accs[0]
+#{top.toplevel_tb.uut.uut1.resultado[15:0]} top.toplevel_tb.uut.uut1.resultado[15] top.toplevel_tb.uut.uut1.resultado[14] top.toplevel_tb.uut.uut1.resultado[13] top.toplevel_tb.uut.uut1.resultado[12] top.toplevel_tb.uut.uut1.resultado[11] top.toplevel_tb.uut.uut1.resultado[10] top.toplevel_tb.uut.uut1.resultado[9] top.toplevel_tb.uut.uut1.resultado[8] top.toplevel_tb.uut.uut1.resultado[7] top.toplevel_tb.uut.uut1.resultado[6] top.toplevel_tb.uut.uut1.resultado[5] top.toplevel_tb.uut.uut1.resultado[4] top.toplevel_tb.uut.uut1.resultado[3] top.toplevel_tb.uut.uut1.resultado[2] top.toplevel_tb.uut.uut1.resultado[1] top.toplevel_tb.uut.uut1.resultado[0]
+@28
+top.toplevel_tb.uut.uuta.wr_en
+@24
+#{top.toplevel_tb.uut.uuta.data_in[15:0]} top.toplevel_tb.uut.uuta.data_in[15] top.toplevel_tb.uut.uuta.data_in[14] top.toplevel_tb.uut.uuta.data_in[13] top.toplevel_tb.uut.uuta.data_in[12] top.toplevel_tb.uut.uuta.data_in[11] top.toplevel_tb.uut.uuta.data_in[10] top.toplevel_tb.uut.uuta.data_in[9] top.toplevel_tb.uut.uuta.data_in[8] top.toplevel_tb.uut.uuta.data_in[7] top.toplevel_tb.uut.uuta.data_in[6] top.toplevel_tb.uut.uuta.data_in[5] top.toplevel_tb.uut.uuta.data_in[4] top.toplevel_tb.uut.uuta.data_in[3] top.toplevel_tb.uut.uuta.data_in[2] top.toplevel_tb.uut.uuta.data_in[1] top.toplevel_tb.uut.uuta.data_in[0]
+#{top.toplevel_tb.uut.uuta.data_out[15:0]} top.toplevel_tb.uut.uuta.data_out[15] top.toplevel_tb.uut.uuta.data_out[14] top.toplevel_tb.uut.uuta.data_out[13] top.toplevel_tb.uut.uuta.data_out[12] top.toplevel_tb.uut.uuta.data_out[11] top.toplevel_tb.uut.uuta.data_out[10] top.toplevel_tb.uut.uuta.data_out[9] top.toplevel_tb.uut.uuta.data_out[8] top.toplevel_tb.uut.uuta.data_out[7] top.toplevel_tb.uut.uuta.data_out[6] top.toplevel_tb.uut.uuta.data_out[5] top.toplevel_tb.uut.uuta.data_out[4] top.toplevel_tb.uut.uuta.data_out[3] top.toplevel_tb.uut.uuta.data_out[2] top.toplevel_tb.uut.uuta.data_out[1] top.toplevel_tb.uut.uuta.data_out[0]
+@28
+top.toplevel_tb.uut.uutb.wr_en
+@24
+#{top.toplevel_tb.uut.uutb.data_in[15:0]} top.toplevel_tb.uut.uutb.data_in[15] top.toplevel_tb.uut.uutb.data_in[14] top.toplevel_tb.uut.uutb.data_in[13] top.toplevel_tb.uut.uutb.data_in[12] top.toplevel_tb.uut.uutb.data_in[11] top.toplevel_tb.uut.uutb.data_in[10] top.toplevel_tb.uut.uutb.data_in[9] top.toplevel_tb.uut.uutb.data_in[8] top.toplevel_tb.uut.uutb.data_in[7] top.toplevel_tb.uut.uutb.data_in[6] top.toplevel_tb.uut.uutb.data_in[5] top.toplevel_tb.uut.uutb.data_in[4] top.toplevel_tb.uut.uutb.data_in[3] top.toplevel_tb.uut.uutb.data_in[2] top.toplevel_tb.uut.uutb.data_in[1] top.toplevel_tb.uut.uutb.data_in[0]
+@25
+#{top.toplevel_tb.uut.uutb.data_out[15:0]} top.toplevel_tb.uut.uutb.data_out[15] top.toplevel_tb.uut.uutb.data_out[14] top.toplevel_tb.uut.uutb.data_out[13] top.toplevel_tb.uut.uutb.data_out[12] top.toplevel_tb.uut.uutb.data_out[11] top.toplevel_tb.uut.uutb.data_out[10] top.toplevel_tb.uut.uutb.data_out[9] top.toplevel_tb.uut.uutb.data_out[8] top.toplevel_tb.uut.uutb.data_out[7] top.toplevel_tb.uut.uutb.data_out[6] top.toplevel_tb.uut.uutb.data_out[5] top.toplevel_tb.uut.uutb.data_out[4] top.toplevel_tb.uut.uutb.data_out[3] top.toplevel_tb.uut.uutb.data_out[2] top.toplevel_tb.uut.uutb.data_out[1] top.toplevel_tb.uut.uutb.data_out[0]
+[pattern_trace] 1
+[pattern_trace] 0
