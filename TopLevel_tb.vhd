@@ -124,7 +124,7 @@ begin
       escolhe_accB <= '0';
       op_com_cte <= '0';
 
-      --quero escrever 16 no reg6
+      --LD r6, 16
      wait for 100 ns;
       escreve_banco <= '1'; 
       qual_reg_escreve <= "0110"; 
@@ -133,26 +133,27 @@ begin
       escolhe_accB <= '0'; 
       op_com_cte <= '0';
 
-      --quero escrever a soma do reg1 com accA
+      --ADD A, r1
        wait for 100 ns;
       escolhe_accB <= '0';
       op_com_cte <= '0';
       escolhe_accA <= '0';
-      qual_reg_escreve <= "0001";
+      --qual_reg_escreve <= "0001";
+      qual_reg_le <= "0001";
       escolhe_accA <= '1';
       sel0 <= '0';
       sel1 <= '0'; 
       
       
       wait for 100 ns;
-       --quero escrever o And de accB com reg3
+       --AND B, r3
       escolhe_accB <= '1';
-      op_com_cte <= '1';
+      op_com_cte <= '0';
       qual_reg_le <= "0011";
       escolhe_accA <= '0';
       sel0 <= '0'; 
       sel1 <= '1'; 
-      cte <="0000000000011111";
+      --cte <="0000000000011111";
       escreve_banco <= '0';
 
       wait;                    
