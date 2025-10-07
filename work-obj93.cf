@@ -1,16 +1,16 @@
 v 4
-file . "BANCO/BancoReg.vhd" "01ee29d4051c8f3695a006c69f1dc0971e16487a" "20251006215051.404":
-  entity bancoreg at 1( 0) + 0 on 77;
-  architecture a_bancoreg of bancoreg at 18( 751) + 0 on 78;
-file . "TopLevel_tb.vhd" "5da8c37d0aed6cd87d3050df8c9cb736e459ef66" "20251007004322.857":
-  entity toplevel_tb at 1( 0) + 0 on 101;
-  architecture struct of toplevel_tb at 8( 112) + 0 on 102;
-file . "TopLevel.vhd" "eaba7b158c9f5570f1278c9a83f494ea0bad597b" "20251006230347.094":
-  entity toplevel at 1( 0) + 0 on 85;
-  architecture struct of toplevel at 24( 788) + 0 on 86;
-file . "./BANCO/reg16bits.vhd" "56daff49712e09875d7b9bb1b3ca9f8b1396916b" "20251005122639.299":
-  entity reg16bits at 1( 0) + 0 on 15;
-  architecture a_reg16bits of reg16bits at 13( 314) + 0 on 16;
 file . "ULA/ULA.vhd" "064f840cb596536c9e5370dbd082284307e38949" "20251006215154.654":
   entity ula at 1( 0) + 0 on 79;
   architecture struct of ula at 14( 309) + 0 on 80;
+file . "./BANCO/reg16bits.vhd" "56daff49712e09875d7b9bb1b3ca9f8b1396916b" "20251005122639.299":
+  entity reg16bits at 1( 0) + 0 on 15;
+  architecture a_reg16bits of reg16bits at 13( 314) + 0 on 16;
+file . "TopLevel.vhd" "eaba7b158c9f5570f1278c9a83f494ea0bad597b" "20251006230347.094":
+  entity toplevel at 1( 0) + 0 on 85;
+  architecture struct of toplevel at 24( 788) + 0 on 86;
+file . "TopLevel_tb.vhd" "f8f8f17467e722a0b8b45a3be72b122d0f5c11ec" "20251007011615.436":
+  entity toplevel_tb at 1( 0) + 0 on 103;
+  architecture struct of toplevel_tb at 8( 112) + 0 on 104;
+file . "BANCO/BancoReg.vhd" "01ee29d4051c8f3695a006c69f1dc0971e16487a" "20251006215051.404":
+  entity bancoreg at 1( 0) + 0 on 77;
+  architecture a_bancoreg of bancoreg at 18( 751) + 0 on 78;

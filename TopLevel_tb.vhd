@@ -146,14 +146,13 @@ begin
       
       
       wait for 100 ns;
-       --AND B, r3
+       --AND B, 31
       escolhe_accB <= '1';
-      op_com_cte <= '0';
-      qual_reg_le <= "0011";
+      op_com_cte <= '1';
       escolhe_accA <= '0';
       sel0 <= '0'; 
       sel1 <= '1'; 
-      --cte <="0000000000011111";
+      cte <="0000000000011111";
       escreve_banco <= '0';
 
       wait;                    
