@@ -80,6 +80,7 @@ begin
       op_mov_p_reg <= '0';
       op_mov_p_acc <= '0';
       op_ld_acc <= '0';
+      escreve_banco <= '0';
 
       --ADD A, R3!!!!
       --(op parcial LD R3, 7)
@@ -94,6 +95,7 @@ begin
       escolhe_accA <= '1'; --escolho o accA pra somar com o r3 
       escreve_acc <= '1';
       qual_reg_le <= "0011";   
+      escreve_banco <= '0';
       
       wait for 100 ns;
       escolhe_accA <= '0'; --desabilito ele porque já usei
@@ -111,6 +113,8 @@ begin
       qual_reg_le <= "0110"; 
       escolhe_accA <= '1'; --escolho o accA  
       escreve_acc <= '1';  
+      escreve_banco <= '0';
+
 
       wait for 100 ns;
       escolhe_accA <= '0';
@@ -122,6 +126,8 @@ begin
       qual_reg_le <= "0011"; 
       escolhe_accB <= '1'; --pra escolher o accB
       escreve_acc <= '1';
+      escreve_banco <= '0';
+
 
       wait for 100 ns;
       escolhe_accB <= '0';
@@ -133,6 +139,7 @@ begin
       escreve_acc <= '1';
       op_com_cte <= '1';
       cte <= "0000000000010001";
+      
 
       wait for 100 ns;
       escolhe_accB <= '0';

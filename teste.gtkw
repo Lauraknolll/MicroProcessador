@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Tue Oct 07 00:11:51 2025
+[*] Wed Oct 08 23:08:55 2025
 [*]
 [dumpfile] "C:\MicroProcessador\TopLevel_tb.ghw"
-[dumpfile_mtime] "Mon Oct 06 23:43:29 2025"
-[dumpfile_size] 7600
+[dumpfile_mtime] "Wed Oct 08 23:02:49 2025"
+[dumpfile_size] 8660
 [savefile] "C:\MicroProcessador\teste.gtkw"
-[timestart] 1103000000
-[size] 964 697
-[pos] 7 -1
-*-27.830368 1416000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 128000000
+[size] 1366 697
+[pos] -165 -9
+*-27.830368 340000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.toplevel_tb.
 [treeopen] top.toplevel_tb.uut.
@@ -29,7 +29,6 @@ top.toplevel_tb.uut.clock
 @24
 #{top.toplevel_tb.qual_reg_le[3:0]} top.toplevel_tb.qual_reg_le[3] top.toplevel_tb.qual_reg_le[2] top.toplevel_tb.qual_reg_le[1] top.toplevel_tb.qual_reg_le[0]
 #{top.toplevel_tb.qual_reg_escreve[3:0]} top.toplevel_tb.qual_reg_escreve[3] top.toplevel_tb.qual_reg_escreve[2] top.toplevel_tb.qual_reg_escreve[1] top.toplevel_tb.qual_reg_escreve[0]
-#{top.toplevel_tb.dado_escrita_banco[15:0]} top.toplevel_tb.dado_escrita_banco[15] top.toplevel_tb.dado_escrita_banco[14] top.toplevel_tb.dado_escrita_banco[13] top.toplevel_tb.dado_escrita_banco[12] top.toplevel_tb.dado_escrita_banco[11] top.toplevel_tb.dado_escrita_banco[10] top.toplevel_tb.dado_escrita_banco[9] top.toplevel_tb.dado_escrita_banco[8] top.toplevel_tb.dado_escrita_banco[7] top.toplevel_tb.dado_escrita_banco[6] top.toplevel_tb.dado_escrita_banco[5] top.toplevel_tb.dado_escrita_banco[4] top.toplevel_tb.dado_escrita_banco[3] top.toplevel_tb.dado_escrita_banco[2] top.toplevel_tb.dado_escrita_banco[1] top.toplevel_tb.dado_escrita_banco[0]
 #{top.toplevel_tb.uut.banco_ula[15:0]} top.toplevel_tb.uut.banco_ula[15] top.toplevel_tb.uut.banco_ula[14] top.toplevel_tb.uut.banco_ula[13] top.toplevel_tb.uut.banco_ula[12] top.toplevel_tb.uut.banco_ula[11] top.toplevel_tb.uut.banco_ula[10] top.toplevel_tb.uut.banco_ula[9] top.toplevel_tb.uut.banco_ula[8] top.toplevel_tb.uut.banco_ula[7] top.toplevel_tb.uut.banco_ula[6] top.toplevel_tb.uut.banco_ula[5] top.toplevel_tb.uut.banco_ula[4] top.toplevel_tb.uut.banco_ula[3] top.toplevel_tb.uut.banco_ula[2] top.toplevel_tb.uut.banco_ula[1] top.toplevel_tb.uut.banco_ula[0]
 @28
 [color] 3
@@ -65,6 +64,7 @@ top.toplevel_tb.uut.uut0.r6.data_out[0]
 @200
 -do registrador 6
 @28
+[color] 2
 top.toplevel_tb.escreve_banco
 @24
 #{top.toplevel_tb.uut.ula_accs[15:0]} top.toplevel_tb.uut.ula_accs[15] top.toplevel_tb.uut.ula_accs[14] top.toplevel_tb.uut.ula_accs[13] top.toplevel_tb.uut.ula_accs[12] top.toplevel_tb.uut.ula_accs[11] top.toplevel_tb.uut.ula_accs[10] top.toplevel_tb.uut.ula_accs[9] top.toplevel_tb.uut.ula_accs[8] top.toplevel_tb.uut.ula_accs[7] top.toplevel_tb.uut.ula_accs[6] top.toplevel_tb.uut.ula_accs[5] top.toplevel_tb.uut.ula_accs[4] top.toplevel_tb.uut.ula_accs[3] top.toplevel_tb.uut.ula_accs[2] top.toplevel_tb.uut.ula_accs[1] top.toplevel_tb.uut.ula_accs[0]
@@ -85,7 +85,7 @@ top.toplevel_tb.uut.uutb.wr_en
 #{top.toplevel_tb.uut.uutb.data_out[15:0]} top.toplevel_tb.uut.uutb.data_out[15] top.toplevel_tb.uut.uutb.data_out[14] top.toplevel_tb.uut.uutb.data_out[13] top.toplevel_tb.uut.uutb.data_out[12] top.toplevel_tb.uut.uutb.data_out[11] top.toplevel_tb.uut.uutb.data_out[10] top.toplevel_tb.uut.uutb.data_out[9] top.toplevel_tb.uut.uutb.data_out[8] top.toplevel_tb.uut.uutb.data_out[7] top.toplevel_tb.uut.uutb.data_out[6] top.toplevel_tb.uut.uutb.data_out[5] top.toplevel_tb.uut.uutb.data_out[4] top.toplevel_tb.uut.uutb.data_out[3] top.toplevel_tb.uut.uutb.data_out[2] top.toplevel_tb.uut.uutb.data_out[1] top.toplevel_tb.uut.uutb.data_out[0]
 @200
 -acumulador B
-@c00022
+@c00024
 #{top.toplevel_tb.uut.uut0.r3.data_out[15:0]} top.toplevel_tb.uut.uut0.r3.data_out[15] top.toplevel_tb.uut.uut0.r3.data_out[14] top.toplevel_tb.uut.uut0.r3.data_out[13] top.toplevel_tb.uut.uut0.r3.data_out[12] top.toplevel_tb.uut.uut0.r3.data_out[11] top.toplevel_tb.uut.uut0.r3.data_out[10] top.toplevel_tb.uut.uut0.r3.data_out[9] top.toplevel_tb.uut.uut0.r3.data_out[8] top.toplevel_tb.uut.uut0.r3.data_out[7] top.toplevel_tb.uut.uut0.r3.data_out[6] top.toplevel_tb.uut.uut0.r3.data_out[5] top.toplevel_tb.uut.uut0.r3.data_out[4] top.toplevel_tb.uut.uut0.r3.data_out[3] top.toplevel_tb.uut.uut0.r3.data_out[2] top.toplevel_tb.uut.uut0.r3.data_out[1] top.toplevel_tb.uut.uut0.r3.data_out[0]
 @28
 top.toplevel_tb.uut.uut0.r3.data_out[15]
@@ -104,13 +104,17 @@ top.toplevel_tb.uut.uut0.r3.data_out[3]
 top.toplevel_tb.uut.uut0.r3.data_out[2]
 top.toplevel_tb.uut.uut0.r3.data_out[1]
 top.toplevel_tb.uut.uut0.r3.data_out[0]
-@1401200
+@1401204
 -group_end
 @200
 -do registrador 3
 @24
 #{top.toplevel_tb.uut.uut0.r1.data_out[15:0]} top.toplevel_tb.uut.uut0.r1.data_out[15] top.toplevel_tb.uut.uut0.r1.data_out[14] top.toplevel_tb.uut.uut0.r1.data_out[13] top.toplevel_tb.uut.uut0.r1.data_out[12] top.toplevel_tb.uut.uut0.r1.data_out[11] top.toplevel_tb.uut.uut0.r1.data_out[10] top.toplevel_tb.uut.uut0.r1.data_out[9] top.toplevel_tb.uut.uut0.r1.data_out[8] top.toplevel_tb.uut.uut0.r1.data_out[7] top.toplevel_tb.uut.uut0.r1.data_out[6] top.toplevel_tb.uut.uut0.r1.data_out[5] top.toplevel_tb.uut.uut0.r1.data_out[4] top.toplevel_tb.uut.uut0.r1.data_out[3] top.toplevel_tb.uut.uut0.r1.data_out[2] top.toplevel_tb.uut.uut0.r1.data_out[1] top.toplevel_tb.uut.uut0.r1.data_out[0]
-@203
+@28
+top.toplevel_tb.op_mov_p_reg
+@29
+top.toplevel_tb.op_mov_p_acc
+@200
 -registrador 1
 [pattern_trace] 1
 [pattern_trace] 0
