@@ -11,13 +11,16 @@ entity TopLevel is
         escreve_banco : in std_logic;
 
         escolhe_accA, escolhe_accB : in std_logic; 
+        dado_escrita_acc : in unsigned(15 downto 0);
 
         op_com_cte : in std_logic; --se for 1 é ADDI ou SUBI 
         cte : in unsigned(15 downto 0); --a cte que vem da instrução
 
         sel0, sel1 : in std_logic; --operações da ula
-        carry, overflow, zero, sinal : out std_logic
+        carry, overflow, zero, sinal : out std_logic;
         --descobrir quais as entradas e saídas que precisa
+
+        op_mov_p_reg, op_mov_p_acc, op_ld_acc : in std_logic
     );
 end entity;
 
@@ -55,19 +58,31 @@ architecture struct of TopLevel is
         );
     end component;
 
-    signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula : unsigned(15 downto 0);
+    signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula, escrita_banco, escrita_acc : unsigned(15 downto 0);
     signal escolhe_acc1 : std_logic;
 
 begin
 
-    uut0 : BancoReg port map (clk_b => clock, rst_b => reset_b, wr_en => escreve_banco, sel_reg_wr => qual_reg_escreve, sel_reg_rd => qual_reg_le, data_wr => dado_escrita_banco, data_out_r1 => banco_ula);
-    uutA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => escolhe_accA, data_in => ula_accs, data_out => acc0_ula); --acumulador A/0
-    uutB : reg16bits port map (clk => clock, rst => reset_acc, wr_en => escolhe_accB, data_in => ula_accs, data_out => acc1_ula); --acumulador B/1
-    --MUX da saída do banco e da cte na entrada A
+    --MUX entrada do banco
+    escrita_banco <= dado_escrita_banco when op_mov_p_reg = '0' else --quando é LD em algum reg
+                    accs_ula when op_mov_p_reg = '1' else --quando é MOV acc, reg
+                    (others => '0');
+
+    uut0 : BancoReg port map (clk_b => clock, rst_b => reset_b, wr_en => escreve_banco, sel_reg_wr => qual_reg_escreve, sel_reg_rd => qual_reg_le, data_wr => escrita_banco, data_out_r1 => banco_ula);
+    --MUX entrada dos acumuladores A e B
+    escrita_acc <= banco_ula when (op_mov_p_acc = '1' and op_ld_acc = '0') else
+                    dado_escrita_acc when (op_mov_p_acc = '0' and op_ld_acc = '1') else
+                    ula_accs when (op_mov_p_acc = '0' and op_ld_acc = '0') else
+                    (others => '0');
+                    
+    uutA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => escolhe_accA, data_in => escrita_acc, data_out => acc0_ula); --acumulador A/0
+
+    uutB : reg16bits port map (clk => clock, rst => reset_acc, wr_en => escolhe_accB, data_in => escrita_acc, data_out => acc1_ula); --acumulador B/1
+    --MUX da saída do banco e da cte na entrada A da ula
     dado_ula <= banco_ula when op_com_cte = '0' else
                 cte when op_com_cte = '1' else
                 (others => '0');
-    --MUX da saída dos acc na entrada B
+    --MUX da saída dos acc na entrada B da ula
     accs_ula <= acc0_ula when escolhe_accA = '1' else
                 acc1_ula when escolhe_accB = '1' else
                 (others => '0');
