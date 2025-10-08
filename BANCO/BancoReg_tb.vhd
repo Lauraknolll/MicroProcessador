@@ -14,9 +14,8 @@ architecture aBancoReg_tb of BancoReg_tb is
             wr_en         : in std_logic;
             sel_reg_wr    : in unsigned(3 downto 0);
             sel_reg_rd    : in unsigned(3 downto 0);
-            --acc           : in std_logic; --se for 0 será o acumulador acc0 e se for 1 será o acc1
             data_wr       : in unsigned(15 downto 0);
-            data_out_r1   : out unsigned(15 downto 0)
+            dado_out_b   : out unsigned(15 downto 0)
         );
     end component;
 
@@ -27,7 +26,7 @@ architecture aBancoReg_tb of BancoReg_tb is
     signal reg_wr, reg_rd         :unsigned(3 downto 0);
     signal para_escrever, saida   : unsigned(15 downto 0 );
 begin
-    uut: BancoReg port map (clk_b => clk,rst_b => reset, wr_en => wr, sel_reg_wr => reg_wr, sel_reg_rd => reg_rd, data_wr => para_escrever, data_out_r1 => saida);  -- aqui vai a instância do seu componente
+    uut: BancoReg port map (clk_b => clk,rst_b => reset, wr_en => wr, sel_reg_wr => reg_wr, sel_reg_rd => reg_rd, data_wr => para_escrever, dado_out_b => saida);  -- aqui vai a instância do seu componente
     
     process
     begin

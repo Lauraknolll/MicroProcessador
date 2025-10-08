@@ -10,33 +10,33 @@ architecture struct of TopLevel_tb is
     component TopLevel is
     port (
         clock : in std_logic;
-        dado_escrita_banco : in unsigned(15 downto 0);
-        reset_b, reset_acc : in std_logic; --o reset dos dois acumuladores é o mesmo??
-        qual_reg_escreve, qual_reg_le : in unsigned(3 downto 0); --no banco
-        escreve_banco : in std_logic;
+        --elementos do banco
+        dado_ext_escrita_banco : in unsigned(15 downto 0);
+        reset_b, escreve_banco : in std_logic; --escreve banco é o write enable do banco
+        qual_reg_escreve, qual_reg_le : in unsigned(3 downto 0); 
 
-        escolhe_accA, escolhe_accB : in std_logic; 
-        dado_escrita_acc : in unsigned(15 downto 0);
+        --elementos dos accs
+        reset_acc, escreve_acc, escolhe_accA, escolhe_accB : in std_logic; --o reset é dos dois e o escreve_accs e os escolhe em conjunto são o wr_en deles
+        dado_ext_escrita_acc : in unsigned(15 downto 0);
 
-        op_com_cte : in std_logic; --se for 1 é ADDI ou SUBI 
+        --operação com cte (ADDI/SUBI), operação MOV Rn, ACC vai pro registrador, operação MOV ACC, Rn vai pro acumulador, operação de LD nos acumuladores
+        op_com_cte, op_mov_p_reg, op_mov_p_acc, op_ld_acc : in std_logic;  
         cte : in unsigned(15 downto 0); --a cte que vem da instrução
 
+        --elemento da ULA
         sel0, sel1 : in std_logic; --operações da ula
-        carry, overflow, zero, sinal : out std_logic;
-        --descobrir quais as entradas e saídas que precisa
-
-        op_mov_p_reg, op_mov_p_acc, op_ld_acc : in std_logic
+        carry, overflow, zero, sinal : out std_logic
     );
     end component;
 
-    signal clock, reset_b, reset_acc, escreve_banco, escolhe_accA, escolhe_accB, sel0, sel1, carry, overflow, zero, sinal, finished, op_com_cte, op_mov_p_reg, op_mov_p_acc, op_ld_acc  : std_logic;
-    signal dado_escrita_banco, dado_escrita_acc, cte : unsigned(15 downto 0);
+    signal clock, reset_b, reset_acc, escreve_banco, escolhe_accA, escolhe_accB, escreve_acc, sel0, sel1, carry, overflow, zero, sinal, finished, op_com_cte, op_mov_p_reg, op_mov_p_acc, op_ld_acc  : std_logic;
+    signal dado_ext_escrita_banco, dado_ext_escrita_acc, cte : unsigned(15 downto 0);
     signal qual_reg_escreve, qual_reg_le : unsigned(3 downto 0);
 
 begin
-    uut : TopLevel port map (clock => clock, dado_escrita_banco => dado_escrita_banco, reset_b => reset_b, reset_acc => reset_acc, 
+    uut : TopLevel port map (clock => clock, dado_ext_escrita_banco => dado_ext_escrita_banco, reset_b => reset_b, reset_acc => reset_acc, 
     qual_reg_escreve => qual_reg_escreve, qual_reg_le => qual_reg_le, escreve_banco => escreve_banco, escolhe_accA => escolhe_accA, 
-    escolhe_accB => escolhe_accB, dado_escrita_acc => dado_escrita_acc, op_com_cte => op_com_cte, cte => cte, sel0 => sel0, sel1 => sel1, carry => carry, overflow => overflow, 
+    escolhe_accB => escolhe_accB, escreve_acc => escreve_acc, dado_ext_escrita_acc => dado_ext_escrita_acc, op_com_cte => op_com_cte, cte => cte, sel0 => sel0, sel1 => sel1, carry => carry, overflow => overflow, 
     zero => zero, sinal => sinal, op_mov_p_reg => op_mov_p_reg, op_mov_p_acc => op_mov_p_acc, op_ld_acc => op_ld_acc);
 
     reset_global: process
@@ -85,51 +85,59 @@ begin
       --(op parcial LD R3, 7)
       escreve_banco <= '1'; 
       qual_reg_escreve <= "0011"; 
-      dado_escrita_banco <= "0000000000000111"; 
+      dado_ext_escrita_banco <= "0000000000000111"; 
 
       wait for 100 ns;
       --(op parcial leio o r3)
       sel0 <= '0'; --só pra dizer que fica fazendo soma
       sel1 <= '0';  
       escolhe_accA <= '1'; --escolho o accA pra somar com o r3 
+      escreve_acc <= '1';
       qual_reg_le <= "0011";   
       
       wait for 100 ns;
       escolhe_accA <= '0'; --desabilito ele porque já usei
+      escreve_acc <= '0';
 
       wait for 100 ns;
       --ADD A, R6!!!
       --(op parcial LD r6, 5)
       escreve_banco <= '1'; 
       qual_reg_escreve <= "0110"; 
-      dado_escrita_banco <= "0000000000000101"; 
+      dado_ext_escrita_banco <= "0000000000000101"; 
 
       wait for 100 ns;
       --(op parcial leio o r6)
       qual_reg_le <= "0110"; 
-      escolhe_accA <= '1'; --escolho o accA    
+      escolhe_accA <= '1'; --escolho o accA  
+      escreve_acc <= '1';  
 
       wait for 100 ns;
       escolhe_accA <= '0';
+      escreve_acc <= '0';
 
       wait for 100 ns;
       --ADD B, R3!!!
       --le o que foi colocado no r3 pra ficar disponível na saída da ula
       qual_reg_le <= "0011"; 
       escolhe_accB <= '1'; --pra escolher o accB
+      escreve_acc <= '1';
 
       wait for 100 ns;
       escolhe_accB <= '0';
+      escreve_acc <= '0';
 
       wait for 100 ns;
       --com cte ADDI B, 17!!!
       escolhe_accB <= '1';
+      escreve_acc <= '1';
       op_com_cte <= '1';
       cte <= "0000000000010001";
 
       wait for 100 ns;
       escolhe_accB <= '0';
       op_com_cte <= '0';
+      escreve_acc <= '0';
 
         --LD R6, 16
         --wait for 100 ns;
@@ -169,12 +177,14 @@ begin
       wait for 100 ns;
       --LD B, 9
       escolhe_accB <= '1';
+      escreve_acc <= '1';
       op_ld_acc <= '1';
-      dado_escrita_acc <= "0000000000001001";
+      dado_ext_escrita_acc <= "0000000000001001";
 
       wait for 100 ns;
       escolhe_accB <= '0';
       op_ld_acc <= '0';
+      escreve_acc <= '0';
 
       wait for 100 ns;
       --MOV R3, B
@@ -182,7 +192,6 @@ begin
       op_mov_p_reg <= '1';
       escreve_banco <= '1';
       qual_reg_escreve <= "0011"; 
-      --acabou escrevendo acidentalmente algo que não devia no B....
 
       wait for 100 ns;
       qual_reg_le <= "0011";   
@@ -194,11 +203,13 @@ begin
       --MOV A, R6
       qual_reg_le <= "0110";
       escolhe_accA <= '1';
+      escreve_acc <= '1';
       op_mov_p_acc <= '1'; 
 
       wait for 100 ns;
       escolhe_accA <= '0';
       op_mov_p_acc <= '0';
+      escreve_acc <= '0';
 
       wait;                    
    end process;
