@@ -25,27 +25,36 @@ architecture struct of TopLevel_tb is
 
         --elemento da ULA
         sel0, sel1 : in std_logic; --operações da ula
-        carry, overflow, zero, sinal : out std_logic
+        carry, overflow, zero, sinal : out std_logic;
+
+        --elementos da UC
+        reset_uc, wr_uc : in std_logic
     );
     end component;
 
     signal clock, reset_b, reset_acc, escreve_banco, escolhe_accA, escolhe_accB, escreve_acc, sel0, sel1, carry, overflow, zero, sinal, finished, op_com_cte, op_mov_p_reg, op_mov_p_acc, op_ld_acc  : std_logic;
-    signal dado_ext_escrita_banco, dado_ext_escrita_acc, cte : unsigned(15 downto 0);
+    signal dado_ext_escrita_banco, dado_ext_escrita_acc, cte, saida_rom : unsigned(15 downto 0);
     signal qual_reg_escreve, qual_reg_le : unsigned(3 downto 0);
+    -----
+    signal reset_uc, wr_uc : std_logic;
 
 begin
     uut : TopLevel port map (clock => clock, dado_ext_escrita_banco => dado_ext_escrita_banco, reset_b => reset_b, reset_acc => reset_acc, 
     qual_reg_escreve => qual_reg_escreve, qual_reg_le => qual_reg_le, escreve_banco => escreve_banco, escolhe_accA => escolhe_accA, 
-    escolhe_accB => escolhe_accB, escreve_acc => escreve_acc, dado_ext_escrita_acc => dado_ext_escrita_acc, op_com_cte => op_com_cte, cte => cte, sel0 => sel0, sel1 => sel1, carry => carry, overflow => overflow, 
-    zero => zero, sinal => sinal, op_mov_p_reg => op_mov_p_reg, op_mov_p_acc => op_mov_p_acc, op_ld_acc => op_ld_acc);
+    escolhe_accB => escolhe_accB, escreve_acc => escreve_acc, dado_ext_escrita_acc => dado_ext_escrita_acc, op_com_cte => op_com_cte, 
+    cte => cte, sel0 => sel0, sel1 => sel1, carry => carry, overflow => overflow, zero => zero, sinal => sinal, 
+    op_mov_p_reg => op_mov_p_reg, op_mov_p_acc => op_mov_p_acc, op_ld_acc => op_ld_acc, reset_uc => reset_uc, wr_uc => wr_uc);
 
     reset_global: process
     begin
         reset_b <= '1';
         reset_acc <= '1';
+        reset_uc <= '1';
         wait for 100 ns; 
         reset_b <= '0';
         reset_acc <= '0';
+        reset_uc <= '0';
+        wr_uc <= '1';
         wait for 100 ns;
         wait;
     end process;

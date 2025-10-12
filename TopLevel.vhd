@@ -20,8 +20,10 @@ entity TopLevel is
 
         --elemento da ULA
         sel0, sel1 : in std_logic; --operações da ula
-        carry, overflow, zero, sinal : out std_logic
+        carry, overflow, zero, sinal : out std_logic;
 
+        --elemtentos da UC
+        reset_uc, wr_uc : in std_logic
     );
 end entity;
 
@@ -58,10 +60,33 @@ architecture struct of TopLevel is
         );
     end component;
 
+    ---------tipo uma uc que controla o pc
+    component proto_uc is
+    port(
+        CLK, RST, WR_EN : in std_logic;
+        DATA_OUT : out unsigned(6 downto 0)
+    );
+    end component;
+
+    component ROM is
+    port( 
+        clk      : in std_logic;
+        endereco : in unsigned(6 downto 0);
+        dado     : out unsigned(15 downto 0) 
+    );
+    end component;
+
+
     signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula, dado_escrita_banco, dado_escrita_acc : unsigned(15 downto 0);
     signal wr_en_accA, wr_en_accB : std_logic;
 
+    ----------- da uc/pc
+    signal saida_uc : unsigned(6 downto 0) := (others => '0');
+    signal saida_rom : unsigned(15 downto 0);
+
 begin
+
+    ----------------------parte do banco/accs/ULA
 
     --MUX entrada do banco
     dado_escrita_banco <= dado_ext_escrita_banco when op_mov_p_reg = '0' else --quando é LD em algum reg
@@ -95,4 +120,9 @@ begin
 
     uut1 : ULA port map (in_A => dado_ula, in_B => accs_ula, Sel0 => sel0, Sel1 => sel1, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
 
-end struct ; 
+    --------------------parte da UC/ROM
+
+    uc : proto_uc port map (CLK => clock, RST => reset_uc, WR_EN => wr_uc, DATA_OUT => saida_uc);
+    rom : ROM port map (clk => clock, endereco => saida_uc, dado => saida_rom);
+
+end struct; 

@@ -1,12 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+
 entity ROM is
    port( clk      : in std_logic;
          endereco : in unsigned(6 downto 0);
          dado     : out unsigned(15 downto 0) 
    );
 end entity;
+
 architecture a_ROM of ROM is
    type mem is array (0 to 127) of unsigned(15 downto 0);
    constant conteudo_rom : mem := (
