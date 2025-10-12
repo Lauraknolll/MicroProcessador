@@ -1,19 +1,19 @@
 v 4
-file . "BANCO/BancoReg_tb.vhd" "e250e28c0b251f7ac2b66e68184d7f8df651621c" "20251008135711.563":
-  entity bancoreg_tb at 1( 0) + 0 on 149;
-  architecture abancoreg_tb of bancoreg_tb at 8( 112) + 0 on 150;
-file . "BANCO/BancoReg.vhd" "1dbff79a39ff66ab3ddcfe27d776041f54c41d3a" "20251008135707.028":
-  entity bancoreg at 1( 0) + 0 on 147;
-  architecture a_bancoreg of bancoreg at 17( 650) + 0 on 148;
-file . "TopLevel_tb.vhd" "faff7c9419f05c944b238a9747c5a500cdcc7bef" "20251008230637.581":
-  entity toplevel_tb at 1( 0) + 0 on 169;
-  architecture struct of toplevel_tb at 8( 112) + 0 on 170;
-file . "TopLevel.vhd" "430ada9c3e9bdba6b82bc0b7ddc50942484696d5" "20251008142259.086":
-  entity toplevel at 1( 0) + 0 on 161;
-  architecture struct of toplevel at 28( 1114) + 0 on 162;
-file . "./BANCO/reg16bits.vhd" "56daff49712e09875d7b9bb1b3ca9f8b1396916b" "20251005122639.299":
-  entity reg16bits at 1( 0) + 0 on 15;
-  architecture a_reg16bits of reg16bits at 13( 314) + 0 on 16;
 file . "ULA/ULA.vhd" "064f840cb596536c9e5370dbd082284307e38949" "20251006215154.654":
   entity ula at 1( 0) + 0 on 79;
   architecture struct of ula at 14( 309) + 0 on 80;
+file . "./BANCO/reg16bits.vhd" "56daff49712e09875d7b9bb1b3ca9f8b1396916b" "20251005122639.299":
+  entity reg16bits at 1( 0) + 0 on 15;
+  architecture a_reg16bits of reg16bits at 13( 314) + 0 on 16;
+file . "TopLevel.vhd" "430ada9c3e9bdba6b82bc0b7ddc50942484696d5" "20251008142259.086":
+  entity toplevel at 1( 0) + 0 on 161;
+  architecture struct of toplevel at 28( 1114) + 0 on 162;
+file . "TopLevel_tb.vhd" "9f49949e430f58855372de8670898987872badfe" "20251009002714.590":
+  entity toplevel_tb at 1( 0) + 0 on 171;
+  architecture struct of toplevel_tb at 8( 112) + 0 on 172;
+file . "BANCO/BancoReg.vhd" "1dbff79a39ff66ab3ddcfe27d776041f54c41d3a" "20251008135707.028":
+  entity bancoreg at 1( 0) + 0 on 147;
+  architecture a_bancoreg of bancoreg at 17( 650) + 0 on 148;
+file . "BANCO/BancoReg_tb.vhd" "e250e28c0b251f7ac2b66e68184d7f8df651621c" "20251008135711.563":
+  entity bancoreg_tb at 1( 0) + 0 on 149;
+  architecture abancoreg_tb of bancoreg_tb at 8( 112) + 0 on 150;
