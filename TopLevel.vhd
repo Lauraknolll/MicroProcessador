@@ -22,8 +22,8 @@ entity TopLevel is
         sel0, sel1 : in std_logic; --operações da ula
         carry, overflow, zero, sinal : out std_logic;
 
-        --elemtentos da UC
-        reset_uc, wr_uc : in std_logic
+        --elemtentos do PC/MQE
+        reset_pmu, reset_mqe, wr_mqe: in std_logic
     );
 end entity;
 
@@ -60,8 +60,8 @@ architecture struct of TopLevel is
         );
     end component;
 
-    ---------tipo uma uc que controla o pc
-    component proto_uc is
+    ---------tipo uma pmu que controla o pc
+    component pc_mais_um is
     port(
         CLK, RST, WR_EN : in std_logic;
         DATA_OUT : out unsigned(6 downto 0)
@@ -76,12 +76,22 @@ architecture struct of TopLevel is
     );
     end component;
 
+    component reg1bit is
+    port( 
+        clk      : in std_logic;
+        rst      : in std_logic;
+        wr_en    : in std_logic;
+        data_out : out std_logic
+    );
+    end component;
+
 
     signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula, dado_escrita_banco, dado_escrita_acc : unsigned(15 downto 0);
     signal wr_en_accA, wr_en_accB : std_logic;
 
-    ----------- da uc/pc
-    signal saida_uc : unsigned(6 downto 0) := (others => '0');
+    ----------- do PC
+    signal estado, wr_pmu: std_logic; 
+    signal saida_pmu : unsigned(6 downto 0) := (others => '0');
     signal saida_rom : unsigned(15 downto 0);
 
 begin
@@ -120,9 +130,12 @@ begin
 
     uut1 : ULA port map (in_A => dado_ula, in_B => accs_ula, Sel0 => sel0, Sel1 => sel1, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
 
-    --------------------parte da UC/ROM
-
-    uc : proto_uc port map (CLK => clock, RST => reset_uc, WR_EN => wr_uc, DATA_OUT => saida_uc);
-    rom : ROM port map (clk => clock, endereco => saida_uc, dado => saida_rom);
+    --------------------parte do PC/ROM
+    maq_estados : reg1bit port map (clk => clock, rst => reset_mqe, wr_en => wr_mqe, data_out => estado);
+    --só atualiza o PC no estado 1
+    wr_pmu <= '1' when estado = '1' else
+             '0';
+    pmu : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => wr_pmu, DATA_OUT => saida_pmu);
+    rom0 : ROM port map (clk => clock, endereco => saida_pmu, dado => saida_rom);
 
 end struct; 
