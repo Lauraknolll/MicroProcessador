@@ -38,27 +38,20 @@ architecture struct of TopLevel2 is
         data_out : out std_logic
     );
     end component;
-    
 
     component UC is
    port( 
         instrucao : in unsigned(15 downto 0);
         endereco_destino: out unsigned(6 downto 0); --esta assim no top level
         jump_en : out std_logic;
-        nop :out std_logic
-        
+        nop :out std_logic  
    );
 end component;
-    signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula, dado_escrita_banco, dado_escrita_acc,acc0_ula_in,acc1_ula_in, banco_ula_IN,acc_p_ula_OUT  : unsigned(15 downto 0);
-    signal wr_en_accA, wr_en_accB : std_logic;
 
-    ----------- do PC
     signal estado, wr_pmu,wr_pmu2, JUMP_EN: std_logic; 
     signal saida_pmu, saida_pmu2, vai_p_end_ROM, end_jump, ENDERECO: unsigned(6 downto 0) := (others => '0');
     signal saida_rom : unsigned(15 downto 0);
-    signal sel0_ULA_out, sel1_ULA_out, nop: std_logic;
-    signal qual_reg_op_OUT: unsigned (3 downto 0);
-    signal teve_jump, eh_nop: std_logic;
+    signal eh_nop: std_logic;
 
 
 begin
@@ -68,14 +61,10 @@ begin
     --só atualiza o PC no estado 1
     vai_p_end_ROM <= end_jump  when JUMP_EN = '1' else
                     saida_pmu2;
-    --pmu : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => wr_pmu, DATA_OUT => saida_pmu);
     pmu2 : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => wr_pmu2, DATA_OUT => saida_pmu2);
     wr_pmu2 <= '1' when (estado = '1') else
              '0'; 
     rom0 : ROMBRUNA port map (clk => clock, endereco => vai_p_end_ROM, dado => saida_rom);
-    --undidade_controle_antiga: un_controle port map ( instrucao => saida_rom, acc0_ula => acc0_ula_IN, acc1_ula =>acc1_ula_IN, 
-     --banco_ula_UC => banco_ula_IN, acc_p_ula =>acc_p_ula_OUT, endereco_destino => ENDERECO, jump_en => JUMP_EN,
-     --sel0_ULA => sel0_ULA_out, sel1_ULA => sel1_ULA_out, nop=> nop, qual_reg_op =>qual_reg_op_OUT );
 
      UC_unid : UC port map(instrucao => saida_rom, endereco_destino => end_jump, jump_en => JUMP_EN, nop => eh_nop);
 end struct; 

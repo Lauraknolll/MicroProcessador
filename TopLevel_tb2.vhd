@@ -14,11 +14,6 @@ architecture struct of TopLevel_tb2 is
         reset_pmu, reset_mqe, wr_mqe: in std_logic
     );
     end component;
-
-    signal clock, reset_b, reset_acc, escreve_banco, escolhe_accA, escolhe_accB, escreve_acc, sel0, sel1, carry, overflow, zero, sinal, finished, op_com_cte, op_mov_p_reg, op_mov_p_acc, op_ld_acc  : std_logic;
-    signal dado_ext_escrita_banco, dado_ext_escrita_acc, cte, saida_rom, INSTRU_GLOBAL : unsigned(15 downto 0); 
-    signal qual_reg_escreve, qual_reg_le : unsigned(3 downto 0);
-    -----
     signal reset_pmu, wr_pmu, reset_mqe, wr_mqe : std_logic;
 
 begin
@@ -37,8 +32,6 @@ begin
         reset_pmu <= '0';
         reset_mqe <= '0';
         wr_mqe <= '1';
-        
-
         wait;
     end process;
 
@@ -61,11 +54,9 @@ begin
     end process clk_proc;
 
     process                      
-    
-    begin
-      
+    begin 
+
       wait;                    
    end process;
-
 
 end architecture;
