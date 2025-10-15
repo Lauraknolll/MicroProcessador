@@ -1,9 +1,12 @@
 Para o Lab 4
 
 Necessidades:
+
 Fazer o somador contar do ultimo endereço do pc, atualmente ele começa em zero e vai até o infinito e além
 Seria bom também colocar a máquina de estados dentro da UC
+
 Para entrega:
+
 pc_mais_um: precisa atualizar para ele pegar os desvios do jump e não ter o comportamento atual: soma 1 do zero que foi o primeiro endereço. Ele tem que pegar o último enedereço do PC e somar 1, mesmo tendo jump.
 ROMBRUNA.vhd : é o arquivos de isntruções do PC, como conteúdo de cada posição, temos uma instrução.
 TopLevel2.vhd : é o top level que testa apenas a ROM, PC_mais_um, UC e a maquina de estados
@@ -12,6 +15,7 @@ UC: unidade de controle que apenas faz a deocdificação de jump e nop (fiquei n
 A UC recebe como entrada a instrução (conteúdo da instrução acessada pela ROM) e devolve o endereço do jump (quando não houver jump é 0000000) e as flagas indicativas.
 
 Restante:
+
 Somador.vhd: foi o principio de algo diferente (fazer o módulo de somar 1 separado), mas não foi para frente
 ROM.vhd: supostamente como original (que a LAura fez)
 TopLevel.vhd: supostamente original como estava.
@@ -23,4 +27,5 @@ un_controle.vhd: é a unidade de controle antiga, na qual eu pegava "instruçõe
 un_controle_tb.vhd: eu escrevia as intruções no process.
 
 Bônus:
+
 - no Sheets tem a panilha das instruções
