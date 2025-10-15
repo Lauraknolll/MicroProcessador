@@ -60,14 +60,6 @@ begin
         reset_pmu <= '0';
         reset_mqe <= '0';
         wr_mqe <= '1';
-            --seta as coisas em zero pra não ficar indefinido
-        escolhe_accA <= '0';
-        escolhe_accB <= '0'; 
-        op_com_cte <= '0';
-        op_mov_p_reg <= '0';
-        op_mov_p_acc <= '0';
-        op_ld_acc <= '0';
-        escreve_banco <= '0';
         wait for 100 ns;
         wait;
     end process;
@@ -94,9 +86,6 @@ begin
 
     process                      -- sinais dos casos de teste (p.ex.)
     begin
-      
-      wait;                    
-   end process;
-
+      end process;
 
 end architecture;

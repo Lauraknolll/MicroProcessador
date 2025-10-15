@@ -1,0 +1,59 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Oct 15 14:33:08 2025
+[*]
+[dumpfile] "C:\MicroProcessador\un_controle_tb_parcial.ghw"
+[dumpfile_mtime] "Wed Oct 15 14:31:41 2025"
+[dumpfile_size] 3324
+[savefile] "C:\MicroProcessador\un_controle_tb_parcial.gtkw"
+[timestart] 0
+[size] 1366 697
+[pos] -9 -10
+*-27.021067 431000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.un_controle_tb.
+[treeopen] top.un_controle_tb.uutuc.
+[sst_width] 263
+[signals_width] 236
+[sst_expanded] 1
+[sst_vpaned_height] 190
+@28
+top.un_controle_tb.clk
+[color] 1
+#{top.un_controle_tb.instru[15:0]} top.un_controle_tb.instru[15] top.un_controle_tb.instru[14] top.un_controle_tb.instru[13] top.un_controle_tb.instru[12] top.un_controle_tb.instru[11] top.un_controle_tb.instru[10] top.un_controle_tb.instru[9] top.un_controle_tb.instru[8] top.un_controle_tb.instru[7] top.un_controle_tb.instru[6] top.un_controle_tb.instru[5] top.un_controle_tb.instru[4] top.un_controle_tb.instru[3] top.un_controle_tb.instru[2] top.un_controle_tb.instru[1] top.un_controle_tb.instru[0]
+[color] 3
+#{top.un_controle_tb.uutuc.opcode[3:0]} top.un_controle_tb.uutuc.opcode[3] top.un_controle_tb.uutuc.opcode[2] top.un_controle_tb.uutuc.opcode[1] top.un_controle_tb.uutuc.opcode[0]
+@25
+#{top.un_controle_tb.uutuc.cte[15:0]} top.un_controle_tb.uutuc.cte[15] top.un_controle_tb.uutuc.cte[14] top.un_controle_tb.uutuc.cte[13] top.un_controle_tb.uutuc.cte[12] top.un_controle_tb.uutuc.cte[11] top.un_controle_tb.uutuc.cte[10] top.un_controle_tb.uutuc.cte[9] top.un_controle_tb.uutuc.cte[8] top.un_controle_tb.uutuc.cte[7] top.un_controle_tb.uutuc.cte[6] top.un_controle_tb.uutuc.cte[5] top.un_controle_tb.uutuc.cte[4] top.un_controle_tb.uutuc.cte[3] top.un_controle_tb.uutuc.cte[2] top.un_controle_tb.uutuc.cte[1] top.un_controle_tb.uutuc.cte[0]
+@22
+#{top.un_controle_tb.uutuc.banco_ula_uc[15:0]} top.un_controle_tb.uutuc.banco_ula_uc[15] top.un_controle_tb.uutuc.banco_ula_uc[14] top.un_controle_tb.uutuc.banco_ula_uc[13] top.un_controle_tb.uutuc.banco_ula_uc[12] top.un_controle_tb.uutuc.banco_ula_uc[11] top.un_controle_tb.uutuc.banco_ula_uc[10] top.un_controle_tb.uutuc.banco_ula_uc[9] top.un_controle_tb.uutuc.banco_ula_uc[8] top.un_controle_tb.uutuc.banco_ula_uc[7] top.un_controle_tb.uutuc.banco_ula_uc[6] top.un_controle_tb.uutuc.banco_ula_uc[5] top.un_controle_tb.uutuc.banco_ula_uc[4] top.un_controle_tb.uutuc.banco_ula_uc[3] top.un_controle_tb.uutuc.banco_ula_uc[2] top.un_controle_tb.uutuc.banco_ula_uc[1] top.un_controle_tb.uutuc.banco_ula_uc[0]
+#{top.un_controle_tb.uutuc.acc_p_ula[15:0]} top.un_controle_tb.uutuc.acc_p_ula[15] top.un_controle_tb.uutuc.acc_p_ula[14] top.un_controle_tb.uutuc.acc_p_ula[13] top.un_controle_tb.uutuc.acc_p_ula[12] top.un_controle_tb.uutuc.acc_p_ula[11] top.un_controle_tb.uutuc.acc_p_ula[10] top.un_controle_tb.uutuc.acc_p_ula[9] top.un_controle_tb.uutuc.acc_p_ula[8] top.un_controle_tb.uutuc.acc_p_ula[7] top.un_controle_tb.uutuc.acc_p_ula[6] top.un_controle_tb.uutuc.acc_p_ula[5] top.un_controle_tb.uutuc.acc_p_ula[4] top.un_controle_tb.uutuc.acc_p_ula[3] top.un_controle_tb.uutuc.acc_p_ula[2] top.un_controle_tb.uutuc.acc_p_ula[1] top.un_controle_tb.uutuc.acc_p_ula[0]
+#{top.un_controle_tb.uutuc.endereco_destino[6:0]} top.un_controle_tb.uutuc.endereco_destino[6] top.un_controle_tb.uutuc.endereco_destino[5] top.un_controle_tb.uutuc.endereco_destino[4] top.un_controle_tb.uutuc.endereco_destino[3] top.un_controle_tb.uutuc.endereco_destino[2] top.un_controle_tb.uutuc.endereco_destino[1] top.un_controle_tb.uutuc.endereco_destino[0]
+@24
+#{top.un_controle_tb.uutuc.qual_reg_op[3:0]} top.un_controle_tb.uutuc.qual_reg_op[3] top.un_controle_tb.uutuc.qual_reg_op[2] top.un_controle_tb.uutuc.qual_reg_op[1] top.un_controle_tb.uutuc.qual_reg_op[0]
+@28
+top.un_controle_tb.jump_en
+top.un_controle_tb.uutuc.jump_en
+@22
+#{top.un_controle_tb.endereco[6:0]} top.un_controle_tb.endereco[6] top.un_controle_tb.endereco[5] top.un_controle_tb.endereco[4] top.un_controle_tb.endereco[3] top.un_controle_tb.endereco[2] top.un_controle_tb.endereco[1] top.un_controle_tb.endereco[0]
+[color] 5
+#{top.un_controle_tb.acc0_ula_in[15:0]} top.un_controle_tb.acc0_ula_in[15] top.un_controle_tb.acc0_ula_in[14] top.un_controle_tb.acc0_ula_in[13] top.un_controle_tb.acc0_ula_in[12] top.un_controle_tb.acc0_ula_in[11] top.un_controle_tb.acc0_ula_in[10] top.un_controle_tb.acc0_ula_in[9] top.un_controle_tb.acc0_ula_in[8] top.un_controle_tb.acc0_ula_in[7] top.un_controle_tb.acc0_ula_in[6] top.un_controle_tb.acc0_ula_in[5] top.un_controle_tb.acc0_ula_in[4] top.un_controle_tb.acc0_ula_in[3] top.un_controle_tb.acc0_ula_in[2] top.un_controle_tb.acc0_ula_in[1] top.un_controle_tb.acc0_ula_in[0]
+[color] 5
+#{top.un_controle_tb.acc1_ula_in[15:0]} top.un_controle_tb.acc1_ula_in[15] top.un_controle_tb.acc1_ula_in[14] top.un_controle_tb.acc1_ula_in[13] top.un_controle_tb.acc1_ula_in[12] top.un_controle_tb.acc1_ula_in[11] top.un_controle_tb.acc1_ula_in[10] top.un_controle_tb.acc1_ula_in[9] top.un_controle_tb.acc1_ula_in[8] top.un_controle_tb.acc1_ula_in[7] top.un_controle_tb.acc1_ula_in[6] top.un_controle_tb.acc1_ula_in[5] top.un_controle_tb.acc1_ula_in[4] top.un_controle_tb.acc1_ula_in[3] top.un_controle_tb.acc1_ula_in[2] top.un_controle_tb.acc1_ula_in[1] top.un_controle_tb.acc1_ula_in[0]
+@28
+top.un_controle_tb.sel1_ula_out
+top.un_controle_tb.uutuc.sel1_ula
+top.un_controle_tb.sel0_ula_out
+top.un_controle_tb.uutuc.sel0_ula
+@24
+[color] 3
+#{top.un_controle_tb.qual_reg_op_out[3:0]} top.un_controle_tb.qual_reg_op_out[3] top.un_controle_tb.qual_reg_op_out[2] top.un_controle_tb.qual_reg_op_out[1] top.un_controle_tb.qual_reg_op_out[0]
+@22
+[color] 5
+#{top.un_controle_tb.acc_p_ula_out[15:0]} top.un_controle_tb.acc_p_ula_out[15] top.un_controle_tb.acc_p_ula_out[14] top.un_controle_tb.acc_p_ula_out[13] top.un_controle_tb.acc_p_ula_out[12] top.un_controle_tb.acc_p_ula_out[11] top.un_controle_tb.acc_p_ula_out[10] top.un_controle_tb.acc_p_ula_out[9] top.un_controle_tb.acc_p_ula_out[8] top.un_controle_tb.acc_p_ula_out[7] top.un_controle_tb.acc_p_ula_out[6] top.un_controle_tb.acc_p_ula_out[5] top.un_controle_tb.acc_p_ula_out[4] top.un_controle_tb.acc_p_ula_out[3] top.un_controle_tb.acc_p_ula_out[2] top.un_controle_tb.acc_p_ula_out[1] top.un_controle_tb.acc_p_ula_out[0]
+@28
+top.un_controle_tb.uutuc.escolhe_acca
+top.un_controle_tb.uutuc.escolhe_accb
+top.un_controle_tb.uutuc.op_com_cte
+[pattern_trace] 1
+[pattern_trace] 0
