@@ -23,7 +23,7 @@ architecture a_ROMBRUNA of ROMBRUNA is
       6  => "1000000000000000", -- nop
       7  => "1111100000001001",-- é jump e endereco 9
       8  => "1111111111000000", -- é jump e endereco 1000000
-      9  => "1111011110010000", -- é jump e endereco 16
+      9  => "1111000000000110", -- é jump e endereco 6
       10 => "1110111110000011", -- NÃO é jump e endereco 0000011
       16 => "1000000000000000", --nopp
       17 => "1000000000000000", --nopp
