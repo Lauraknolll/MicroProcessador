@@ -12,6 +12,7 @@ UC: unidade de controle que apenas faz a deocdificação de jump e nop (fiquei n
 A UC recebe como entrada a instrução (conteúdo da instrução acessada pela ROM) e devolve o endereço do jump (quando não houver jump é 0000000) e as flagas indicativas.
 
 Restante:
+Somador.vhd: foi o principio de algo diferente (fazer o módulo de somar 1 separado), mas não foi para frente
 ROM.vhd: supostamente como original (que a LAura fez)
 TopLevel.vhd: supostamente original como estava.
 - acabei colocando a unidade de controle antiga comentada
@@ -21,5 +22,5 @@ TopLevel_tb1: faz as operações de antes, ULA, BANCO... (fazendo todas as opera
 un_controle.vhd: é a unidade de controle antiga, na qual eu pegava "instruções globais" que eu recebia como entrada com compenente TopLevel, eu estava usando a ROM, como se fosse a RAM, com acesso esporático.
 un_controle_tb.vhd: eu escrevia as intruções no process.
 
-Bonus:
+Bônus:
 - no Sheets tem a panilha das instruções
