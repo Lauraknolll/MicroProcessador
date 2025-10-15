@@ -1,0 +1,28 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Oct 15 02:25:16 2025
+[*]
+[dumpfile] "C:\MicroProcessador_FormasOndas\un_controle_tb.ghw"
+[savefile] "C:\MicroProcessador_FormasOndas\un_controle.gtkw"
+[timestart] 433200000
+[size] 1366 697
+[pos] -165 -90
+*-26.284250 764000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.un_controle_tb.
+[treeopen] top.un_controle_tb.uutt.
+[sst_width] 225
+[signals_width] 196
+[sst_expanded] 1
+[sst_vpaned_height] 187
+@28
+top.un_controle_tb.clk
+@24
+#{top.un_controle_tb.endereco[6:0]} top.un_controle_tb.endereco[6] top.un_controle_tb.endereco[5] top.un_controle_tb.endereco[4] top.un_controle_tb.endereco[3] top.un_controle_tb.endereco[2] top.un_controle_tb.endereco[1] top.un_controle_tb.endereco[0]
+@28
+[color] 2
+top.un_controle_tb.jump_en
+@29
+#{top.un_controle_tb.instru[15:0]} top.un_controle_tb.instru[15] top.un_controle_tb.instru[14] top.un_controle_tb.instru[13] top.un_controle_tb.instru[12] top.un_controle_tb.instru[11] top.un_controle_tb.instru[10] top.un_controle_tb.instru[9] top.un_controle_tb.instru[8] top.un_controle_tb.instru[7] top.un_controle_tb.instru[6] top.un_controle_tb.instru[5] top.un_controle_tb.instru[4] top.un_controle_tb.instru[3] top.un_controle_tb.instru[2] top.un_controle_tb.instru[1] top.un_controle_tb.instru[0]
+[pattern_trace] 1
+[pattern_trace] 0
