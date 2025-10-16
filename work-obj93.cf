@@ -1,52 +1,52 @@
 v 4
-file . "un_controle.vhd" "64158832dbe08f01e85401f5dc630ad26fe45aa0" "20251015163659.223":
-  entity un_controle at 1( 0) + 0 on 341;
-  architecture a_un_controle of un_controle at 21( 609) + 0 on 342;
-file . "lab4/pc.vhd" "a997d45fbdb2d8d0adc63bb2f5d306f0109f7b30" "20251012220913.233":
-  entity pc at 1( 0) + 0 on 269;
-  architecture a_pc of pc at 15( 303) + 0 on 270;
-file . "lab4/reg1bit.vhd" "c5455f6e59afdc4580374904b3848f5a393937c3" "20251012204533.500":
-  entity reg1bit at 1( 0) + 0 on 229;
-  architecture a_reg1bit of reg1bit at 14( 254) + 0 on 230;
-file . "lab4/proto_uc.vhd" "d3e7b4de807d38d94d9cd10257c594ae0cb298e0" "20251012211705.205":
-  entity proto_uc at 1( 0) + 0 on 261;
-  architecture a_proto_uc of proto_uc at 12( 214) + 0 on 262;
-file . "BANCO/BancoReg_tb.vhd" "e250e28c0b251f7ac2b66e68184d7f8df651621c" "20251008135711.563":
-  entity bancoreg_tb at 1( 0) + 0 on 149;
-  architecture abancoreg_tb of bancoreg_tb at 8( 112) + 0 on 150;
-file . "BANCO/BancoReg.vhd" "1dbff79a39ff66ab3ddcfe27d776041f54c41d3a" "20251008135707.028":
-  entity bancoreg at 1( 0) + 0 on 147;
-  architecture a_bancoreg of bancoreg at 17( 650) + 0 on 148;
-file . "TopLevel_tb.vhd" "9f73ad13015b9839932714824c1dd723e1c925b9" "20251015200502.382":
-  entity toplevel_tb at 1( 0) + 0 on 357;
-  architecture struct of toplevel_tb at 8( 112) + 0 on 358;
-file . "./BANCO/reg16bits.vhd" "56daff49712e09875d7b9bb1b3ca9f8b1396916b" "20251005122639.299":
-  entity reg16bits at 1( 0) + 0 on 15;
-  architecture a_reg16bits of reg16bits at 13( 314) + 0 on 16;
-file . "ULA/ULA.vhd" "064f840cb596536c9e5370dbd082284307e38949" "20251006215154.654":
-  entity ula at 1( 0) + 0 on 79;
-  architecture struct of ula at 14( 309) + 0 on 80;
-file . "lab4/ROM.vhd" "ebd446ef19584d701e46cee944252ddde63a300a" "20251013013523.058":
-  entity rom at 1( 0) + 0 on 289;
-  architecture a_rom of rom at 13( 248) + 0 on 290;
-file . "lab4/reg7bits.vhd" "5c5daddd84140ba0f1e5da42a947ff01368836d0" "20251012170747.142":
-  entity reg7bits at 1( 0) + 0 on 199;
-  architecture a_reg7bits of reg7bits at 14( 313) + 0 on 200;
-file . "lab4/pc_mais_um.vhd" "d415d1b6a25b2ba377a7174c918c4fac53a84453" "20251013011631.785":
-  entity pc_mais_um at 1( 0) + 0 on 275;
-  architecture a_pc_mais_um of pc_mais_um at 12( 216) + 0 on 276;
-file . "un_controle_tb.vhd" "811dafb5248f4f44dedb51ed17718f7d8b19647c" "20251015164112.699":
-  entity un_controle_tb at 1( 0) + 0 on 347;
-  architecture struct of un_controle_tb at 8( 115) + 0 on 348;
-file . "UC.vhd" "9afb4596d57752e7575e10dbcc0fe6eae913927f" "20251015194714.900":
-  entity uc at 1( 0) + 0 on 351;
-  architecture a_uc of uc at 14( 317) + 0 on 352;
-file . "TopLevel2.vhd" "1159372f07a80128af8810a8070ba9f2d6d9076f" "20251015210916.888":
-  entity toplevel2 at 1( 0) + 0 on 411;
-  architecture struct of toplevel2 at 15( 391) + 0 on 412;
+file . "entrega/ROMBRUNA.vhd" "42c443e461ea2180697b0af33e5c7f77a75d94e4" "20251016004115.299":
+  entity rombruna at 1( 0) + 0 on 415;
+  architecture a_rombruna of rombruna at 13( 253) + 0 on 416;
 file . "TopLevel_tb2.vhd" "ec8dede6f426fad2df86232dbc2fe41ae699ce5b" "20251015210925.516":
   entity toplevel_tb2 at 1( 0) + 0 on 413;
   architecture struct of toplevel_tb2 at 8( 113) + 0 on 414;
-file . "ROMBRUNA.vhd" "b0626f4cc528eff33309cfc5dbc33338afbf82d2" "20251015210913.706":
-  entity rombruna at 1( 0) + 0 on 409;
-  architecture a_rombruna of rombruna at 13( 253) + 0 on 410;
+file . "TopLevel2.vhd" "1159372f07a80128af8810a8070ba9f2d6d9076f" "20251015210916.888":
+  entity toplevel2 at 1( 0) + 0 on 411;
+  architecture struct of toplevel2 at 15( 391) + 0 on 412;
+file . "UC.vhd" "9afb4596d57752e7575e10dbcc0fe6eae913927f" "20251015194714.900":
+  entity uc at 1( 0) + 0 on 351;
+  architecture a_uc of uc at 14( 317) + 0 on 352;
+file . "un_controle_tb.vhd" "811dafb5248f4f44dedb51ed17718f7d8b19647c" "20251015164112.699":
+  entity un_controle_tb at 1( 0) + 0 on 347;
+  architecture struct of un_controle_tb at 8( 115) + 0 on 348;
+file . "lab4/pc_mais_um.vhd" "d415d1b6a25b2ba377a7174c918c4fac53a84453" "20251013011631.785":
+  entity pc_mais_um at 1( 0) + 0 on 275;
+  architecture a_pc_mais_um of pc_mais_um at 12( 216) + 0 on 276;
+file . "lab4/reg7bits.vhd" "5c5daddd84140ba0f1e5da42a947ff01368836d0" "20251012170747.142":
+  entity reg7bits at 1( 0) + 0 on 199;
+  architecture a_reg7bits of reg7bits at 14( 313) + 0 on 200;
+file . "lab4/ROM.vhd" "ebd446ef19584d701e46cee944252ddde63a300a" "20251013013523.058":
+  entity rom at 1( 0) + 0 on 289;
+  architecture a_rom of rom at 13( 248) + 0 on 290;
+file . "ULA/ULA.vhd" "064f840cb596536c9e5370dbd082284307e38949" "20251006215154.654":
+  entity ula at 1( 0) + 0 on 79;
+  architecture struct of ula at 14( 309) + 0 on 80;
+file . "./BANCO/reg16bits.vhd" "56daff49712e09875d7b9bb1b3ca9f8b1396916b" "20251005122639.299":
+  entity reg16bits at 1( 0) + 0 on 15;
+  architecture a_reg16bits of reg16bits at 13( 314) + 0 on 16;
+file . "TopLevel_tb.vhd" "9f73ad13015b9839932714824c1dd723e1c925b9" "20251015200502.382":
+  entity toplevel_tb at 1( 0) + 0 on 357;
+  architecture struct of toplevel_tb at 8( 112) + 0 on 358;
+file . "BANCO/BancoReg.vhd" "1dbff79a39ff66ab3ddcfe27d776041f54c41d3a" "20251008135707.028":
+  entity bancoreg at 1( 0) + 0 on 147;
+  architecture a_bancoreg of bancoreg at 17( 650) + 0 on 148;
+file . "BANCO/BancoReg_tb.vhd" "e250e28c0b251f7ac2b66e68184d7f8df651621c" "20251008135711.563":
+  entity bancoreg_tb at 1( 0) + 0 on 149;
+  architecture abancoreg_tb of bancoreg_tb at 8( 112) + 0 on 150;
+file . "lab4/proto_uc.vhd" "d3e7b4de807d38d94d9cd10257c594ae0cb298e0" "20251012211705.205":
+  entity proto_uc at 1( 0) + 0 on 261;
+  architecture a_proto_uc of proto_uc at 12( 214) + 0 on 262;
+file . "lab4/reg1bit.vhd" "c5455f6e59afdc4580374904b3848f5a393937c3" "20251012204533.500":
+  entity reg1bit at 1( 0) + 0 on 229;
+  architecture a_reg1bit of reg1bit at 14( 254) + 0 on 230;
+file . "lab4/pc.vhd" "a997d45fbdb2d8d0adc63bb2f5d306f0109f7b30" "20251012220913.233":
+  entity pc at 1( 0) + 0 on 269;
+  architecture a_pc of pc at 15( 303) + 0 on 270;
+file . "un_controle.vhd" "64158832dbe08f01e85401f5dc630ad26fe45aa0" "20251015163659.223":
+  entity un_controle at 1( 0) + 0 on 341;
+  architecture a_un_controle of un_controle at 21( 609) + 0 on 342;

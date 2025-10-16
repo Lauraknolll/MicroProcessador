@@ -4,7 +4,8 @@ use ieee.numeric_std.all;
 
 entity pc_mais_um is
     port(
-        CLK, RST, WR_EN : in std_logic;
+        CLK, RST, WR_EN, EH_JUMP : in std_logic;
+        ENDERECO_JUMP : in unsigned(6 downto 0);
         DATA_OUT : out unsigned(6 downto 0)
     );
 end entity;
@@ -25,7 +26,9 @@ architecture a_pc_mais_um of pc_mais_um is
    signal DATA_IN : unsigned(6 downto 0);
 
 begin 
-    DATA_IN <= (DATA_S + 1);
+    --mux dizendo se quem quero guardar é o endereço do jump ou o próximo na sequência
+    DATA_IN <= ENDERECO_JUMP when EH_JUMP = '1' else
+        (DATA_S + 1);
     PC0 : pc port map(clk => CLK, rst => RST, wr_en => WR_EN, data_in => DATA_IN, data_out => DATA_S);
 
     DATA_OUT <= DATA_S;

@@ -10,28 +10,23 @@ architecture struct of TopLevel_tb2 is
     component TopLevel2 is
     port (
         clock : in std_logic;
-        reset_acc : in std_logic;
-        reset_pmu, reset_mqe, wr_mqe: in std_logic
+        reset_pmu, reset_uc, wr_uc: in std_logic
     );
     end component;
-    signal reset_pmu, wr_pmu, reset_mqe, wr_mqe : std_logic;
+    signal reset_pmu, reset_uc, wr_uc, clock, finished : std_logic;
 
 begin
-    uut : TopLevel2 port map (clock => clock, reset_acc => reset_acc, reset_pmu => reset_pmu, 
-    reset_mqe => reset_mqe, wr_mqe => wr_mqe );
+    uut : TopLevel2 port map (clock => clock, reset_pmu => reset_pmu, 
+    reset_uc => reset_uc, wr_uc => wr_uc );
 
     reset_global: process
     begin
-        reset_b <= '1';
-        reset_acc <= '1';
         reset_pmu <= '1';
-        reset_mqe <= '1';
+        reset_uc <= '1';
         wait for 100 ns; 
-        reset_b <= '0';
-        reset_acc <= '0';
         reset_pmu <= '0';
-        reset_mqe <= '0';
-        wr_mqe <= '1';
+        reset_uc <= '0';
+        wr_uc <= '1';
         wait;
     end process;
 
@@ -55,7 +50,6 @@ begin
 
     process                      
     begin 
-
       wait;                    
    end process;
 
