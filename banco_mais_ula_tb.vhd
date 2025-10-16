@@ -2,10 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity TopLevel_tb is
+entity banco_mais_ula_tb is
 end entity;
 
-architecture struct of TopLevel_tb is
+architecture a_banco_mais_ula_tb of banco_mais_ula_tb is
 
     component TopLevel is
     port (

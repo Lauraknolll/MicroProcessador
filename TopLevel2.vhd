@@ -40,16 +40,15 @@ architecture struct of TopLevel2 is
     );
     end component;
 
-    signal estado, funciona_pc: std_logic; 
-    signal saida_pmu, end_jump, ENDERECO: unsigned(6 downto 0) := (others => '0');
+    signal funciona_pc: std_logic; 
+    signal saida_pmu, end_jump : unsigned(6 downto 0) := (others => '0');
     signal saida_rom : unsigned(15 downto 0);
     signal eh_jump, eh_nop: std_logic;
-
 
 begin
     pmu : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => funciona_pc, EH_JUMP => eh_jump, ENDERECO_JUMP => end_jump, DATA_OUT => saida_pmu);
 
     rom0 : ROMBRUNA port map (clk => clock, endereco => saida_pmu, dado => saida_rom);
 
-    UC_unid : UC port map(clock => clock, reset => reset_uc, wr => wr_uc, funciona_pc => funciona_pc, instrucao => saida_rom, endereco_destino => end_jump, jump_en => eh_jump, nop => eh_nop);
+    UC0 : UC port map(clock => clock, reset => reset_uc, wr => wr_uc, funciona_pc => funciona_pc, instrucao => saida_rom, endereco_destino => end_jump, jump_en => eh_jump, nop => eh_nop);
 end struct; 

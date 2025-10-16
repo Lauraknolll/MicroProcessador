@@ -2,10 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity TopLevel_tb2 is
+entity TopLevel2_tb is
 end entity;
 
-architecture struct of TopLevel_tb2 is
+architecture struct of TopLevel2_tb is
 
     component TopLevel2 is
     port (
@@ -16,8 +16,7 @@ architecture struct of TopLevel_tb2 is
     signal reset_pmu, reset_uc, wr_uc, clock, finished : std_logic;
 
 begin
-    uut : TopLevel2 port map (clock => clock, reset_pmu => reset_pmu, 
-    reset_uc => reset_uc, wr_uc => wr_uc );
+    uut : TopLevel2 port map (clock => clock, reset_pmu => reset_pmu, reset_uc => reset_uc, wr_uc => wr_uc );
 
     reset_global: process
     begin
