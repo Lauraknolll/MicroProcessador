@@ -9,15 +9,15 @@ entity maq_estados is
 end entity;
 
 architecture a_maq_estados of maq_estados is
-   signal estado_s: unsigned(1 downto 0);
+   signal estado_s: unsigned(2 downto 0);
 begin
    process(clk,rst)
    begin
       if rst='1' then
-         estado_s <= "00";
+         estado_s <= "000";
       elsif rising_edge(clk) then
          if estado_s="100" then        -- se agora esta em 4
-            estado_s <= "00";         -- o prox vai voltar ao zero
+            estado_s <= "000";         -- o prox vai voltar ao zero
          else
             estado_s <= estado_s+1;   -- senao avanca
          end if;
