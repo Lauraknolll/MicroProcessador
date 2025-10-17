@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity reg1bit_tb is
 end entity;
 
-architecture struct of reg1bit_tb is
+architecture a_reg1bit_tb of reg1bit_tb is
 
     component reg1bit is
     port( clk      : in std_logic;

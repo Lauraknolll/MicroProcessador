@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity BancoReg_tb is
 end entity;
 
-architecture aBancoReg_tb of BancoReg_tb is
+architecture a_BancoReg_tb of BancoReg_tb is
 
     component BancoReg is          -- aqui vai seu componente a testar
         port( 

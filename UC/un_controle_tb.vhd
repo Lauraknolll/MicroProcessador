@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity un_controle_tb is
 end entity;
 
-architecture struct of un_controle_tb is
+architecture a_un_controle_tb of un_controle_tb is
 
     component un_controle is
      port( 

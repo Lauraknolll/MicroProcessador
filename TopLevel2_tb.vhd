@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity TopLevel2_tb is
 end entity;
 
-architecture struct of TopLevel2_tb is
+architecture a_TopLevel2_tb of TopLevel2_tb is
 
     component TopLevel2 is
     port (

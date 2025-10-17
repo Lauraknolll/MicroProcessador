@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity ULA_tb is
 end entity;
 
-architecture struct of ULA_tb is
+architecture a_ULA_tb of ULA_tb is
 
 component ULA is
  port(
