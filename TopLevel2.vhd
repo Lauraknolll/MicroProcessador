@@ -46,9 +46,9 @@ architecture struct of TopLevel2 is
     signal eh_jump, eh_nop: std_logic;
 
 begin
-    pmu : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => funciona_pc, EH_JUMP => eh_jump, ENDERECO_JUMP => end_jump, DATA_OUT => saida_pmu);
+    pm2 : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => funciona_pc, EH_JUMP => eh_jump, ENDERECO_JUMP => end_jump, DATA_OUT => saida_pmu);
 
-    rom0 : ROMBRUNA port map (clk => clock, endereco => saida_pmu, dado => saida_rom);
+    rom2 : ROMBRUNA port map (clk => clock, endereco => saida_pmu, dado => saida_rom);
 
-    UC0 : UC port map(clock => clock, reset => reset_uc, wr => wr_uc, funciona_pc => funciona_pc, instrucao => saida_rom, endereco_destino => end_jump, jump_en => eh_jump, nop => eh_nop);
+    UC2 : UC port map(clock => clock, reset => reset_uc, wr => wr_uc, funciona_pc => funciona_pc, instrucao => saida_rom, endereco_destino => end_jump, jump_en => eh_jump, nop => eh_nop);
 end struct; 

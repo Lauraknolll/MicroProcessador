@@ -13,15 +13,12 @@ entity TopLevel is
         --elementos dos accs
         reset_acc, escreve_acc, escolhe_accA, escolhe_accB : in std_logic; --o reset é dos dois e o escreve_accs e os escolhe em conjunto são o wr_en deles
         dado_ext_escrita_acc : in unsigned(15 downto 0);
-
         --operação com cte (ADDI/SUBI), operação MOV Rn, ACC vai pro registrador, operação MOV ACC, Rn vai pro acumulador, operação de LD nos acumuladores
         op_com_cte, op_mov_p_reg, op_mov_p_acc, op_ld_acc : in std_logic;  
         cte : in unsigned(15 downto 0); --a cte que vem da instrução
-
         --elemento da ULA
         sel0, sel1 : in std_logic; --operações da ula
         carry, overflow, zero, sinal : out std_logic;
-
         --elemtentos do PC/MQE
         reset_pmu, reset_mqe, wr_mqe: in std_logic;
 
@@ -170,13 +167,13 @@ begin
     uutB : reg16bits port map (clk => clock, rst => reset_acc, wr_en => wr_en_accB, data_in => dado_escrita_acc, data_out => acc1_ula); --acumulador B
 
     --MUX da saída do banco e da cte na entrada A da ula
-   -- dado_ula <= banco_ula when op_com_cte = '0' else
-                --cte when op_com_cte = '1' else -- ADDI/SUBI
-                --(others => '0');
+    dado_ula <= banco_ula when op_com_cte = '0' else
+                cte when op_com_cte = '1' else -- ADDI/SUBI
+                (others => '0');
     --MUX da saída dos acc na entrada B da ula
-    --accs_ula <= acc0_ula when (escolhe_accA = '1') else
-                --acc1_ula when (escolhe_accB = '1') else
-                --(others => '0');
+    accs_ula <= acc0_ula when (escolhe_accA = '1') else
+                acc1_ula when (escolhe_accB = '1') else
+                (others => '0');
 
     uut1 : ULA port map (in_A => dado_ula, in_B => accs_ula, Sel0 => sel0, Sel1 => sel1, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
 
