@@ -93,21 +93,21 @@ architecture struct of TopLevel is
     end component;
     
     component un_controle is
-       port( 
+      port( 
         instrucao : in unsigned(15 downto 0);
-        acc0_ula : in unsigned(15 downto 0);
-        acc1_ula : in unsigned(15 downto 0);
-        banco_ula_UC : in unsigned(15 downto 0);
-        acc_p_ula : out unsigned(15 downto 0);
-        endereco_destino: out unsigned(6 downto 0); --esta assim no top level
         jump_en : out std_logic;
+        endereco_destino: out unsigned(6 downto 0); --esta assim no top level
         sel0_ULA : out std_logic;
         sel1_ULA : out std_logic;
-        wr_en_accA_UN : out std_logic;
-        wr_en_accB_UN : out std_logic;
+        wr_en_accA_UC : out std_logic;
+        wr_en_accB_UC : out std_logic;
         nop :out std_logic;
-        qual_reg_op : out unsigned (3 downto 0)
-        
+        op_mov_p_acc <= out std_logic;
+        op_ld_acc <= out std_logic;
+        op_mov_p_reg <= out std_logic;
+        cte : out unsigned(7 downto 0);
+        op_com_cte : out std_logic; --para o mux
+        qual_reg_op : out unsigned (3 downto 0)   
    );
     end component;
     component pc is
@@ -119,16 +119,8 @@ architecture struct of TopLevel is
         data_out : out unsigned(6 downto 0)
     );
     end component;
-    component UC is
-   port( 
-        instrucao : in unsigned(15 downto 0);
-        endereco_destino: out unsigned(6 downto 0); --esta assim no top level
-        jump_en : out std_logic;
-        nop :out std_logic
-        
-   );
-end component;
-    signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula, dado_escrita_banco, dado_escrita_acc,acc0_ula_in,acc1_ula_in, banco_ula_IN,acc_p_ula_OUT  : unsigned(15 downto 0);
+
+    signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula, dado_escrita_banco, dado_escrita_acc,acc0_ula_in,acc1_ula_in,acc_p_ula_OUT  : unsigned(15 downto 0);
     signal wr_en_accA, wr_en_accB : std_logic;
 
     ----------- do PC
@@ -138,14 +130,16 @@ end component;
     signal sel0_ULA_out, sel1_ULA_out, nop: std_logic;
     signal qual_reg_op_OUT: unsigned (3 downto 0);
     signal teve_jump, eh_nop: std_logic;
-
+    signal funciona_pc: std_logic; 
+    
 
 begin
 
     ----------------------parte do banco/accs/ULA
 
     --MUX entrada do banco
-    dado_escrita_banco <= dado_ext_escrita_banco when op_mov_p_reg = '0' else --quando é LD em algum reg
+                        --dado_ext_escrita_banco
+    dado_escrita_banco <= cte when op_mov_p_reg = '0' else --quando é LD em algum reg
                     accs_ula when op_mov_p_reg = '1' else --quando é MOV acc, reg
                     (others => '0');
 
@@ -159,8 +153,8 @@ begin
                     (others => '0');
 
     --pra só escrever quando for instrução de escrever no acc
-   wr_en_accA <=  (escolhe_accA and escreve_acc);
-    wr_en_accB <=  (escolhe_accB and escreve_acc);   
+    --wr_en_accA <=  (escolhe_accA and escreve_acc);
+    --wr_en_accB <=  (escolhe_accB and escreve_acc);   
 
     uutA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => wr_en_accA , data_in => dado_escrita_acc, data_out => acc0_ula); --acumulador A
 
@@ -180,20 +174,38 @@ begin
     --------------------parte do PC/ROM
     maq_estados : reg1bit port map (clk => clock, rst => reset_mqe, wr_en => wr_mqe, data_out => estado);
     --só atualiza o PC no estado 1
-    wr_pmu <= '1' when estado = '1' else
+    funciona_pc <= '1' when estado = '1' else
              '0';
              --coloquei para a unidade de controle receber como instrução a saida da ROM
    
     vai_p_end_ROM <= end_jump  when JUMP_EN = '1' else
                     saida_pmu2;
     --pmu : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => wr_pmu, DATA_OUT => saida_pmu);
-    pmu2 : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => wr_pmu2, DATA_OUT => saida_pmu2);
-    wr_pmu2 <= '1' when (estado = '1' and JUMP_EN = '0') else
-             '0'; 
+    pm2 : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => funciona_pc, EH_JUMP => eh_jump, ENDERECO_JUMP => end_jump, DATA_OUT => saida_pmu);
+    
+    --wr_pmu2 <= '1' when (estado = '1' and JUMP_EN = '0') else
+      --       '0'; 
     rom0 : ROMBRUNA port map (clk => clock, endereco => vai_p_end_ROM, dado => saida_rom);
-    --undidade_controle_antiga: un_controle port map ( instrucao => saida_rom, acc0_ula => acc0_ula_IN, acc1_ula =>acc1_ula_IN, 
-     --banco_ula_UC => banco_ula_IN, acc_p_ula =>acc_p_ula_OUT, endereco_destino => ENDERECO, jump_en => JUMP_EN,
-     --sel0_ULA => sel0_ULA_out, sel1_ULA => sel1_ULA_out, nop=> nop, qual_reg_op =>qual_reg_op_OUT );
+    
+    UC: un_controle port map ( instrucao => saida_rom, jump_en => JUMP_EN, endereco_destino => ENDERECO,
+    sel0_ULA => sel0_ULA_out, sel1_ULA => sel1_ULA_out, wr_en_accA_UC => wr_en_accA , wr_en_accB_UC =>wr_en_accB,
+    nop=> nop, op_mov_p_acc => op_mov_p_acc, op_ld_acc => op_ld_acc, op_mov_p_reg => op_mov_p_reg, 
+    cte => cte, op_com_cte => op_com_cte, qual_reg_op =>qual_reg_op_OUT );
 
-     UC_unid : UC port map(instrucao => saida_rom, endereco_destino => end_jump, jump_en => JUMP_EN, nop => eh_nop);
+     port( 
+        instrucao : in unsigned(15 downto 0);
+        jump_en : out std_logic;
+        endereco_destino: out unsigned(6 downto 0); --esta assim no top level
+        sel0_ULA : out std_logic;
+        sel1_ULA : out std_logic;
+        wr_en_accA_UC : out std_logic;
+        wr_en_accB_UC : out std_logic;
+        nop :out std_logic;
+        op_mov_p_acc <= std_logic;
+        op_ld_acc <= std_logic;
+        op_mov_p_reg
+        cte : out unsigned(7 downto 0);
+        op_com_cte : out std_logic; --para o mux
+        qual_reg_op : out unsigned (3 downto 0)   
+   );
 end struct; 
