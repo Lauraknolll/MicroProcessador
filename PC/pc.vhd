@@ -19,7 +19,7 @@ begin
    begin                
       if rst='1' then
          registro <= "0000000";
-      elsif rising_edge(clk) then
+      elsif falling_edge(clk) then
          if wr_en='1' then
             registro <= data_in;
          end if;

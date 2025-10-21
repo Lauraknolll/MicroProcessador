@@ -1,28 +1,34 @@
 v 4
-file . "UC/reg1bit.vhd" "c5455f6e59afdc4580374904b3848f5a393937c3" "20251017184958.247":
-  entity reg1bit at 1( 0) + 0 on 51;
-  architecture a_reg1bit of reg1bit at 14( 254) + 0 on 52;
-file . "UC/maq_estados.vhd" "c3f12bb2e55bdf62f308c491ed271d7c11da38f2" "20251017184925.927":
-  entity maq_estados at 1( 0) + 0 on 43;
-  architecture a_maq_estados of maq_estados at 11( 195) + 0 on 44;
-file . "PC/pc.vhd" "a997d45fbdb2d8d0adc63bb2f5d306f0109f7b30" "20251017225450.553":
-  entity pc at 1( 0) + 0 on 57;
-  architecture a_pc of pc at 15( 303) + 0 on 58;
-file . "TopLevel2_tb.vhd" "926b197340efd0e7791744c501ded1fe1a24e154" "20251017225450.760":
-  entity toplevel2_tb at 1( 0) + 0 on 67;
-  architecture a_toplevel2_tb of toplevel2_tb at 8( 113) + 0 on 68;
+file . "PC/pc_mais_um.vhd" "1e073973092a23824583e4b5b730310791e236d3" "20251021021234.363":
+  entity pc_mais_um at 1( 0) + 0 on 187;
+  architecture a_pc_mais_um of pc_mais_um at 13( 275) + 0 on 188;
+file . "ROM/ROMBRUNA.vhd" "a518518caa213b5e27a5a49bfa99db9668014e7e" "20251021021234.451":
+  entity rombruna at 1( 0) + 0 on 193;
+  architecture a_rombruna of rombruna at 13( 253) + 0 on 194;
+file . "UC/UC.vhd" "0d7aa9f975bc078bb828d46462c0ddaec1052261" "20251021021234.420":
+  entity uc at 1( 0) + 0 on 191;
+  architecture a_uc of uc at 17( 396) + 0 on 192;
+file . "TopLevel_tb.vhd" "4d9441570d0171af459ac4c66f73acc4941d687f" "20251021022051.624":
+  entity toplevel_tb at 1( 0) + 0 on 203;
+  architecture a_toplevek_tb of toplevel_tb at 8( 112) + 0 on 204;
 file . "TopLevel2.vhd" "74f337f55e86264cd04424c1b3d58109ac265eeb" "20251017225450.725":
   entity toplevel2 at 1( 0) + 0 on 65;
   architecture struct of toplevel2 at 12( 211) + 0 on 66;
-file . "TopLevel_tb.vhd" "f2c21e9a0d07a2197bc76c104860a710c80f875f" "20251017180816.834":
-  entity toplevel_tb at 1( 0) + 0 on 13;
-  architecture a_toplevek_tb of toplevel_tb at 8( 112) + 0 on 14;
-file . "UC/UC.vhd" "0d7aa9f975bc078bb828d46462c0ddaec1052261" "20251017225450.652":
-  entity uc at 1( 0) + 0 on 61;
-  architecture a_uc of uc at 17( 396) + 0 on 62;
-file . "ROM/ROMBRUNA.vhd" "a518518caa213b5e27a5a49bfa99db9668014e7e" "20251017225450.690":
-  entity rombruna at 1( 0) + 0 on 63;
-  architecture a_rombruna of rombruna at 13( 253) + 0 on 64;
-file . "PC/pc_mais_um.vhd" "1e073973092a23824583e4b5b730310791e236d3" "20251017225450.593":
-  entity pc_mais_um at 1( 0) + 0 on 59;
-  architecture a_pc_mais_um of pc_mais_um at 13( 275) + 0 on 60;
+file . "TopLevel2_tb.vhd" "926b197340efd0e7791744c501ded1fe1a24e154" "20251017225450.760":
+  entity toplevel2_tb at 1( 0) + 0 on 67;
+  architecture a_toplevel2_tb of toplevel2_tb at 8( 113) + 0 on 68;
+file . "PC/pc.vhd" "90336e3d887e178eca072b8b8d7de93838a9661e" "20251021021234.330":
+  entity pc at 1( 0) + 0 on 185;
+  architecture a_pc of pc at 15( 303) + 0 on 186;
+file . "UC/maq_estados.vhd" "bb372008cc24b8d00313c3b5c2f65bf38d0ad210" "20251021021234.391":
+  entity maq_estados at 1( 0) + 0 on 189;
+  architecture a_maq_estados of maq_estados at 11( 195) + 0 on 190;
+file . "UC/reg1bit.vhd" "c5455f6e59afdc4580374904b3848f5a393937c3" "20251017184958.247":
+  entity reg1bit at 1( 0) + 0 on 51;
+  architecture a_reg1bit of reg1bit at 14( 254) + 0 on 52;
+file . "UC/un_controle.vhd" "dc4dfe90221580fcd9780c06b19659479cb873fa" "20251021022103.023":
+  entity un_controle at 1( 0) + 0 on 205;
+  architecture a_un_controle of un_controle at 32( 1029) + 0 on 206;
+file . "TopLevel.vhd" "06f0de172b567066a7d4861392883230d6b2e6a4" "20251021022045.878":
+  entity toplevel at 1( 0) + 0 on 201;
+  architecture struct of toplevel at 18( 540) + 0 on 202;

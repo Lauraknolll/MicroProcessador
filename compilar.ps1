@@ -6,7 +6,8 @@ Write-Host "Iniciando compilação com GHDL..."
 # Análise (ghdl -a)
 ghdl -a PC/pc.vhd
 ghdl -a PC/pc_mais_um.vhd
-ghdl -a UC/UC.vhd
+ghdl -a UC/maq_estados.vhd
+ghdl -a UC/un_controle.vhd
 ghdl -a ROM/ROMBRUNA.vhd
 ghdl -a TopLevel.vhd
 ghdl -a TopLevel_tb.vhd
@@ -15,6 +16,7 @@ ghdl -a TopLevel_tb.vhd
 Write-Host "Executando simulação..."
 ghdl -r TopLevel_tb --wave=TopLevel_tb.ghw
 
-Write-Host "Simulação concluída! Arquivo de onda gerado: TopLevel_tb.ghw"
+#Write-Host "Simulação concluída! Arquivo de onda gerado: TopLevel_tb.ghw"
 
 Write-Host "Executando simulação..."
+gtkwave TopLevel_tb.ghw

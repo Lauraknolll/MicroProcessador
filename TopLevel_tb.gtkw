@@ -1,0 +1,87 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Tue Oct 21 02:19:29 2025
+[*]
+[dumpfile] "C:\MicroProcessador\TopLevel_tb.ghw"
+[dumpfile_mtime] "Tue Oct 21 02:00:50 2025"
+[dumpfile_size] 7386
+[savefile] "C:\MicroProcessador\TopLevel_tb.gtkw"
+[timestart] 477000000
+[size] 1366 697
+[pos] -1 -1
+*-27.608366 750000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.toplevel_tb.
+[treeopen] top.toplevel_tb.uut.
+[treeopen] top.toplevel_tb.uut.pm2.
+[treeopen] top.toplevel_tb.uut.rom0.
+[treeopen] top.toplevel_tb.uut.uc.
+[treeopen] top.toplevel_tb.uut.uc.maq_estados2.
+[sst_width] 257
+[signals_width] 230
+[sst_expanded] 1
+[sst_vpaned_height] 187
+@28
+top.toplevel_tb.uut.rom0.clk
+@24
+#{top.toplevel_tb.uut.rom0.endereco[6:0]} top.toplevel_tb.uut.rom0.endereco[6] top.toplevel_tb.uut.rom0.endereco[5] top.toplevel_tb.uut.rom0.endereco[4] top.toplevel_tb.uut.rom0.endereco[3] top.toplevel_tb.uut.rom0.endereco[2] top.toplevel_tb.uut.rom0.endereco[1] top.toplevel_tb.uut.rom0.endereco[0]
+@28
+top.toplevel_tb.uut.maq_estados.wr_en
+top.toplevel_tb.uut.maq_estados.rst
+top.toplevel_tb.uut.maq_estados.estado
+top.toplevel_tb.uut.maq_estados.data_out
+top.toplevel_tb.uut.maq_estados.clk
+@24
+#{top.toplevel_tb.uut.uc.maq_estados2.estado[2:0]} top.toplevel_tb.uut.uc.maq_estados2.estado[2] top.toplevel_tb.uut.uc.maq_estados2.estado[1] top.toplevel_tb.uut.uc.maq_estados2.estado[0]
+@22
+#{top.toplevel_tb.uut.rom0.dado[15:0]} top.toplevel_tb.uut.rom0.dado[15] top.toplevel_tb.uut.rom0.dado[14] top.toplevel_tb.uut.rom0.dado[13] top.toplevel_tb.uut.rom0.dado[12] top.toplevel_tb.uut.rom0.dado[11] top.toplevel_tb.uut.rom0.dado[10] top.toplevel_tb.uut.rom0.dado[9] top.toplevel_tb.uut.rom0.dado[8] top.toplevel_tb.uut.rom0.dado[7] top.toplevel_tb.uut.rom0.dado[6] top.toplevel_tb.uut.rom0.dado[5] top.toplevel_tb.uut.rom0.dado[4] top.toplevel_tb.uut.rom0.dado[3] top.toplevel_tb.uut.rom0.dado[2] top.toplevel_tb.uut.rom0.dado[1] top.toplevel_tb.uut.rom0.dado[0]
+@28
+top.toplevel_tb.uut.pm2.eh_jump
+top.toplevel_tb.uut.eh_jump_pmu
+@22
+#{top.toplevel_tb.uut.pm2.data_in[6:0]} top.toplevel_tb.uut.pm2.data_in[6] top.toplevel_tb.uut.pm2.data_in[5] top.toplevel_tb.uut.pm2.data_in[4] top.toplevel_tb.uut.pm2.data_in[3] top.toplevel_tb.uut.pm2.data_in[2] top.toplevel_tb.uut.pm2.data_in[1] top.toplevel_tb.uut.pm2.data_in[0]
+#{top.toplevel_tb.uut.pm2.endereco_jump[6:0]} top.toplevel_tb.uut.pm2.endereco_jump[6] top.toplevel_tb.uut.pm2.endereco_jump[5] top.toplevel_tb.uut.pm2.endereco_jump[4] top.toplevel_tb.uut.pm2.endereco_jump[3] top.toplevel_tb.uut.pm2.endereco_jump[2] top.toplevel_tb.uut.pm2.endereco_jump[1] top.toplevel_tb.uut.pm2.endereco_jump[0]
+#{top.toplevel_tb.uut.pm2.data_out[6:0]} top.toplevel_tb.uut.pm2.data_out[6] top.toplevel_tb.uut.pm2.data_out[5] top.toplevel_tb.uut.pm2.data_out[4] top.toplevel_tb.uut.pm2.data_out[3] top.toplevel_tb.uut.pm2.data_out[2] top.toplevel_tb.uut.pm2.data_out[1] top.toplevel_tb.uut.pm2.data_out[0]
+@28
+#{top.toplevel_tb.uut.saida_rom[15:0]} top.toplevel_tb.uut.saida_rom[15] top.toplevel_tb.uut.saida_rom[14] top.toplevel_tb.uut.saida_rom[13] top.toplevel_tb.uut.saida_rom[12] top.toplevel_tb.uut.saida_rom[11] top.toplevel_tb.uut.saida_rom[10] top.toplevel_tb.uut.saida_rom[9] top.toplevel_tb.uut.saida_rom[8] top.toplevel_tb.uut.saida_rom[7] top.toplevel_tb.uut.saida_rom[6] top.toplevel_tb.uut.saida_rom[5] top.toplevel_tb.uut.saida_rom[4] top.toplevel_tb.uut.saida_rom[3] top.toplevel_tb.uut.saida_rom[2] top.toplevel_tb.uut.saida_rom[1] top.toplevel_tb.uut.saida_rom[0]
+@22
+#{top.toplevel_tb.uut.endereco[6:0]} top.toplevel_tb.uut.endereco[6] top.toplevel_tb.uut.endereco[5] top.toplevel_tb.uut.endereco[4] top.toplevel_tb.uut.endereco[3] top.toplevel_tb.uut.endereco[2] top.toplevel_tb.uut.endereco[1] top.toplevel_tb.uut.endereco[0]
+@201
+-uut top leve tb
+@22
+#{top.toplevel_tb.uut.end_jump[6:0]} top.toplevel_tb.uut.end_jump[6] top.toplevel_tb.uut.end_jump[5] top.toplevel_tb.uut.end_jump[4] top.toplevel_tb.uut.end_jump[3] top.toplevel_tb.uut.end_jump[2] top.toplevel_tb.uut.end_jump[1] top.toplevel_tb.uut.end_jump[0]
+@c00022
+#{top.toplevel_tb.saida_rom[15:0]} top.toplevel_tb.saida_rom[15] top.toplevel_tb.saida_rom[14] top.toplevel_tb.saida_rom[13] top.toplevel_tb.saida_rom[12] top.toplevel_tb.saida_rom[11] top.toplevel_tb.saida_rom[10] top.toplevel_tb.saida_rom[9] top.toplevel_tb.saida_rom[8] top.toplevel_tb.saida_rom[7] top.toplevel_tb.saida_rom[6] top.toplevel_tb.saida_rom[5] top.toplevel_tb.saida_rom[4] top.toplevel_tb.saida_rom[3] top.toplevel_tb.saida_rom[2] top.toplevel_tb.saida_rom[1] top.toplevel_tb.saida_rom[0]
+@28
+top.toplevel_tb.saida_rom[15]
+top.toplevel_tb.saida_rom[14]
+top.toplevel_tb.saida_rom[13]
+top.toplevel_tb.saida_rom[12]
+top.toplevel_tb.saida_rom[11]
+top.toplevel_tb.saida_rom[10]
+top.toplevel_tb.saida_rom[9]
+top.toplevel_tb.saida_rom[8]
+top.toplevel_tb.saida_rom[7]
+top.toplevel_tb.saida_rom[6]
+top.toplevel_tb.saida_rom[5]
+top.toplevel_tb.saida_rom[4]
+top.toplevel_tb.saida_rom[3]
+top.toplevel_tb.saida_rom[2]
+top.toplevel_tb.saida_rom[1]
+top.toplevel_tb.saida_rom[0]
+@1401200
+-group_end
+@c00022
+#{top.toplevel_tb.uut.endereco_jump[6:0]} top.toplevel_tb.uut.endereco_jump[6] top.toplevel_tb.uut.endereco_jump[5] top.toplevel_tb.uut.endereco_jump[4] top.toplevel_tb.uut.endereco_jump[3] top.toplevel_tb.uut.endereco_jump[2] top.toplevel_tb.uut.endereco_jump[1] top.toplevel_tb.uut.endereco_jump[0]
+@28
+top.toplevel_tb.uut.endereco_jump[6]
+top.toplevel_tb.uut.endereco_jump[5]
+top.toplevel_tb.uut.endereco_jump[4]
+top.toplevel_tb.uut.endereco_jump[3]
+top.toplevel_tb.uut.endereco_jump[2]
+top.toplevel_tb.uut.endereco_jump[1]
+top.toplevel_tb.uut.endereco_jump[0]
+@1401200
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0
