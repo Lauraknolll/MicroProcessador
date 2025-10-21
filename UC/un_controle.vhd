@@ -46,7 +46,7 @@ begin                                                     --reset  --wr_en => wr
    maq_estados2 : maq_estados port map (clk => clock, rst => reset_UC,  estado => estado);
     
     --só atualiza o pc em 1
-   funciona_pc <= '1' when not((estado = "000")) else
+   funciona_pc <= '1' when (estado = "001") else
              '0'; 
 
    -- coloquei o opcode nos 4 bits MSB
@@ -91,8 +91,10 @@ begin                                                     --reset  --wr_en => wr
                      '1' when((opcode="1110") and (instrucao(6)= '1')) else --MOV PARA ACC
                      '0';
 
-    wr_en_accA_UC <=  ((escolhe_acc_A) and (escreve_acc));
-    wr_en_accB_UC <=  ((escolhe_acc_B) and (escreve_acc));
+    wr_en_accA_UC <=  '1' when ((escolhe_acc_A = '1') and (escreve_acc ='1') and (estado = "010")) else
+                        '0';
+    wr_en_accB_UC <=  '1' when ((escolhe_acc_B ='1') and (escreve_acc = '1')  and (estado = "010")) else
+                        '0';
 
     nop<= '1' when opcode ="1000" else
             '0';

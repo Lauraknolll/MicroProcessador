@@ -143,7 +143,7 @@ begin
                     accs_ula when op_mov_p_reg = '1' else --quando é MOV acc, reg
                     (others => '0');
 
-    uut0 : BancoReg port map (clk_b => clock, rst_b => reset_b, wr_en => escreve_banco, sel_reg_wr => qual_reg_escreve_OUT, sel_reg_rd => qual_reg_op_OUT, data_wr => dado_escrita_banco, data_out_b => banco_ula);
+    Banco : BancoReg port map (clk_b => clock, rst_b => reset_b, wr_en => escreve_banco, sel_reg_wr => qual_reg_escreve_OUT, sel_reg_rd => qual_reg_op_OUT, data_wr => dado_escrita_banco, data_out_b => banco_ula);
     
      
     --MUX entrada dos acumuladores A e B
@@ -156,9 +156,9 @@ begin
     --wr_en_accA <=  (escolhe_accA and escreve_acc);
     --wr_en_accB <=  (escolhe_accB and escreve_acc);   
 
-    uutA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => wr_en_accA , data_in => dado_escrita_acc, data_out => acc0_ula); --acumulador A
+    uutaccA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => wr_en_accA , data_in => dado_escrita_acc, data_out => acc0_ula); --acumulador A
 
-    uutB : reg16bits port map (clk => clock, rst => reset_acc, wr_en => wr_en_accB, data_in => dado_escrita_acc, data_out => acc1_ula); --acumulador B
+    uutaccB : reg16bits port map (clk => clock, rst => reset_acc, wr_en => wr_en_accB, data_in => dado_escrita_acc, data_out => acc1_ula); --acumulador B
 
     --MUX da saída do banco e da cte na entrada A da ula
     dado_ula <= banco_ula when op_com_cte = '0' else
@@ -169,7 +169,7 @@ begin
                 acc1_ula when (escolhe_accB = '1') else
                 (others => '0');
 
-    uut1 : ULA port map (in_A => dado_ula, in_B => accs_ula, Sel0 => sel0_ULA_out, Sel1 => sel1_ULA_out, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
+    ULA_comp : ULA port map (in_A => dado_ula, in_B => accs_ula, Sel0 => sel0_ULA_out, Sel1 => sel1_ULA_out, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
 
     --------------------parte do PC/ROM
     maq_estados : reg1bit port map (clk => clock, rst => reset_mqe, wr_en => wr_mqe, data_out => estado);
