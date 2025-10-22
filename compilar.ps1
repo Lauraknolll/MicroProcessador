@@ -13,6 +13,7 @@ ghdl -a PC/pc_mais_um.vhd
 ghdl -a UC/maq_estados.vhd
 ghdl -a UC/un_controle.vhd
 ghdl -a ROM/ROMBRUNA.vhd
+ghdl -a ROM/ROM.vhd
 ghdl -a TopLevel.vhd
 ghdl -a TopLevel_tb.vhd
 
