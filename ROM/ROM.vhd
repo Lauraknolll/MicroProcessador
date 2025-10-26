@@ -14,7 +14,7 @@ architecture a_ROM of ROM is
    type mem is array (0 to 127) of unsigned(15 downto 0);
    constant conteudo_rom : mem := (
       -- caso endereco => conteudo
-      0  => "1100001100000101", -- LD R3, 5 (A : Carrega R3 com  5)
+      0  => "1100001100000101", -- LD R3, 5 (A : Carrega R3 com 5)
 
       1  => "1100010000001000", -- LD R4, 8 (B : Carrega R4 com 8)
 
@@ -41,7 +41,7 @@ architecture a_ROM of ROM is
       20 => "1110000110000000", -- MOV DO A (Q TEM R5) PRO R3 (G : copia R5 para R3)
 
       21 => "1111000000000010", -- JUMP pra 2 (H : Salta para o passo C)
-      
+
       22 => "1100001100000000", -- LD R3, 0 (I : Zera R3)
       -- abaixo: casos omissos => (zero em todos os bits)
       others => (others=>'0')
