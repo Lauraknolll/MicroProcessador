@@ -39,6 +39,7 @@ architecture a_ROMBRUNA of ROMBRUNA is
       10  => "1111011110010000", -- é jump e endereco 16
       11 => "1110111110000011", -- NÃO é jump e endereco 0000011
       16 => "0000000000000000",
+      64 => "0000000000000000",
       -- abaixo: casos omissos => (zero em todos os bits)
       others => (others=>'0')
    );

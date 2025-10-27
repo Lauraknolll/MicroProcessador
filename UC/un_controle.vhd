@@ -35,6 +35,7 @@ architecture a_un_controle of un_controle is
    signal escolhe_acc_A :  std_logic;
    signal  escolhe_acc_B :  std_logic;
    signal  escreve_acc :  std_logic;
+   signal  reset_mqe :  std_logic;
    component maq_estados is
       port( clk,rst: in std_logic;
          estado: out unsigned(2 downto 0)
@@ -42,8 +43,9 @@ architecture a_un_controle of un_controle is
    end component;
    signal estado : unsigned (2 downto 0);
 
-begin                                                     --reset  --wr_en => wr_mqe,
-   maq_estados2 : maq_estados port map (clk => clock, rst => reset_UC,  estado => estado);
+begin      
+   reset_mqe <= reset_UC;                                     --reset  --wr_en => wr_mqe,
+   maq_estados2 : maq_estados port map (clk => clock, rst => reset_mqe,  estado => estado);
     
     --só atualiza o pc em 1
    funciona_pc <= '1' when (estado = "001") else

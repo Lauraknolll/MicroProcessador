@@ -1,12 +1,12 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Tue Oct 21 13:40:44 2025
+[*] Tue Oct 21 14:10:04 2025
 [*]
 [dumpfile] "C:\MicroProcessador\TopLevel_tb.ghw"
-[dumpfile_mtime] "Tue Oct 21 13:28:07 2025"
-[dumpfile_size] 13048
+[dumpfile_mtime] "Tue Oct 21 14:06:14 2025"
+[dumpfile_size] 13066
 [savefile] "C:\MicroProcessador\TopLevel_tb.gtkw"
-[timestart] 4532100000
+[timestart] 704900000
 [size] 1366 697
 [pos] -1 -1
 *-26.608366 4057900000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
@@ -114,7 +114,7 @@ top.toplevel_tb.uut.acc1_ula[2]
 top.toplevel_tb.uut.acc1_ula[1]
 [color] 2
 top.toplevel_tb.uut.acc1_ula[0]
-@1401204
+@1401200
 -group_end
 @24
 #{top.toplevel_tb.uut.pm2.data_in[6:0]} top.toplevel_tb.uut.pm2.data_in[6] top.toplevel_tb.uut.pm2.data_in[5] top.toplevel_tb.uut.pm2.data_in[4] top.toplevel_tb.uut.pm2.data_in[3] top.toplevel_tb.uut.pm2.data_in[2] top.toplevel_tb.uut.pm2.data_in[1] top.toplevel_tb.uut.pm2.data_in[0]
@@ -130,7 +130,7 @@ top.toplevel_tb.uut.pm2.endereco_jump[1]
 top.toplevel_tb.uut.pm2.endereco_jump[0]
 @1401200
 -group_end
-@201
+@200
 -do pm2
 @24
 #{top.toplevel_tb.uut.pm2.data_out[6:0]} top.toplevel_tb.uut.pm2.data_out[6] top.toplevel_tb.uut.pm2.data_out[5] top.toplevel_tb.uut.pm2.data_out[4] top.toplevel_tb.uut.pm2.data_out[3] top.toplevel_tb.uut.pm2.data_out[2] top.toplevel_tb.uut.pm2.data_out[1] top.toplevel_tb.uut.pm2.data_out[0]
@@ -160,7 +160,7 @@ top.toplevel_tb.uut.ula_comp.resultado[3]
 top.toplevel_tb.uut.ula_comp.resultado[2]
 top.toplevel_tb.uut.ula_comp.resultado[1]
 top.toplevel_tb.uut.ula_comp.resultado[0]
-@1401204
+@1401200
 -group_end
 @c00024
 #{top.toplevel_tb.uut.ula_comp.in_a[15:0]} top.toplevel_tb.uut.ula_comp.in_a[15] top.toplevel_tb.uut.ula_comp.in_a[14] top.toplevel_tb.uut.ula_comp.in_a[13] top.toplevel_tb.uut.ula_comp.in_a[12] top.toplevel_tb.uut.ula_comp.in_a[11] top.toplevel_tb.uut.ula_comp.in_a[10] top.toplevel_tb.uut.ula_comp.in_a[9] top.toplevel_tb.uut.ula_comp.in_a[8] top.toplevel_tb.uut.ula_comp.in_a[7] top.toplevel_tb.uut.ula_comp.in_a[6] top.toplevel_tb.uut.ula_comp.in_a[5] top.toplevel_tb.uut.ula_comp.in_a[4] top.toplevel_tb.uut.ula_comp.in_a[3] top.toplevel_tb.uut.ula_comp.in_a[2] top.toplevel_tb.uut.ula_comp.in_a[1] top.toplevel_tb.uut.ula_comp.in_a[0]
