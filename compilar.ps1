@@ -13,14 +13,15 @@ ghdl -a PC/pc_mais_um.vhd
 ghdl -a UC/maq_estados.vhd
 ghdl -a UC/un_controle.vhd
 ghdl -a ROM/ROMBRUNA.vhd
+ghdl -a ROM/ROM.vhd
 ghdl -a TopLevel.vhd
-ghdl -a TopLevel_tb.vhd
+ghdl -a processador_tb.vhd
 
 # Elaboração e execução (ghdl -r)
 Write-Host "Executando simulação..."
-ghdl -r TopLevel_tb --wave=TopLevel_tb.ghw
+ghdl -r processador_tb --wave=processador_tb.ghw
 
-#Write-Host "Simulação concluída! Arquivo de onda gerado: TopLevel_tb.ghw"
+#Write-Host "Simulação concluída! Arquivo de onda gerado: processador_tb.ghw"
 
 Write-Host "Executando simulação..."
-gtkwave TopLevel_tb.ghw
+gtkwave processador_tb.ghw

@@ -2,41 +2,34 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity TopLevel_tb is
+entity processador_tb is
 end entity;
 
-architecture a_TopLevek_tb of TopLevel_tb is
+architecture a_processador_tb of processador_tb is
 
     component TopLevel is
     port (
         clock : in std_logic;
-        reset_b : in std_logic; --escreve banco é o write enable do banco
-        reset_UC : in std_logic;
-        --elementos dos accs
-        reset_acc: in std_logic; --o reset é dos dois e o escreve_accs e os escolhe em conjunto são o wr_en deles
-        --elementos do PC
-        reset_pmu, reset_mqe, wr_mqe: in std_logic
+        reset_b, reset_UC, reset_acc, reset_pmu, reset_mqe, reset_ir, wr_mqe : in std_logic
     );
     end component;
 
     signal clock, reset_b, reset_acc, escreve_banco, escolhe_accA, escolhe_accB, escreve_acc, sel0, sel1, carry, overflow, zero, sinal, finished, op_com_cte, op_mov_p_reg, op_mov_p_acc, op_ld_acc  : std_logic;
-    signal dado_ext_escrita_banco, dado_ext_escrita_acc, cte, saida_rom, INSTRU_GLOBAL : unsigned(15 downto 0); 
-    signal qual_reg_escreve, qual_reg_le : unsigned(3 downto 0);
     -----
-    signal reset_pmu, wr_pmu, reset_mqe, wr_mqe, reset_UC : std_logic;
+    signal reset_pmu, wr_pmu, reset_mqe, wr_mqe, reset_UC, reset_ir : std_logic;
 
 begin
     uut : TopLevel port map (clock => clock,  reset_b => reset_b, reset_UC => reset_UC, reset_acc => reset_acc, 
-    reset_pmu => reset_pmu, reset_mqe => reset_mqe, wr_mqe => wr_mqe);
+    reset_pmu => reset_pmu, reset_mqe => reset_mqe, wr_mqe => wr_mqe, reset_ir => reset_ir);
 
     reset_global: process
     begin
-        --wr_pmu <= '1';
         reset_b <= '1';
         reset_acc <= '1';
         reset_pmu <= '1';
         reset_mqe <= '1';
         reset_UC <= '1';
+        reset_ir <= '1';
         wait for 100 ns;
          
         reset_UC <= '0';
@@ -45,21 +38,14 @@ begin
         reset_pmu <= '0';
         reset_mqe <= '0';
         wr_mqe <= '1';
-            --seta as coisas em zero pra não ficar indefinido
-        --escolhe_accA <= '0';
-        --escolhe_accB <= '0'; 
-        --op_com_cte <= '0';
-        --op_mov_p_reg <= '0';
-        --op_mov_p_acc <= '0';
-        --op_ld_acc <= '0';
-        --escreve_banco <= '0';
+        reset_ir <= '0';
         wait for 100 ns;
         wait;
     end process;
 
     sim_time_proc: process
     begin
-        wait for 10 us;         -- <== TEMPO TOTAL DA SIMULAÇÃO!!!
+        wait for 20 us;         -- <== TEMPO TOTAL DA SIMULAÇÃO!!!
         finished <= '1';
         wait;
     end process sim_time_proc;
@@ -74,14 +60,5 @@ begin
         end loop;
         wait;
     end process clk_proc;
-
-    --o que importa é o data_out dos acumuladores, porque isso que diz se o valor da instrução foi guardado neles
-
-    process                      -- sinais dos casos de teste (p.ex.)
-    begin
-      
-      wait;                    
-   end process;
-
 
 end architecture;
