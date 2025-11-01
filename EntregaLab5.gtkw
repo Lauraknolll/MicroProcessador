@@ -1,19 +1,20 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Sun Oct 26 17:13:43 2025
+[*] Sat Nov 01 17:40:45 2025
 [*]
 [dumpfile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\processador_tb.ghw"
-[dumpfile_mtime] "Sun Oct 26 17:10:33 2025"
-[dumpfile_size] 20455
+[dumpfile_mtime] "Sat Nov 01 17:40:16 2025"
+[dumpfile_size] 21119
 [savefile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\EntregaLab5.gtkw"
 [timestart] 0
 [size] 1536 793
-[pos] -191 -191
+[pos] -1 -1
 *-28.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.processador_tb.
 [treeopen] top.processador_tb.uut.
 [treeopen] top.processador_tb.uut.banco.r10.
+[treeopen] top.processador_tb.uut.pc0.
 [sst_width] 197
 [signals_width] 174
 [sst_expanded] 1
@@ -24,7 +25,6 @@
 top.processador_tb.uut.reset_uc
 top.processador_tb.uut.reset_ir
 top.processador_tb.uut.reset_mqe
-top.processador_tb.uut.reset_pmu
 top.processador_tb.uut.reset_acc
 top.processador_tb.uut.reset_b
 top.processador_tb.uut.uc.clock
@@ -32,8 +32,8 @@ top.processador_tb.uut.uc.clock
 #{top.processador_tb.uut.uc.maq_estados2.estado[2:0]} top.processador_tb.uut.uc.maq_estados2.estado[2] top.processador_tb.uut.uc.maq_estados2.estado[1] top.processador_tb.uut.uc.maq_estados2.estado[0]
 @200
 -PC
-@24
-#{top.processador_tb.uut.pmu.data_out[6:0]} top.processador_tb.uut.pmu.data_out[6] top.processador_tb.uut.pmu.data_out[5] top.processador_tb.uut.pmu.data_out[4] top.processador_tb.uut.pmu.data_out[3] top.processador_tb.uut.pmu.data_out[2] top.processador_tb.uut.pmu.data_out[1] top.processador_tb.uut.pmu.data_out[0]
+@25
+#{top.processador_tb.uut.pc0.data_out[6:0]} top.processador_tb.uut.pc0.data_out[6] top.processador_tb.uut.pc0.data_out[5] top.processador_tb.uut.pc0.data_out[4] top.processador_tb.uut.pc0.data_out[3] top.processador_tb.uut.pc0.data_out[2] top.processador_tb.uut.pc0.data_out[1] top.processador_tb.uut.pc0.data_out[0]
 @200
 -IR
 @22

@@ -9,7 +9,11 @@ entity un_controle is
 
       reset_UC : in std_logic;
       wr_mqe : in std_logic;
+      
+      carry, overflow, negativo, zero : in std_logic;
+
       wr_ir : out std_logic;
+      wr_en_flags : out std_logic;
 
       eh_jump : out std_logic;
       endereco_destino: out unsigned(6 downto 0); --esta assim no top level
@@ -32,7 +36,7 @@ entity un_controle is
       qual_reg_le : out unsigned (3 downto 0);
       qual_reg_escreve : out unsigned (3 downto 0);
       escreve_banco: out std_logic;
-      funciona_pc : out std_logic
+      wr_en_pc : out std_logic
    );
 end entity;
 
@@ -55,7 +59,7 @@ begin
    maq_estados2 : maq_estados port map (clk => clock, rst => reset_UC, estado => estado);
     
    --só atualiza o pc no estado 3 depois que já usou (mas quando já tem a informação se é jump ou não)
-   funciona_pc <= '1' when (estado = "011") else
+   wr_en_pc <= '1' when (estado = "011") else
                   '0'; 
 
    -- coloquei o opcode nos 4 bits MSB

@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity TopLevel is
     port (
         clock : in std_logic;
-        reset_b, reset_UC, reset_acc, reset_pmu, reset_mqe, reset_ir, wr_mqe : in std_logic
+        reset_b, reset_UC, reset_acc, reset_pc, reset_mqe, reset_ir, reset_flags, wr_mqe : in std_logic
     );
 end entity;
 
@@ -42,14 +42,6 @@ architecture a_TopLevel of TopLevel is
         );
     end component;
 
-    component pc_mais_um is
-    port(
-        CLK, RST, WR_EN, EH_JUMP : in std_logic;
-        ENDERECO_JUMP : in unsigned(6 downto 0);
-        DATA_OUT : out unsigned(6 downto 0)
-    );
-    end component;
-
     component ROM is
     port( 
         clk      : in std_logic;
@@ -82,7 +74,11 @@ architecture a_TopLevel of TopLevel is
 
         reset_UC : in std_logic;
         wr_mqe : in std_logic;
+
+        carry, overflow, negativo, zero : in std_logic;
+
         wr_ir : out std_logic;
+        wr_en_flags : out std_logic;
 
         eh_jump : out std_logic;
         endereco_destino: out unsigned(6 downto 0); --esta assim no top level
@@ -105,7 +101,7 @@ architecture a_TopLevel of TopLevel is
         qual_reg_le : out unsigned (3 downto 0);
         qual_reg_escreve : out unsigned (3 downto 0);
         escreve_banco: out std_logic;
-        funciona_pc : out std_logic
+        wr_en_pc : out std_logic
    );
     end component;
 
@@ -119,15 +115,26 @@ architecture a_TopLevel of TopLevel is
     );
     end component;
 
+    component reg4bits is
+    port( 
+        clk      : in std_logic;
+        rst      : in std_logic;
+        wr_en    : in std_logic;
+        c_in, v_in, n_in, z_in  : in std_logic;
+        c_out, v_out, n_out, z_out : out std_logic
+    );
+    end component;
+
     signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula, dado_escrita_banco, dado_escrita_acc  : unsigned(15 downto 0);
     signal wr_en_accA, wr_en_accB, escolhe_accA, escolhe_accB : std_logic;
 
     signal wr_ir, escreve_banco: std_logic; 
-    signal saida_pmu, endereco_ROM: unsigned(6 downto 0) := (others => '0');
+    signal pc_in, endereco_ROM: unsigned(6 downto 0) := (others => '0');
     signal rom_ir, ir_uc, cte : unsigned(15 downto 0);
     signal carry, zero, overflow, sinal, sel0_ULA_out, sel1_ULA_out : std_logic;
+    signal wr_en_flags, carry_out, overflow_out, negativo_out, zero_out : std_logic;
     signal qual_reg_le_OUT, qual_reg_escreve_OUT: unsigned (3 downto 0);
-    signal eh_jump, eh_nop, funciona_pc, op_com_cte: std_logic; 
+    signal eh_jump, eh_nop, wr_en_pc, op_com_cte: std_logic; 
     signal op_ld_acc, op_mov_p_reg, op_mov_p_acc: std_logic;
     signal endereco_jump : unsigned(6 downto 0);
 
@@ -163,13 +170,17 @@ begin
 
     ULA_comp : ULA port map (in_A => dado_ula, in_B => accs_ula, Sel0 => sel0_ULA_out, Sel1 => sel1_ULA_out, Resultado => ula_accs, Carry => carry, Overflow => overflow, Zero => zero, Sinal => sinal);
 
+    flags : reg4bits port map (clk => clock, rst => reset_flags, wr_en => wr_en_flags, c_in => carry, v_in => overflow, n_in => sinal, z_in => zero, c_out => carry_out, v_out => overflow_out, n_out => negativo_out, z_out => zero_out);
+
     --------------------parte do PC/ROM
    
-    pmu : pc_mais_um port map (CLK => clock, RST => reset_pmu, WR_EN => funciona_pc, EH_JUMP => eh_jump, ENDERECO_JUMP => endereco_jump, DATA_OUT => saida_pmu);
+    --mux entrada do endereço do pc
+    pc_in <= endereco_jump when eh_jump = '1' else 
+            --(endereco_ROM + offset) when eh_branch = '1' else 
+            (endereco_ROM + 1); --próxima instrução normal
 
-    --mux entrada do endereço da ROM
-    endereco_ROM <= endereco_jump  when eh_jump = '1' else
-                    saida_pmu;
+    pc0 : pc port map(clk => clock, rst => reset_pc, wr_en => wr_en_pc, data_in => pc_in, data_out => endereco_ROM);
+
     rom0 : ROM port map (clk => clock, endereco => endereco_ROM, dado => rom_ir);
 
     IR : reg16bits port map (clk => clock, rst => reset_ir, wr_en => wr_ir, data_in => rom_ir, data_out => ir_uc);
@@ -179,6 +190,7 @@ begin
     escolhe_accA => escolhe_accA, escolhe_accB => escolhe_accB , wr_en_accA_UC => wr_en_accA , wr_en_accB_UC =>wr_en_accB,
     eh_nop=> eh_nop, op_mov_p_acc => op_mov_p_acc, op_ld_acc => op_ld_acc, op_mov_p_reg => op_mov_p_reg, 
     cte => cte, op_com_cte => op_com_cte, qual_reg_le => qual_reg_le_OUT, qual_reg_escreve => qual_reg_escreve_OUT, 
-    escreve_banco=> escreve_banco,  funciona_pc => funciona_pc, wr_ir => wr_ir);
+    escreve_banco=> escreve_banco,  wr_en_pc => wr_en_pc, wr_ir => wr_ir, carry => carry_out, overflow => overflow_out,
+    negativo => negativo_out, zero => zero_out, wr_en_flags => wr_en_flags);
 
 end a_TopLevel; 
