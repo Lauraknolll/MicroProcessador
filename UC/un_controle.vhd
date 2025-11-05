@@ -18,6 +18,10 @@ entity un_controle is
       eh_jump : out std_logic;
       endereco_destino: out unsigned(6 downto 0); --esta assim no top level
 
+      eh_comparacao : out std_logic;
+      eh_branch : out std_logic;
+      endereco_branch_relativo: out unsigned(6 downto 0); 
+
       sel0_ULA : out std_logic;
       sel1_ULA : out std_logic;
       escolhe_accA :out std_logic;
@@ -74,7 +78,19 @@ begin
                '0';
    endereco_destino <= instrucao(6 downto 0) when opcode = "1111" else
                         "0000000";
-   
+   --operação branch
+   endereco_branch_relativo<= instrucao(6 downto 0) when opcode = "1010" else -- BGE
+                              instrucao(6 downto 0) when opcode = "1011" else -- BHI
+                              "0000000";
+                              -- BGE                                       -- BHI                                          --  AND estado = "100"
+   eh_branch <= '1' when (((opcode = "1010" and negativo = overflow ) OR (opcode = "1011" and carry = '0' and zero = '0') ))else
+                  '0';
+   eh_comparacao <= '1' when opcode ="1001" else
+                     '0';
+                         -- (opcode = "1010"  OR opcode = "1011")
+                         -- eh_comparacao
+   wr_en_flags <= '1' when ( opcode ="1001"and estado = "011") else --
+                   '0';
    --operação de nop
    eh_nop<= '1' when opcode ="0000" else
             '0';
@@ -83,9 +99,11 @@ begin
    escolhe_acc_A <= not(instrucao(11)); --and (not(opcode = "1101"))and (not(opcode = "1100")) -- não é MOV nem LD
    escolhe_acc_B <= instrucao(11); 
 
-   sel0_ULA <= '0' when (opcode = "0100" OR opcode = "0010" OR opcode = "0110") else --ADD OU ADDI ou AND
+                                                                                   
+   sel0_ULA <= '0' when (opcode = "0100" OR opcode = "0010" OR opcode = "0110" ) else --ADD OU ADDI ou AND
                   '1';
-   sel1_ULA <= '0' when (opcode = "0101" OR opcode = "0011" OR opcode = "0010" OR opcode = "0100") else --SUB OU SUBI ou ADD ou ADDI
+                                                                                                       -- comp
+   sel1_ULA <= '0' when (opcode = "0101" OR opcode = "0011" OR opcode = "0010" OR opcode = "0100" OR opcode = "1001") else --SUB OU SUBI ou ADD ou ADDI ou COMP
                   '1';
 
 
@@ -107,6 +125,7 @@ begin
                   ( instrucao(10 downto 7)) when (opcode="0110") else  --AND
                   --( instrucao(11 downto 8)) when (opcode="1100") else  --LD REG
                   ( instrucao(10 downto 7)) when (opcode="1110") else  --MOV
+                  ( instrucao(10 downto 7)) when (opcode="1001") else  -- COMP
                   "0000";
 
    escreve_acc <= '1' when(opcode="0100") else --ADD

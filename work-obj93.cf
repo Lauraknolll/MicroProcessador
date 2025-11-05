@@ -1,46 +1,46 @@
 v 4
-file . "reg4bits.vhd" "d87fb931ee613d87d43d0950418675ac363a9b9d" "20251101184204.242":
-  entity reg4bits at 1( 0) + 0 on 1585;
-  architecture a_reg4bits of reg4bits at 15( 320) + 0 on 1586;
-file . "UC/reg1bit.vhd" "c5455f6e59afdc4580374904b3848f5a393937c3" "20251101184203.801":
-  entity reg1bit at 1( 0) + 0 on 1573;
-  architecture a_reg1bit of reg1bit at 14( 254) + 0 on 1574;
-file . "BANCO/reg16bits.vhd" "ff8870877524428b41dad86b806dc852ce1ff425" "20251101184203.650":
-  entity reg16bits at 1( 0) + 0 on 1567;
-  architecture a_reg16bits of reg16bits at 15( 312) + 0 on 1568;
-file . "TopLevel.vhd" "f9bcd9a1f695adf47f21519b5367e630e0e4f36d" "20251101184204.324":
-  entity toplevel at 1( 0) + 0 on 1587;
-  architecture a_toplevel of toplevel at 12( 265) + 0 on 1588;
-file . "UC/un_controle.vhd" "269d9b2692c948dd8109ea020b14ab929ca96737" "20251101184203.949":
-  entity un_controle at 1( 0) + 0 on 1579;
-  architecture a_un_controle of un_controle at 43( 1128) + 0 on 1580;
-file . "PC/pc_mais_um.vhd" "1e073973092a23824583e4b5b730310791e236d3" "20251026171347.391":
-  entity pc_mais_um at 1( 0) + 0 on 1449;
-  architecture a_pc_mais_um of pc_mais_um at 13( 275) + 0 on 1450;
-file . "PC/pc.vhd" "90336e3d887e178eca072b8b8d7de93838a9661e" "20251101184203.837":
-  entity pc at 1( 0) + 0 on 1575;
-  architecture a_pc of pc at 15( 303) + 0 on 1576;
-file . "UC/maq_estados.vhd" "ff13847370a0abea5f07dc6a47671ddc2495c944" "20251101184203.875":
-  entity maq_estados at 1( 0) + 0 on 1577;
-  architecture a_maq_estados of maq_estados at 12( 201) + 0 on 1578;
-file . "ROM/ROMBRUNA.vhd" "d52ee42eced5c7c9b5ee2af541f169db0cedf1cf" "20251101184203.986":
-  entity rombruna at 1( 0) + 0 on 1581;
-  architecture a_rombruna of rombruna at 13( 253) + 0 on 1582;
-file . "TopLevel_tb.vhd" "56169c67e2d732d221a4d58aaaaa83f7b6559446" "20251026154016.994":
-  entity toplevel_tb at 1( 0) + 0 on 1277;
-  architecture a_toplevek_tb of toplevel_tb at 8( 112) + 0 on 1278;
+file . "processador_tb.vhd" "9513b82378f46bf6048c5c66c257a637985baaa8" "20251105184841.045":
+  entity processador_tb at 1( 0) + 0 on 1759;
+  architecture a_processador_tb of processador_tb at 8( 115) + 0 on 1760;
+file . "ROM/ROM.vhd" "c5de0b534b5bf129d832c0fe9ebc9320b37aa360" "20251105184840.936":
+  entity rom at 1( 0) + 0 on 1753;
+  architecture a_rom of rom at 13( 248) + 0 on 1754;
+file . "BANCO/BancoReg.vhd" "1dbff79a39ff66ab3ddcfe27d776041f54c41d3a" "20251105184840.702":
+  entity bancoreg at 1( 0) + 0 on 1743;
+  architecture a_bancoreg of bancoreg at 17( 650) + 0 on 1744;
+file . "ULA/ULA.vhd" "0d431589f02b33afae6522ff406aa0378da35491" "20251105184840.773":
+  entity ula at 1( 0) + 0 on 1747;
+  architecture struct of ula at 14( 309) + 0 on 1748;
 file . "UC/UC.vhd" "0d7aa9f975bc078bb828d46462c0ddaec1052261" "20251026171347.451":
   entity uc at 1( 0) + 0 on 1453;
   architecture a_uc of uc at 17( 396) + 0 on 1454;
-file . "ULA/ULA.vhd" "0d431589f02b33afae6522ff406aa0378da35491" "20251101184203.770":
-  entity ula at 1( 0) + 0 on 1571;
-  architecture struct of ula at 14( 309) + 0 on 1572;
-file . "BANCO/BancoReg.vhd" "1dbff79a39ff66ab3ddcfe27d776041f54c41d3a" "20251101184203.726":
-  entity bancoreg at 1( 0) + 0 on 1569;
-  architecture a_bancoreg of bancoreg at 17( 650) + 0 on 1570;
-file . "ROM/ROM.vhd" "92ad04a40b98964113a5959daa2482ceef3e3820" "20251101184204.157":
-  entity rom at 1( 0) + 0 on 1583;
-  architecture a_rom of rom at 13( 248) + 0 on 1584;
-file . "processador_tb.vhd" "9513b82378f46bf6048c5c66c257a637985baaa8" "20251101184204.471":
-  entity processador_tb at 1( 0) + 0 on 1589;
-  architecture a_processador_tb of processador_tb at 8( 115) + 0 on 1590;
+file . "TopLevel_tb.vhd" "56169c67e2d732d221a4d58aaaaa83f7b6559446" "20251026154016.994":
+  entity toplevel_tb at 1( 0) + 0 on 1277;
+  architecture a_toplevek_tb of toplevel_tb at 8( 112) + 0 on 1278;
+file . "ROM/ROMBRUNA.vhd" "d52ee42eced5c7c9b5ee2af541f169db0cedf1cf" "20251105184759.394":
+  entity rombruna at 1( 0) + 0 on 1733;
+  architecture a_rombruna of rombruna at 13( 253) + 0 on 1734;
+file . "UC/maq_estados.vhd" "ff13847370a0abea5f07dc6a47671ddc2495c944" "20251105184840.845":
+  entity maq_estados at 1( 0) + 0 on 1751;
+  architecture a_maq_estados of maq_estados at 12( 201) + 0 on 1752;
+file . "PC/pc.vhd" "90336e3d887e178eca072b8b8d7de93838a9661e" "20251105184840.808":
+  entity pc at 1( 0) + 0 on 1749;
+  architecture a_pc of pc at 15( 303) + 0 on 1750;
+file . "PC/pc_mais_um.vhd" "1e073973092a23824583e4b5b730310791e236d3" "20251026171347.391":
+  entity pc_mais_um at 1( 0) + 0 on 1449;
+  architecture a_pc_mais_um of pc_mais_um at 13( 275) + 0 on 1450;
+file . "UC/un_controle.vhd" "4491f4aac91db8ef25cd3bf71f004f5fd128179d" "20251105183835.797":
+  entity un_controle at 1( 0) + 0 on 1689;
+  architecture a_un_controle of un_controle at 47( 1262) + 0 on 1690;
+file . "TopLevel.vhd" "845e5fc100a15d3c958ee9ce54c07a91c82b7862" "20251105184841.013":
+  entity toplevel at 1( 0) + 0 on 1757;
+  architecture a_toplevel of toplevel at 12( 265) + 0 on 1758;
+file . "BANCO/reg16bits.vhd" "ff8870877524428b41dad86b806dc852ce1ff425" "20251105184840.662":
+  entity reg16bits at 1( 0) + 0 on 1741;
+  architecture a_reg16bits of reg16bits at 15( 312) + 0 on 1742;
+file . "UC/reg1bit.vhd" "c5455f6e59afdc4580374904b3848f5a393937c3" "20251105184840.737":
+  entity reg1bit at 1( 0) + 0 on 1745;
+  architecture a_reg1bit of reg1bit at 14( 254) + 0 on 1746;
+file . "reg4bits.vhd" "d87fb931ee613d87d43d0950418675ac363a9b9d" "20251105184840.969":
+  entity reg4bits at 1( 0) + 0 on 1755;
+  architecture a_reg4bits of reg4bits at 15( 320) + 0 on 1756;

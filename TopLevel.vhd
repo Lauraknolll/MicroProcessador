@@ -83,6 +83,10 @@ architecture a_TopLevel of TopLevel is
         eh_jump : out std_logic;
         endereco_destino: out unsigned(6 downto 0); --esta assim no top level
 
+        eh_comparacao : out std_logic;
+        eh_branch : out std_logic;
+        endereco_branch_relativo: out unsigned(6 downto 0); 
+
         sel0_ULA : out std_logic;
         sel1_ULA : out std_logic;
         escolhe_accA :out std_logic;
@@ -134,9 +138,9 @@ architecture a_TopLevel of TopLevel is
     signal carry, zero, overflow, sinal, sel0_ULA_out, sel1_ULA_out : std_logic;
     signal wr_en_flags, carry_out, overflow_out, negativo_out, zero_out : std_logic;
     signal qual_reg_le_OUT, qual_reg_escreve_OUT: unsigned (3 downto 0);
-    signal eh_jump, eh_nop, wr_en_pc, op_com_cte: std_logic; 
+    signal eh_jump, eh_nop, eh_branch, eh_comparacao, wr_en_pc, op_com_cte: std_logic; 
     signal op_ld_acc, op_mov_p_reg, op_mov_p_acc: std_logic;
-    signal endereco_jump : unsigned(6 downto 0);
+    signal endereco_jump, offset : unsigned(6 downto 0);
 
 begin
 
@@ -172,11 +176,12 @@ begin
 
     flags : reg4bits port map (clk => clock, rst => reset_flags, wr_en => wr_en_flags, c_in => carry, v_in => overflow, n_in => sinal, z_in => zero, c_out => carry_out, v_out => overflow_out, n_out => negativo_out, z_out => zero_out);
 
+
     --------------------parte do PC/ROM
    
     --mux entrada do endereço do pc
     pc_in <= endereco_jump when eh_jump = '1' else 
-            --(endereco_ROM + offset) when eh_branch = '1' else 
+            (endereco_ROM + offset) when eh_branch = '1' else 
             (endereco_ROM + 1); --próxima instrução normal
 
     pc0 : pc port map(clk => clock, rst => reset_pc, wr_en => wr_en_pc, data_in => pc_in, data_out => endereco_ROM);
@@ -186,7 +191,8 @@ begin
     IR : reg16bits port map (clk => clock, rst => reset_ir, wr_en => wr_ir, data_in => rom_ir, data_out => ir_uc);
                                                                                                                                                    
     UC: un_controle port map ( clock => clock, instrucao => ir_uc, reset_UC => reset_UC, wr_mqe => wr_mqe, 
-    eh_jump => eh_jump, endereco_destino => endereco_jump,sel0_ULA => sel0_ULA_out, sel1_ULA => sel1_ULA_out, 
+    eh_jump => eh_jump, endereco_destino => endereco_jump, eh_branch => eh_branch, eh_comparacao => eh_comparacao , endereco_branch_relativo => offset, 
+    sel0_ULA => sel0_ULA_out, sel1_ULA => sel1_ULA_out, 
     escolhe_accA => escolhe_accA, escolhe_accB => escolhe_accB , wr_en_accA_UC => wr_en_accA , wr_en_accB_UC =>wr_en_accB,
     eh_nop=> eh_nop, op_mov_p_acc => op_mov_p_acc, op_ld_acc => op_ld_acc, op_mov_p_reg => op_mov_p_reg, 
     cte => cte, op_com_cte => op_com_cte, qual_reg_le => qual_reg_le_OUT, qual_reg_escreve => qual_reg_escreve_OUT, 
