@@ -20,21 +20,21 @@ architecture a_ROM of ROM is
 
       1  => "1100010000000000", -- LD R4, 8 (B : Carrega R4 com 0)
 
-      2  => "1101100000001010", -- LD B, 10 (C: é o valor a ser comparado no BHI)
+      2  => "1101100000001010", -- LD B, 10 (D: é o valor a ser comparado no BHI, carregado antes do loop)
 
-      3  => "1110001001000000", -- MOV A, R4 (C : ADD R4, R3, R4)(R3 com R4 e guarda no R4)
+      3  => "1110001001000000", -- MOV A, R4 (C : ADD R4, R3, R4)
       4  => "0100000110000000", -- ADD A, R3 (C)
       5  => "1110001000000000", -- MOV A, R4 (C) (R3 com R4 e guarda no R4)
 
       6  => "1110000111000000", -- MOV A, R3 (D: Soma 1 em R3)
       7  => "0010000000000001", -- ADDI R3,1 (D)
-      8  => "1110000111000000", -- MOV R3, A (D)
+      8  => "1110000110000000", -- MOV R3, A (D)
 
-      9  => "1001100110000000", -- COMP B,R3 (E: BHI B,R3)
+      9  => "1001100110000000", -- COMP B,R3 (E: BHI B,R3, C)
       10 => "1011000001111001", -- BHI B, R3, -7 (E)
 
       11 => "1001100110000000", -- COMP B,R3 (F: BGE B,R3)
-      12 => "1011000001111001",  --BGE B, R3, +5
+      12 => "1010000000000101",  --BGE B, R3, +5
 
       13 => "1111000000000010", -- JUMP 2 (H: Senão pular no BGE) 
       --14 => "0000000000000000",

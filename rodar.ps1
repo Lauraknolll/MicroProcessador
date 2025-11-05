@@ -23,4 +23,4 @@ ghdl -r processador_tb --wave=processador_tb.ghw
 Write-Host "Simulação concluída! Arquivo de onda gerado: processador_tb.ghw"
 
 Write-Host "Abrindo a forma de onda..."
-gtkwave EntregaLab5.gtkw
+gtkwave EntregaLab6.gtkw
