@@ -16,9 +16,9 @@ architecture a_ROM of ROM is
       -- caso endereco => conteudo
       --MOV destino, fonte
 
-      0  => "1100001100000000", -- LD R3, 12 (A : Carrega R3 com 0)
+      0  => "1100001100000000", -- LD R3, 0 (A : Carrega R3 com 0)
 
-      1  => "1100010000000000", -- LD R4, 8 (B : Carrega R4 com 0)
+      1  => "1100010000000000", -- LD R4, 0 (B : Carrega R4 com 0)
 
       2  => "1101100000001010", -- LD B, 10 (D: é o valor a ser comparado no BHI, carregado antes do loop)
 
