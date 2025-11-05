@@ -1,14 +1,14 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Wed Nov 05 18:45:22 2025
+[*] Wed Nov 05 22:05:58 2025
 [*]
 [dumpfile] "C:\MicroProcessador\processador_tb.ghw"
-[dumpfile_mtime] "Wed Nov 05 18:43:35 2025"
-[dumpfile_size] 14929
+[dumpfile_mtime] "Wed Nov 05 22:02:12 2025"
+[dumpfile_size] 15880
 [savefile] "C:\MicroProcessador\EntregaLab5.gtkw"
-[timestart] 0
-[size] 1370 749
-[pos] -1 -1
+[timestart] 5385000000
+[size] 1366 697
+[pos] -9 -9
 *-29.000000 104000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.processador_tb.
@@ -19,7 +19,7 @@
 [sst_width] 197
 [signals_width] 174
 [sst_expanded] 1
-[sst_vpaned_height] 378
+[sst_vpaned_height] 344
 @200
 -resets
 @28
@@ -35,7 +35,8 @@ top.processador_tb.uut.flags.c_out
 top.processador_tb.uut.uc.clock
 @200
 -PC
-@24
+@25
+[color] 2
 #{top.processador_tb.uut.pc0.data_out[6:0]} top.processador_tb.uut.pc0.data_out[6] top.processador_tb.uut.pc0.data_out[5] top.processador_tb.uut.pc0.data_out[4] top.processador_tb.uut.pc0.data_out[3] top.processador_tb.uut.pc0.data_out[2] top.processador_tb.uut.pc0.data_out[1] top.processador_tb.uut.pc0.data_out[0]
 @420
 #{top.processador_tb.uut.offset[6:0]} top.processador_tb.uut.offset[6] top.processador_tb.uut.offset[5] top.processador_tb.uut.offset[4] top.processador_tb.uut.offset[3] top.processador_tb.uut.offset[2] top.processador_tb.uut.offset[1] top.processador_tb.uut.offset[0]
