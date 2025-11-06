@@ -24,5 +24,5 @@ begin
          end if;
       end if;
    end process;
-   dado_out <= conteudo_ram(to_integer(endereco));
+   dado_out <= conteudo_ram(to_integer(endereco)); --saída sempre disponível!!!
 end architecture;
