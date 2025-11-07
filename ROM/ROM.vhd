@@ -16,7 +16,7 @@ architecture a_ROM of ROM is
       -- caso endereco => conteudo
       --MOV destino, fonte
 
-      0  => "1100001100000000", -- LD R3, 0 (A : Carrega R3 com 0)
+      0  => "1100001100001111", -- LD R3, 15 (A : Carrega R3 com 15)
 
       1  => "1100010000000000", -- LD R4, 0 (B : Carrega R4 com 0)
 
@@ -27,7 +27,8 @@ architecture a_ROM of ROM is
       5  => "1110001000000000", -- MOV A, R4 (C) (R3 com R4 e guarda no R4)
 
       6  => "1110000111000000", -- MOV A, R3 (D: Soma 1 em R3)
-      7  => "0010000000000001", -- ADDI R3,1 (D)
+     --7  => "0010000000000001", -- ADDI R3,1 (D)
+      7  => "0011001", -- SUBI R3,1 (D)
       8  => "1110000110000000", -- MOV R3, A (D)
 
       9  => "1001100110000000", -- COMP B,R3 (E: BHI B,R3, C)
