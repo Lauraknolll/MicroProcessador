@@ -54,7 +54,8 @@ architecture a_un_controle of un_controle is
    signal estado : unsigned (2 downto 0);
 
    component maq_estados is
-      port( clk,rst: in std_logic;
+      port( 
+         clk,rst: in std_logic;
          estado: out unsigned(2 downto 0)
    );
    end component;
@@ -62,7 +63,7 @@ architecture a_un_controle of un_controle is
 begin                                                     
    maq_estados2 : maq_estados port map (clk => clock, rst => reset_UC, estado => estado);
     
-   --só atualiza o pc no estado 3 depois que já usou (mas quando já tem a informação se é jump ou não)
+   --só atualiza o pc no estado 3 depois que já usou (mas quando já tem a informação se é jump, branch ou não)
    wr_en_pc <= '1' when (estado = "011") else
                   '0'; 
 
@@ -78,19 +79,20 @@ begin
                '0';
    endereco_destino <= instrucao(6 downto 0) when opcode = "1111" else
                         "0000000";
+
    --operação branch
    endereco_branch_relativo<= instrucao(6 downto 0) when opcode = "1010" else -- BGE
                               instrucao(6 downto 0) when opcode = "1011" else -- BHI
                               "0000000";
-                              -- BGE                                       -- BHI                                          --  AND estado = "100"
-   eh_branch <= '1' when (((opcode = "1010" and negativo = overflow ) OR (opcode = "1011" and carry = '0' and zero = '0') ))else
-                  '0';
+
+   eh_branch <= '1' when (((opcode = "1010" and negativo = overflow) OR (opcode = "1011" and carry = '0' and zero = '0'))) else
+                '0';
    eh_comparacao <= '1' when opcode ="1001" else
-                     '0';
-                         -- (opcode = "1010"  OR opcode = "1011")
-                         -- eh_comparacao
-   wr_en_flags <= '1' when ( opcode ="1001"and estado = "011") else --
-                   '0';
+                    '0';
+
+   wr_en_flags <= '1' when (opcode ="1001" and estado = "011") else 
+                  '0';
+
    --operação de nop
    eh_nop<= '1' when opcode ="0000" else
             '0';
