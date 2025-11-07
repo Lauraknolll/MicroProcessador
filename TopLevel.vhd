@@ -93,9 +93,11 @@ architecture a_TopLevel of TopLevel is
         escolhe_accB :out std_logic;
         wr_en_accA_UC : out std_logic;
         wr_en_accB_UC : out std_logic;
+        wr_en_RAM : out std_logic;
 
         eh_nop :out std_logic;
 
+        op_load : out std_logic;
         op_mov_p_acc : out std_logic;
         op_ld_acc : out std_logic;
         op_mov_p_reg : out std_logic;
@@ -129,17 +131,28 @@ architecture a_TopLevel of TopLevel is
     );
     end component;
 
+    component RAM is
+    port( 
+            clk      : in std_logic;
+            endereco : in unsigned(6 downto 0);
+            wr_en    : in std_logic;
+            dado_in  : in unsigned(15 downto 0);
+            dado_out : out unsigned(15 downto 0) 
+    );
+    end component;
+
+
     signal banco_ula, ula_accs, acc0_ula, acc1_ula, accs_ula, dado_ula, dado_escrita_banco, dado_escrita_acc  : unsigned(15 downto 0);
     signal wr_en_accA, wr_en_accB, escolhe_accA, escolhe_accB : std_logic;
 
     signal wr_ir, escreve_banco: std_logic; 
     signal pc_in, endereco_ROM: unsigned(6 downto 0) := (others => '0');
-    signal rom_ir, ir_uc, cte : unsigned(15 downto 0);
+    signal rom_ir, ir_uc, cte, saida_RAM : unsigned(15 downto 0);
     signal carry, zero, overflow, sinal, sel0_ULA_out, sel1_ULA_out : std_logic;
     signal wr_en_flags, carry_out, overflow_out, negativo_out, zero_out : std_logic;
     signal qual_reg_le_OUT, qual_reg_escreve_OUT: unsigned (3 downto 0);
-    signal eh_jump, eh_nop, eh_branch, eh_comparacao, wr_en_pc, op_com_cte: std_logic; 
-    signal op_ld_acc, op_mov_p_reg, op_mov_p_acc: std_logic;
+    signal eh_jump, eh_nop, eh_branch, wr_RAM, eh_comparacao, wr_en_pc, op_com_cte: std_logic; 
+    signal op_ld_acc, op_mov_p_reg, op_mov_p_acc, op_load: std_logic;
     signal endereco_jump, offset : unsigned(6 downto 0);
 
 begin
@@ -157,6 +170,7 @@ begin
     dado_escrita_acc <= banco_ula when (op_mov_p_acc = '1' and op_ld_acc = '0') else -- quando é MOV ACC, Rn
                         cte when (op_mov_p_acc = '0' and op_ld_acc = '1') else --quando é LD em algum ACC 
                         ula_accs when (op_mov_p_acc = '0' and op_ld_acc = '0') else --quando é alguma op da ula
+                        saida_RAM when( op_load = '1') else
                         (others => '0');
 
     uutaccA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => wr_en_accA , data_in => dado_escrita_acc, data_out => acc0_ula); --acumulador A
@@ -189,7 +203,9 @@ begin
     rom0 : ROM port map (clk => clock, endereco => endereco_ROM, dado => rom_ir);
 
     IR : reg16bits port map (clk => clock, rst => reset_ir, wr_en => wr_ir, data_in => rom_ir, data_out => ir_uc);
-                                                                                                                                                   
+         
+    ram: RAM port map( clk => clk, endereco => banco_ula, dado_in => acc1_ula, dado_out => saida_RAM, wr_en => wr_RAM);
+
     UC: un_controle port map ( clock => clock, instrucao => ir_uc, reset_UC => reset_UC, wr_mqe => wr_mqe, 
     eh_jump => eh_jump, endereco_destino => endereco_jump, eh_branch => eh_branch, eh_comparacao => eh_comparacao , endereco_branch_relativo => offset, 
     sel0_ULA => sel0_ULA_out, sel1_ULA => sel1_ULA_out, 

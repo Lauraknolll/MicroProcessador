@@ -47,7 +47,7 @@ begin
 
     sim_time_proc: process
     begin
-        wait for 50 us;         -- <== TEMPO TOTAL DA SIMULAÇÃO!!!
+        wait for 100 us;         -- <== TEMPO TOTAL DA SIMULAÇÃO!!!
         finished <= '1';
         wait;
     end process sim_time_proc;

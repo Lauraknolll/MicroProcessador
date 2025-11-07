@@ -20,18 +20,18 @@ architecture a_ROM of ROM is
 
       1  => "1100010000000000", -- LD R4, 0       (B : Carrega R4 com 0)
 
-      2  => "1101100000000010", -- LD B, 10       (D: é o valor a ser comparado no BHI, carregado antes do loop)
+      2  => "1101100000000010", -- LD B, 2       (D: é o valor a ser comparado no BHI, carregado antes do loop)
 
       3  => "1110001001000000", -- MOV A, R4      (C : ADD R4, R3, R4)
       4  => "0100000110000000", -- ADD A, R3      (C)
       5  => "1110001000000000", -- MOV R4, A      (C) (R3 com R4 e guarda no R4)
 
       6  => "1110000111000000", -- MOV A, R3      (D: Soma 1 em R3)
-      7  => "0010001111111111", -- ADDI A, -1       (D)
+      7  => "0010001111111111", -- ADDI A, -1     (D)
       8  => "1110000110000000", -- MOV R3, A      (D)
 
       9  => "1001100110000000", -- COMP B, R3     (E: BHI B, R3, C)
-      10 => "1011000001111001", -- LO B, R3, -7  (E)
+      10 => "1011000001111001", --  BLO -7        (E)
       
       11 => "1110001001000000", --MOV A, R4       (F: Copia valor de R4 para R5)
       12 => "1110001010000000", --MOV R5, A       (F)
