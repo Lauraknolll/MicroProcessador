@@ -50,7 +50,7 @@ architecture a_un_controle of un_controle is
    signal  accs_ula, dado_ula, dado_escrita_banco, dado_escrita_acc : unsigned(15 downto 0);
    signal escolhe_acc_A :  std_logic;
    signal  escolhe_acc_B :  std_logic;
-   signal  escreve_acc :  std_logic;
+   signal  escreve_acc, define_maior_menor :  std_logic;
    signal estado : unsigned (2 downto 0);
 
    component maq_estados is
@@ -70,6 +70,8 @@ begin
    -- coloquei o opcode nos 4 bits MSB
    opcode <= instrucao(15 downto 12);
 
+   define_maior_menor <= instrucao(11);
+
    --IR (eh pra entrar nele quando está no estado 2)
    wr_ir <= '1' when (estado = "010") else
             '0'; 
@@ -85,7 +87,7 @@ begin
                               instrucao(6 downto 0) when opcode = "1011" else -- BHI
                               "0000000";
 
-   eh_branch <= '1' when (((opcode = "1010" and negativo = overflow) OR (opcode = "1011" and carry = '0' and zero = '0'))) else
+   eh_branch <= '1' when (((opcode = "1010" and define_maior_menor = '1' and negativo = overflow) OR (opcode = "1011" and carry = '0' and zero = '0') OR (opcode = "1010" and define_maior_menor = '0' and carry = '0'))) else
                 '0';
    eh_comparacao <= '1' when opcode ="1001" else
                     '0';
