@@ -10,7 +10,7 @@ ghdl -a UC/reg1bit.vhd
 ghdl -a ULA/ULA.vhd 
 ghdl -a PC/pc.vhd
 ghdl -a UC/maq_estados.vhd
-ghdl -a UC/UC.vhd
+ghdl -a UC/un_controle.vhd
 ghdl -a ROM/ROM.vhd
 ghdl -a reg4bits.vhd
 ghdl -a TopLevel.vhd

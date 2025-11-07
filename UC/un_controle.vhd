@@ -87,7 +87,7 @@ begin
                               instrucao(6 downto 0) when opcode = "1011" else -- BHI
                               "0000000";
 
-   eh_branch <= '1' when (((opcode = "1010" and define_maior_menor = '1' and negativo = overflow) OR (opcode = "1011" and carry = '0' and zero = '0') OR (opcode = "1010" and define_maior_menor = '0' and carry = '0'))) else
+   eh_branch <= '1' when (((opcode = "1010" and negativo = overflow) OR (opcode = "1011" and define_maior_menor = '1' and carry = '0' and zero = '0') OR (opcode = "1011" and define_maior_menor = '0' and carry = '1' and zero= '0'))) else
                 '0';
    eh_comparacao <= '1' when opcode ="1001" else
                     '0';
@@ -117,10 +117,14 @@ begin
                  '1' when (opcode="1100") else  --LD REG
                  '0';
 
-   cte <= ("00000000" & instrucao(7 downto 0)) when (opcode="0010") else -- ADDI
-          ("00000000" & instrucao(7 downto 0)) when (opcode="0011") else --SUBI
-          ("00000000" & instrucao(7 downto 0)) when (opcode="1101") else --LD ACC
-          ("00000000" & instrucao(7 downto 0)) when (opcode="1100") else  --LD REG
+   cte <= ("00000000" & instrucao(7 downto 0)) when (opcode="0010" and instrucao(7)='0') else -- ADDI
+          ("11111111" & instrucao(7 downto 0)) when (opcode="0010" and instrucao(7)='1') else -- ADDI
+          ("00000000" & instrucao(7 downto 0)) when (opcode="0011" and instrucao(7)='0') else --SUBI
+          ("11111111" & instrucao(7 downto 0)) when (opcode="0011" and instrucao(7)='1') else --SUBI
+          ("00000000" & instrucao(7 downto 0)) when (opcode="1101" and instrucao(7)='0') else --LD ACC
+          ("11111111" & instrucao(7 downto 0)) when (opcode="1101" and instrucao(7)='1') else --LD ACC
+          ("00000000" & instrucao(7 downto 0)) when (opcode="1100" and instrucao(7)='0') else  --LD REG
+          ("11111111" & instrucao(7 downto 0)) when (opcode="1100" and instrucao(7)='1') else  --LD REG
            "0000000000000000";
 
    qual_reg_le <= ( instrucao(10 downto 7)) when (opcode="0100") else -- ADD
