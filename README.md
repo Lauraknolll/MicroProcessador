@@ -10,6 +10,9 @@ Progresso até agora do LAB 7:
 
 - LW carrega no accB o conteúdo do endereço pedido
 
+- Na ROM.vhd:
+    - Incialamente eu aramzenei 2 no endereço 7, 6 no 16 e 26 no 10.
+    - Depois li na ordem: endereço 16 (valor 6), endereço 7 valor (2) e endereço 10 valor (26).
 Sugestões:
 
 - Seria interessante fazer um teste com loop, testando valores (de endereço) na sequência...
