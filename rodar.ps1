@@ -8,6 +8,7 @@ ghdl -a BANCO/reg16bits.vhd
 ghdl -a BANCO/BancoReg.vhd 
 ghdl -a UC/reg1bit.vhd 
 ghdl -a ULA/ULA.vhd 
+ghdl -a RAM/RAM.vhd 
 ghdl -a PC/pc.vhd
 ghdl -a UC/maq_estados.vhd
 ghdl -a UC/un_controle.vhd
@@ -23,4 +24,4 @@ ghdl -r processador_tb --wave=processador_tb.ghw
 Write-Host "Simulação concluída! Arquivo de onda gerado: processador_tb.ghw"
 
 Write-Host "Abrindo a forma de onda..."
-gtkwave EntregaLab6.gtkw
+gtkwave EntregaLab7.gtkw

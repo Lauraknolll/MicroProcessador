@@ -7,6 +7,7 @@ Write-Host "Iniciando compilação com GHDL..."
 ghdl -a BANCO/reg16bits.vhd 
 ghdl -a BANCO/BancoReg.vhd 
 ghdl -a ULA/ULA.vhd 
+ghdl -a RAM/RAM.vhd 
 ghdl -a UC/reg1bit.vhd 
 ghdl -a PC/pc.vhd
 ghdl -a UC/maq_estados.vhd

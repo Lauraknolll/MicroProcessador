@@ -167,10 +167,10 @@ begin
     Banco : BancoReg port map (clk_b => clock, rst_b => reset_b, wr_en => escreve_banco, sel_reg_wr => qual_reg_escreve_OUT, sel_reg_rd => qual_reg_le_OUT, data_wr => dado_escrita_banco, data_out_b => banco_ula);
      
     --MUX entrada dos acumuladores A e B
-    dado_escrita_acc <= banco_ula when (op_mov_p_acc = '1' and op_ld_acc = '0') else -- quando é MOV ACC, Rn
+    dado_escrita_acc <= saida_RAM when( op_load = '1') else -- quando é LW -- op_ld_acc = '1'
+                        banco_ula when (op_mov_p_acc = '1' and op_ld_acc = '0') else -- quando é MOV ACC, Rn
                         cte when (op_mov_p_acc = '0' and op_ld_acc = '1') else --quando é LD em algum ACC 
                         ula_accs when (op_mov_p_acc = '0' and op_ld_acc = '0') else --quando é alguma op da ula
-                        saida_RAM when( op_load = '1') else
                         (others => '0');
 
     uutaccA : reg16bits port map (clk => clock, rst => reset_acc, wr_en => wr_en_accA , data_in => dado_escrita_acc, data_out => acc0_ula); --acumulador A
@@ -204,13 +204,13 @@ begin
 
     IR : reg16bits port map (clk => clock, rst => reset_ir, wr_en => wr_ir, data_in => rom_ir, data_out => ir_uc);
          
-    ram: RAM port map( clk => clk, endereco => banco_ula, dado_in => acc1_ula, dado_out => saida_RAM, wr_en => wr_RAM);
+    mem_ram: RAM port map( clk => clock, endereco => banco_ula(6 downto 0), wr_en => wr_RAM , dado_in => acc1_ula, dado_out => saida_RAM);
 
     UC: un_controle port map ( clock => clock, instrucao => ir_uc, reset_UC => reset_UC, wr_mqe => wr_mqe, 
     eh_jump => eh_jump, endereco_destino => endereco_jump, eh_branch => eh_branch, eh_comparacao => eh_comparacao , endereco_branch_relativo => offset, 
-    sel0_ULA => sel0_ULA_out, sel1_ULA => sel1_ULA_out, 
-    escolhe_accA => escolhe_accA, escolhe_accB => escolhe_accB , wr_en_accA_UC => wr_en_accA , wr_en_accB_UC =>wr_en_accB,
-    eh_nop=> eh_nop, op_mov_p_acc => op_mov_p_acc, op_ld_acc => op_ld_acc, op_mov_p_reg => op_mov_p_reg, 
+    sel0_ULA => sel0_ULA_out, sel1_ULA => sel1_ULA_out, escolhe_accA => escolhe_accA, escolhe_accB => escolhe_accB , 
+    wr_en_accA_UC => wr_en_accA , wr_en_accB_UC =>wr_en_accB, wr_en_RAM => wr_RAM, eh_nop=> eh_nop,
+    op_load => op_load,  op_mov_p_acc => op_mov_p_acc, op_ld_acc => op_ld_acc, op_mov_p_reg => op_mov_p_reg, 
     cte => cte, op_com_cte => op_com_cte, qual_reg_le => qual_reg_le_OUT, qual_reg_escreve => qual_reg_escreve_OUT, 
     escreve_banco=> escreve_banco,  wr_en_pc => wr_en_pc, wr_ir => wr_ir, carry => carry_out, overflow => overflow_out,
     negativo => negativo_out, zero => zero_out, wr_en_flags => wr_en_flags);

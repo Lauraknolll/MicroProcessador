@@ -28,9 +28,11 @@ entity un_controle is
       escolhe_accB :out std_logic;
       wr_en_accA_UC : out std_logic;
       wr_en_accB_UC : out std_logic;
+      wr_en_RAM : out std_logic;
 
       eh_nop :out std_logic;
 
+      op_load : out std_logic;
       op_mov_p_acc : out std_logic;
       op_ld_acc : out std_logic;
       op_mov_p_reg : out std_logic;
@@ -92,8 +94,25 @@ begin
    eh_comparacao <= '1' when opcode ="1001" else
                     '0';
 
-   wr_en_flags <= '1' when (opcode ="1001" and estado = "011") else 
+   wr_en_flags <= '1' when (opcode ="1001" and estado = "011") else -- COMP
+                  '1' when(opcode="0100") else --ADD
+                  '1' when(opcode="0101") else --SUB
+                  '1' when(opcode="0111") else --OR
+                  '1' when(opcode="0110") else --AND
+                  '1' when(opcode="0010") else --ADDI
+                  '1' when(opcode="0011") else --SUBI
+                  '1' when(opcode="1101") else --LD ACC
+                  '1' when(opcode="1110") else --MOV 
+                  '1' when(opcode="1100") else --LD REG
                   '0';
+   -- escrita na RAM
+      wr_en_RAM <= '1' when (opcode = "1000") else -- SW salva na memória
+                   '0';
+
+   --leitura na RAM
+   op_load <= '1' when (opcode = "0001") else-- LW
+                '0';
+
 
    --operação de nop
    eh_nop<= '1' when opcode ="0000" else
@@ -101,7 +120,8 @@ begin
 
    -- o bit 11 define qual acc será usado, 0 para o A e 1 para o B
    escolhe_acc_A <= not(instrucao(11)); --and (not(opcode = "1101"))and (not(opcode = "1100")) -- não é MOV nem LD
-   escolhe_acc_B <= instrucao(11); 
+   escolhe_acc_B <= '1' when ((opcode = "0001" ) or (opcode = "1000")) else -- ACC B fixo para instrução SW ou LW
+                     instrucao(11); 
 
                                                                                    
    sel0_ULA <= '0' when (opcode = "0100" OR opcode = "0010" OR opcode = "0110" ) else --ADD OU ADDI ou AND
@@ -134,6 +154,7 @@ begin
                   --( instrucao(11 downto 8)) when (opcode="1100") else  --LD REG
                   ( instrucao(10 downto 7)) when (opcode="1110") else  --MOV
                   ( instrucao(10 downto 7)) when (opcode="1001") else  -- COMP
+                  ( "1010") when ((opcode="1000") or (opcode="0001")) else  -- para SW ou LW sempre será o reg 10
                   "0000";
 
    escreve_acc <= '1' when(opcode="0100") else --ADD
@@ -148,8 +169,8 @@ begin
 
    --escreve no estado 4 que é onde ocorre o execute
    wr_en_accA_UC <=  '1' when ((escolhe_acc_A = '1') and (escreve_acc ='1') and (estado = "100")) else
-                     '0';
-   wr_en_accB_UC <=  '1' when ((escolhe_acc_B ='1') and (escreve_acc = '1')  and (estado = "100")) else
+                     '0';                                                                                      -- LW
+   wr_en_accB_UC <=  '1' when (((escolhe_acc_B ='1') and (escreve_acc = '1')  and (estado = "100")) OR (opcode = "0001")) else
                      '0';
 
    -- Se for 1 o ACC é destino e se for 0 o REG é o destino
@@ -157,8 +178,8 @@ begin
                   '0'; 
    op_mov_p_reg <= not(instrucao(6)) when (opcode = "1110") else
                   '0'; 
-
-   op_ld_acc <= '1' when (opcode = "1101") else
+                                                      -- LW
+   op_ld_acc <= '1' when (opcode = "1101" or opcode = "0001") else
                 '0';
 
    --quando é LD em um registrador ou quando é MOV pra um registrador
