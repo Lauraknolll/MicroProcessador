@@ -106,7 +106,7 @@ begin
                   '1' when(opcode="1100") else --LD REG
                   '0';
    -- escrita na RAM
-      wr_en_RAM <= '1' when (opcode = "1000") else -- SW salva na memória
+   wr_en_RAM <= '1' when (opcode = "1000") else -- SW salva na memória
                    '0';
 
    --leitura na RAM
