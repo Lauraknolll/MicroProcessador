@@ -72,8 +72,6 @@ begin
    -- coloquei o opcode nos 4 bits MSB
    opcode <= instrucao(15 downto 12);
 
-   define_maior_menor <= instrucao(11);
-
    --IR (eh pra entrar nele quando está no estado 2)
    wr_ir <= '1' when (estado = "010") else
             '0'; 
@@ -89,7 +87,7 @@ begin
                               instrucao(6 downto 0) when opcode = "1011" else -- BHI
                               "0000000";
 
-   eh_branch <= '1' when (((opcode = "1010" and negativo = overflow) OR (opcode = "1011" and define_maior_menor = '1' and carry = '0' and zero = '0') OR (opcode = "1011" and define_maior_menor = '0' and carry = '1' and zero= '0'))) else
+   eh_branch <= '1' when (((opcode = "1010" and negativo = overflow) OR (opcode = "1011" and carry = '0' and zero = '0') )) else
                 '0';
    eh_comparacao <= '1' when opcode ="1001" else
                     '0';

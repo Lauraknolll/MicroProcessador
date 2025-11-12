@@ -19,7 +19,7 @@ architecture struct of ULA is
 
 begin
     ResSoma      <= in_A + in_B;
-    ResSubtracao <= in_A - in_B; -- DESTROQUEI  -- Supondo que o valor maior está no acc e vamos diminuir a cte no caso do SUBI
+    ResSubtracao <= in_B - in_A; -- DESTROQUEI  -- Supondo que o valor maior está no acc e vamos diminuir a cte no caso do SUBI
     ResAND       <= in_A AND in_B;
     ResOR        <= in_A OR in_B;
 
@@ -34,8 +34,8 @@ begin
     
     carry_soma <= soma_17(16);  -- o carry eh o MSB da soma 17 bits
 
-    carry_subtr <= '0' when in_A <= in_B else -- só se ambos forem valores unsigned
-                   '1';
+    carry_subtr <= '1' when in_A <= in_B else 
+                   '0';
 
     Carry <= carry_soma when (Sel0 = '0' AND Sel1 = '0') else
              carry_subtr when (Sel0 = '1' AND Sel1 = '0');

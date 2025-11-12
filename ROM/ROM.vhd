@@ -27,8 +27,8 @@ architecture a_ROM of ROM is
       --MOV B, r10 --coloco o endereco no B
       --ADDI B, 1 --vai pro próx endereço
       --MOV r10, B --volta pro r10
-      2 => "1001000000000000", --COMP
-      3 => "0010000000000001", --ADDI A, 1 --faz o ++ do loop
+      2 => "0010000000000001", --ADDI A, 1 --faz o ++ do loop
+      3 => "1001000000000000", --COMP
       4 => "1011100001111110", --BHI
       5 => "0000000000000000",
 

@@ -1,22 +1,21 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Mon Nov 10 17:53:01 2025
+[*] Wed Nov 12 22:30:58 2025
 [*]
 [dumpfile] "C:\MicroProcessador\processador_tb.ghw"
-[dumpfile_mtime] "Mon Nov 10 17:51:03 2025"
-[dumpfile_size] 57189
+[dumpfile_mtime] "Wed Nov 12 22:26:02 2025"
+[dumpfile_size] 94890
 [savefile] "C:\MicroProcessador\EntregaLab7.gtkw"
-[timestart] 14241000000
+[timestart] 4933000000
 [size] 1366 697
 [pos] -1 -1
-*-29.000000 4750000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-29.000000 5926000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.processador_tb.
 [treeopen] top.processador_tb.uut.
 [treeopen] top.processador_tb.uut.banco.r10.
 [treeopen] top.processador_tb.uut.mem_ram.
 [treeopen] top.processador_tb.uut.pc0.
-[treeopen] top.processador_tb.uut.uc.
 [sst_width] 237
 [signals_width] 293
 [sst_expanded] 1
@@ -126,7 +125,7 @@ top.processador_tb.uut.banco.out_r4[0]
 @200
 -
 -ula
-@24
+@421
 #{top.processador_tb.uut.ula_comp.resultado[15:0]} top.processador_tb.uut.ula_comp.resultado[15] top.processador_tb.uut.ula_comp.resultado[14] top.processador_tb.uut.ula_comp.resultado[13] top.processador_tb.uut.ula_comp.resultado[12] top.processador_tb.uut.ula_comp.resultado[11] top.processador_tb.uut.ula_comp.resultado[10] top.processador_tb.uut.ula_comp.resultado[9] top.processador_tb.uut.ula_comp.resultado[8] top.processador_tb.uut.ula_comp.resultado[7] top.processador_tb.uut.ula_comp.resultado[6] top.processador_tb.uut.ula_comp.resultado[5] top.processador_tb.uut.ula_comp.resultado[4] top.processador_tb.uut.ula_comp.resultado[3] top.processador_tb.uut.ula_comp.resultado[2] top.processador_tb.uut.ula_comp.resultado[1] top.processador_tb.uut.ula_comp.resultado[0]
 @28
 top.processador_tb.uut.uc.wr_en_accb_uc
@@ -149,5 +148,12 @@ top.processador_tb.uut.reset_uc
 top.processador_tb.uut.reset_mqe
 top.processador_tb.uut.reset_acc
 top.processador_tb.uut.reset_b
+top.processador_tb.uut.uc.define_maior_menor
+top.processador_tb.uut.uc.wr_en_flags
+top.processador_tb.uut.uc.eh_comparacao
+top.processador_tb.uut.uc.eh_branch
+top.processador_tb.uut.uc.eh_jump
+@22
+#{top.processador_tb.uut.pc0.data_in[6:0]} top.processador_tb.uut.pc0.data_in[6] top.processador_tb.uut.pc0.data_in[5] top.processador_tb.uut.pc0.data_in[4] top.processador_tb.uut.pc0.data_in[3] top.processador_tb.uut.pc0.data_in[2] top.processador_tb.uut.pc0.data_in[1] top.processador_tb.uut.pc0.data_in[0]
 [pattern_trace] 1
 [pattern_trace] 0
