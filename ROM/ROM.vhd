@@ -16,68 +16,58 @@ architecture a_ROM of ROM is
       -- caso endereco => conteudo
       --MOV destino, fonte
 
-       --LD r10, 0 --começa do endereço 0
-      --LD B, 5 --começa colocando o valor 5
-      0 => "1101000000000001", --LD A, 1--pro loop 
-      1 => "1100000000001000", --LD r0, 8 --pro loop 
-      --SW 
-      --ADDI B, 1 --aumenta o valor em 1
-      --ADDI B, 1 --aumenta o valor em mais um
-      --MOV r2, B --coloca o valor no r2
-      --MOV B, r10 --coloco o endereco no B
-      --ADDI B, 1 --vai pro próx endereço
-      --MOV r10, B --volta pro r10
-      2 => "0010000000000001", --ADDI A, 1 --faz o ++ do loop
-      3 => "1001000000000000", --COMP
-      4 => "1011100001111110", --BHI
-      5 => "0000000000000000",
+      --LOOP ESCRITA NOS ENDEREÇOS PARES
+      0  => "1100101000000000", --LD r10, 0       --endereço 0
+      1  => "1101100000000101", --LD B, 5         -- valor 5
+      2  => "1101000000000000", --LD A, 0         --loop 
+      3  => "1100000001000000", --LD r0, 64       --loop 
+      4  => "1000000000000000", --SW 
+      5  => "0010100000000001", --ADDI B, 1       --aumenta o valor em 1
+      6  => "0010100000000001", --ADDI B, 1       --aumenta o valor em mais 1
+      7  => "1110100100000000", --MOV r2, B       --guarda o valor no r2
+      8  => "1110110101000000", --MOV B, r10      --coloca o endereco no B
+      9  => "0010100000000001", --ADDI B, 1       --vai pro próx endereço
+      10 => "0010100000000001", --ADDI B, 1      --vai pro próx endereço
+      11 => "1110110100000000", --MOV r10, B     --volta o endereço pro r10
+      12 => "1110100101000000", --MOV B, r2      --pega o valor de volta
+      13 => "0010000000000001", --ADDI A, 1      --faz o ++ do loop
+      14 => "1001000000000000", --COMP
+      15 => "1011100001110101", --BHI
+      16 => "0000000000000000",
 
-      
+      --LOOP ESCRITA DE 30 A 45 CONTÍNUO 
+      17 => "1100101000011110", --LD r10, 30     --endereço 30
+      18 => "1101100000000001", --LD B, 1        -- valor 1
+      19 => "1101000000000000", --LD A, 0        --loop 
+      20 => "1100000000001111", --LD r0, 4       --loop 
+      21 => "1000000000000000", --SW 
+      22 => "0010100000000001", --ADDI B, 1      --aumenta o valor em 1
+      23 => "1110100100000000", --MOV r2, B      --guarda o valor no r2
+      24 => "1110110101000000", --MOV B, r10     --coloca o endereco no B
+      25 => "0010100000000001", --ADDI B, 1      --vai pro próx endereço
+      26 => "1110110100000000", --MOV r10, B     --volta o endereço pro r10
+      27 => "1110100101000000", --MOV B, r2      --pega o valor de volta
+      28 => "0010000000000001", --ADDI A, 1      --faz o ++ do loop
+      29 => "1001000000000000", --COMP
+      30 => "1011100001110111", --BHI
 
-      -- 0  => "1100101000000111", -- LD R10, 7   
-      -- 1  => "1101100000000010", -- LD B, 2     
-      -- 2  => "1000000000000000", -- SW B, R10 para guardar na memória
+      --ESCRITA ALEATÓRIA
+      31 => "1100101001101000", -- LD R10, 104  
+      32 => "1101100000111000", -- LD B, 56 
+      33 => "1000000000000000", -- SW
 
-      -- 3  => "1100101000010000", -- LD R10, 16   
-      -- 4  => "1101100000000110", -- LD B, 6     
-      -- 5  => "1000000000000000", -- SW B, R10 para guardar na memória
-
-      -- 6  => "1100101000001010", -- LD R10, 10
-      -- 7  => "1101100000011010", -- LD B, 26     
-      -- 8  => "1000000000000000", -- SW B, R10 para guardar na memória
-
-      -- 9  => "1100101000010000", -- LD R10, 16   
-      -- 10 =>"1101100001000000", -- LD B, 64
-      -- 11 => "0001000000000000", -- LW B, R10 para LER na memória
-      -- 12 => "1110100000000000", -- MOV B, R0
-      
-      -- 13 => "1100101000000111", -- LD R10, 7   
-      -- 14 => "1101100001000000", -- LD B, 64     
-      -- 15 => "0001000000000000", -- LW B, R10 para LER na memória
-      -- 16 => "1110100010000000", -- MOV B, R1
-
-      -- 17 => "1100101000001010", -- LD R10, 10   
-      -- 18 => "1101100001000000", -- LD B, 64   
-      -- 19 => "0001000000000000", -- LW B, R10 para LER na memória
-      -- 20 => "1110100100000000", -- MOV B, R2
-
-      -- 21 => "1100101000001010", -- LD R10, 10   
-      -- 22 => "1101100000111000", -- LD B, 56 
-      -- 23 => "1000000000000000", -- SW B, R10 para LER na memória
-
-      -- 24 => "1100101000001010", -- LD R10, 10   
-      -- 25 => "1101100001000000", -- LD B, 64   
-      -- 26 => "0001000000000000", -- LW B, R10 para LER na memória
-      -- 27 => "1110100110000000", -- MOV B, R3
-
-      -- 28 => "1100101000001010", -- LD R10, 10   
-      -- 29 => "1101100000011110", -- LD B, 30 
-      -- 30 => "1000000000000000", -- SW B, R10 para LER na memória
-
-      -- 31 => "1100101000001010", -- LD R10, 10   
-      -- 32 => "1101100001000000", -- LD B, 64   
-      -- 33 => "0001000000000000", -- LW B, R10 para LER na memória
-      -- 34 => "1110101000000000", -- MOV B, R4
+      --LOOP LEITURA
+      34 => "1100101000000000", --LD r10, 0     --endereço 0
+      35 => "1101000000000000", --LD A, 0       --loop 
+      36 => "1100000010000000", --LD r0, 128    --loop
+      37 => "0001000000000000", --LW
+      38 => "1110101010000000", --MOV r5, B     --guarda o valor que leu no r5
+      39 => "1110110101000000", --MOV B, r10    --coloca o endereco no B
+      40 => "0010100000000001", --ADDI B, 1     --vai pro próx endereço
+      41 => "1110110100000000", --MOV r10, B    --volta o endereço pro r10
+      42 => "0010000000000001", --ADDI A, 1     --faz o ++ do loop
+      43 => "1001000000000000", --COMP
+      44 => "1011100001110111", --BHI
 
       -- abaixo: casos omissos => (zero em todos os bits)
       others => (others=>'0')
