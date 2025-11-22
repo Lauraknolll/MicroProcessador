@@ -134,7 +134,7 @@ architecture a_TopLevel of TopLevel is
     component RAM is
     port( 
             clk      : in std_logic;
-            endereco : in unsigned(6 downto 0);
+            endereco : in unsigned(9 downto 0);
             wr_en    : in std_logic;
             dado_in  : in unsigned(15 downto 0);
             dado_out : out unsigned(15 downto 0) 
@@ -204,7 +204,7 @@ begin
 
     IR : reg16bits port map (clk => clock, rst => reset_ir, wr_en => wr_ir, data_in => rom_ir, data_out => ir_uc);
          
-    mem_ram: RAM port map( clk => clock, endereco => banco_ula(6 downto 0), wr_en => wr_RAM , dado_in => acc1_ula, dado_out => saida_RAM);
+    mem_ram: RAM port map( clk => clock, endereco => banco_ula(9 downto 0), wr_en => wr_RAM , dado_in => acc1_ula, dado_out => saida_RAM);
 
     UC: un_controle port map ( clock => clock, instrucao => ir_uc, reset_UC => reset_UC, wr_mqe => wr_mqe, 
     eh_jump => eh_jump, endereco_destino => endereco_jump, eh_branch => eh_branch, eh_comparacao => eh_comparacao , endereco_branch_relativo => offset, 

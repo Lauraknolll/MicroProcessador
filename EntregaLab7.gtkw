@@ -1,12 +1,12 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Thu Nov 13 01:29:21 2025
+[*] Sat Nov 22 21:13:05 2025
 [*]
 [dumpfile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\processador_tb.ghw"
-[dumpfile_mtime] "Thu Nov 13 01:28:50 2025"
-[dumpfile_size] 895778
+[dumpfile_mtime] "Sat Nov 22 21:12:02 2025"
+[dumpfile_size] 810897
 [savefile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\EntregaLab7.gtkw"
-[timestart] 24368000000
+[timestart] 256608000000
 [size] 1366 697
 [pos] -1 -1
 *-29.000000 5926000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
@@ -111,7 +111,7 @@ top.processador_tb.uut.mem_ram.conteudo_ram[16][0]
 #{top.processador_tb.uut.mem_ram.conteudo_ram[75][15:0]} top.processador_tb.uut.mem_ram.conteudo_ram[75][15] top.processador_tb.uut.mem_ram.conteudo_ram[75][14] top.processador_tb.uut.mem_ram.conteudo_ram[75][13] top.processador_tb.uut.mem_ram.conteudo_ram[75][12] top.processador_tb.uut.mem_ram.conteudo_ram[75][11] top.processador_tb.uut.mem_ram.conteudo_ram[75][10] top.processador_tb.uut.mem_ram.conteudo_ram[75][9] top.processador_tb.uut.mem_ram.conteudo_ram[75][8] top.processador_tb.uut.mem_ram.conteudo_ram[75][7] top.processador_tb.uut.mem_ram.conteudo_ram[75][6] top.processador_tb.uut.mem_ram.conteudo_ram[75][5] top.processador_tb.uut.mem_ram.conteudo_ram[75][4] top.processador_tb.uut.mem_ram.conteudo_ram[75][3] top.processador_tb.uut.mem_ram.conteudo_ram[75][2] top.processador_tb.uut.mem_ram.conteudo_ram[75][1] top.processador_tb.uut.mem_ram.conteudo_ram[75][0]
 @200
 -
-@25
+@24
 #{top.processador_tb.uut.mem_ram.conteudo_ram[103][15:0]} top.processador_tb.uut.mem_ram.conteudo_ram[103][15] top.processador_tb.uut.mem_ram.conteudo_ram[103][14] top.processador_tb.uut.mem_ram.conteudo_ram[103][13] top.processador_tb.uut.mem_ram.conteudo_ram[103][12] top.processador_tb.uut.mem_ram.conteudo_ram[103][11] top.processador_tb.uut.mem_ram.conteudo_ram[103][10] top.processador_tb.uut.mem_ram.conteudo_ram[103][9] top.processador_tb.uut.mem_ram.conteudo_ram[103][8] top.processador_tb.uut.mem_ram.conteudo_ram[103][7] top.processador_tb.uut.mem_ram.conteudo_ram[103][6] top.processador_tb.uut.mem_ram.conteudo_ram[103][5] top.processador_tb.uut.mem_ram.conteudo_ram[103][4] top.processador_tb.uut.mem_ram.conteudo_ram[103][3] top.processador_tb.uut.mem_ram.conteudo_ram[103][2] top.processador_tb.uut.mem_ram.conteudo_ram[103][1] top.processador_tb.uut.mem_ram.conteudo_ram[103][0]
 @200
 -
@@ -126,6 +126,13 @@ top.processador_tb.uut.mem_ram.conteudo_ram[16][0]
 #{top.processador_tb.uut.mem_ram.conteudo_ram[127][15:0]} top.processador_tb.uut.mem_ram.conteudo_ram[127][15] top.processador_tb.uut.mem_ram.conteudo_ram[127][14] top.processador_tb.uut.mem_ram.conteudo_ram[127][13] top.processador_tb.uut.mem_ram.conteudo_ram[127][12] top.processador_tb.uut.mem_ram.conteudo_ram[127][11] top.processador_tb.uut.mem_ram.conteudo_ram[127][10] top.processador_tb.uut.mem_ram.conteudo_ram[127][9] top.processador_tb.uut.mem_ram.conteudo_ram[127][8] top.processador_tb.uut.mem_ram.conteudo_ram[127][7] top.processador_tb.uut.mem_ram.conteudo_ram[127][6] top.processador_tb.uut.mem_ram.conteudo_ram[127][5] top.processador_tb.uut.mem_ram.conteudo_ram[127][4] top.processador_tb.uut.mem_ram.conteudo_ram[127][3] top.processador_tb.uut.mem_ram.conteudo_ram[127][2] top.processador_tb.uut.mem_ram.conteudo_ram[127][1] top.processador_tb.uut.mem_ram.conteudo_ram[127][0]
 @200
 -
+@22
+#{top.processador_tb.uut.mem_ram.conteudo_ram[1021][15:0]} top.processador_tb.uut.mem_ram.conteudo_ram[1021][15] top.processador_tb.uut.mem_ram.conteudo_ram[1021][14] top.processador_tb.uut.mem_ram.conteudo_ram[1021][13] top.processador_tb.uut.mem_ram.conteudo_ram[1021][12] top.processador_tb.uut.mem_ram.conteudo_ram[1021][11] top.processador_tb.uut.mem_ram.conteudo_ram[1021][10] top.processador_tb.uut.mem_ram.conteudo_ram[1021][9] top.processador_tb.uut.mem_ram.conteudo_ram[1021][8] top.processador_tb.uut.mem_ram.conteudo_ram[1021][7] top.processador_tb.uut.mem_ram.conteudo_ram[1021][6] top.processador_tb.uut.mem_ram.conteudo_ram[1021][5] top.processador_tb.uut.mem_ram.conteudo_ram[1021][4] top.processador_tb.uut.mem_ram.conteudo_ram[1021][3] top.processador_tb.uut.mem_ram.conteudo_ram[1021][2] top.processador_tb.uut.mem_ram.conteudo_ram[1021][1] top.processador_tb.uut.mem_ram.conteudo_ram[1021][0]
+#{top.processador_tb.uut.mem_ram.conteudo_ram[1022][15:0]} top.processador_tb.uut.mem_ram.conteudo_ram[1022][15] top.processador_tb.uut.mem_ram.conteudo_ram[1022][14] top.processador_tb.uut.mem_ram.conteudo_ram[1022][13] top.processador_tb.uut.mem_ram.conteudo_ram[1022][12] top.processador_tb.uut.mem_ram.conteudo_ram[1022][11] top.processador_tb.uut.mem_ram.conteudo_ram[1022][10] top.processador_tb.uut.mem_ram.conteudo_ram[1022][9] top.processador_tb.uut.mem_ram.conteudo_ram[1022][8] top.processador_tb.uut.mem_ram.conteudo_ram[1022][7] top.processador_tb.uut.mem_ram.conteudo_ram[1022][6] top.processador_tb.uut.mem_ram.conteudo_ram[1022][5] top.processador_tb.uut.mem_ram.conteudo_ram[1022][4] top.processador_tb.uut.mem_ram.conteudo_ram[1022][3] top.processador_tb.uut.mem_ram.conteudo_ram[1022][2] top.processador_tb.uut.mem_ram.conteudo_ram[1022][1] top.processador_tb.uut.mem_ram.conteudo_ram[1022][0]
+#{top.processador_tb.uut.mem_ram.conteudo_ram[1023][15:0]} top.processador_tb.uut.mem_ram.conteudo_ram[1023][15] top.processador_tb.uut.mem_ram.conteudo_ram[1023][14] top.processador_tb.uut.mem_ram.conteudo_ram[1023][13] top.processador_tb.uut.mem_ram.conteudo_ram[1023][12] top.processador_tb.uut.mem_ram.conteudo_ram[1023][11] top.processador_tb.uut.mem_ram.conteudo_ram[1023][10] top.processador_tb.uut.mem_ram.conteudo_ram[1023][9] top.processador_tb.uut.mem_ram.conteudo_ram[1023][8] top.processador_tb.uut.mem_ram.conteudo_ram[1023][7] top.processador_tb.uut.mem_ram.conteudo_ram[1023][6] top.processador_tb.uut.mem_ram.conteudo_ram[1023][5] top.processador_tb.uut.mem_ram.conteudo_ram[1023][4] top.processador_tb.uut.mem_ram.conteudo_ram[1023][3] top.processador_tb.uut.mem_ram.conteudo_ram[1023][2] top.processador_tb.uut.mem_ram.conteudo_ram[1023][1] top.processador_tb.uut.mem_ram.conteudo_ram[1023][0]
+@201
+-
+@200
 -PC
 @24
 [color] 2

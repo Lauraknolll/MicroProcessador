@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity RAM is
    port( 
          clk      : in std_logic;
-         endereco : in unsigned(6 downto 0);
+         endereco : in unsigned(9 downto 0);
          wr_en    : in std_logic;
          dado_in  : in unsigned(15 downto 0);
          dado_out : out unsigned(15 downto 0) 
@@ -13,7 +13,7 @@ entity RAM is
 end entity;
 ------------------------------------------------------------------------
 architecture a_RAM of RAM is
-   type mem is array (0 to 127) of unsigned(15 downto 0);
+   type mem is array (0 to 1023) of unsigned(15 downto 0);
    signal conteudo_ram : mem;
 begin
    process(clk,wr_en)
