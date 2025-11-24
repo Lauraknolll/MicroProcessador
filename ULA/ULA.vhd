@@ -47,8 +47,7 @@ begin
     Sinal <= ResSoma(15)      when (Sel0 = '0' AND Sel1 = '0') else
              ResSubtracao(15) when (Sel0 = '1' AND Sel1 = '0') else
              ResAND(15)      when (Sel0 = '0' AND Sel1 = '1') else
-             ResOR(15)        when (Sel0 = '1' AND Sel1 = '1') else
-             '0';
+             ResOR(15)        when (Sel0 = '1' AND Sel1 = '1');
 
     Zero <= '1'              when (Sel0 = '0' AND Sel1 = '0' AND ResSoma = "0000000000000000") else
              '1'              when (Sel0 = '1' AND Sel1 = '0'AND ResSubtracao = "0000000000000000") else
