@@ -30,14 +30,15 @@ entity un_controle is
       wr_en_accB_UC : out std_logic;
       wr_en_RAM : out std_logic;
 
-      eh_nop :out std_logic;
+      eh_nop : out std_logic;
+      eh_excecao : out std_logic;
 
       op_load : out std_logic;
       op_mov_p_acc : out std_logic;
       op_ld_acc : out std_logic;
       op_mov_p_reg : out std_logic;
       cte : out unsigned(15 downto 0);
-      op_com_cte : out std_logic; --para o mux
+      op_com_cte : out std_logic; 
 
       qual_reg_le : out unsigned (3 downto 0);
       qual_reg_escreve : out unsigned (3 downto 0);
@@ -76,6 +77,10 @@ begin
    wr_ir <= '1' when (estado = "010") else
             '0'; 
    
+   --excecao
+   eh_excecao <= '1' when opcode = "0000" else
+                 '0';
+   
    --operação de jump
    eh_jump <=  '1' when opcode="1111" else
                '0';
@@ -89,10 +94,10 @@ begin
 
    eh_branch <= '1' when (((opcode = "1010" and negativo = overflow) OR (opcode = "1011" and carry = '0' and zero = '0') )) else
                 '0';
-   eh_comparacao <= '1' when opcode ="1001" else
+   eh_comparacao <= '1' when (opcode ="1001" AND instrucao(6 downto 0) = "0000000") else
                     '0';
 
-   wr_en_flags <= '1' when (opcode ="1001" and estado = "011") else -- COMP
+   wr_en_flags <= '1' when (opcode ="1001" AND (instrucao(6 downto 0) = "0000000") and estado = "011") else -- COMP
                   '1' when(opcode="0100") else --ADD
                   '1' when(opcode="0101") else --SUB
                   '1' when(opcode="0111") else --OR
@@ -113,7 +118,7 @@ begin
 
 
    --operação de nop
-   eh_nop<= '1' when opcode ="0000" else
+   eh_nop<= '1' when (opcode ="1001" AND instrucao(11 downto 0) = "011100110011") else
             '0';
 
    -- o bit 11 define qual acc será usado, 0 para o A e 1 para o B
@@ -125,7 +130,7 @@ begin
    sel0_ULA <= '0' when (opcode = "0100" OR opcode = "0010" OR opcode = "0110" ) else --ADD OU ADDI ou AND
                   '1';
                                                                                                        -- comp
-   sel1_ULA <= '0' when (opcode = "0101" OR opcode = "0011" OR opcode = "0010" OR opcode = "0100" OR opcode = "1001") else --SUB OU SUBI ou ADD ou ADDI ou COMP
+   sel1_ULA <= '0' when (opcode = "0101" OR opcode = "0011" OR opcode = "0010" OR opcode = "0100" OR (opcode = "1001" and instrucao(6 downto 0) = "0000000")) else --SUB OU SUBI ou ADD ou ADDI ou COMP
                   '1';
 
 
@@ -151,7 +156,7 @@ begin
                   ( instrucao(10 downto 7)) when (opcode="0110") else  --AND
                   --( instrucao(11 downto 8)) when (opcode="1100") else  --LD REG
                   ( instrucao(10 downto 7)) when (opcode="1110") else  --MOV
-                  ( instrucao(10 downto 7)) when (opcode="1001") else  -- COMP
+                  ( instrucao(10 downto 7)) when (opcode="1001" and instrucao(6 downto 0) = "0000000") else  -- COMP
                   ( "1010") when ((opcode="1000") or (opcode="0001")) else  -- para SW ou LW sempre será o reg 10
                   "0000";
 

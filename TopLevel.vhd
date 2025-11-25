@@ -81,7 +81,7 @@ architecture a_TopLevel of TopLevel is
         wr_en_flags : out std_logic;
 
         eh_jump : out std_logic;
-        endereco_destino: out unsigned(6 downto 0); --esta assim no top level
+        endereco_destino: out unsigned(6 downto 0); 
 
         eh_comparacao : out std_logic;
         eh_branch : out std_logic;
@@ -95,14 +95,15 @@ architecture a_TopLevel of TopLevel is
         wr_en_accB_UC : out std_logic;
         wr_en_RAM : out std_logic;
 
-        eh_nop :out std_logic;
+        eh_nop : out std_logic;
+        eh_excecao : out std_logic;
 
         op_load : out std_logic;
         op_mov_p_acc : out std_logic;
         op_ld_acc : out std_logic;
         op_mov_p_reg : out std_logic;
         cte : out unsigned(15 downto 0);
-        op_com_cte : out std_logic; --para o mux
+        op_com_cte : out std_logic; 
 
         qual_reg_le : out unsigned (3 downto 0);
         qual_reg_escreve : out unsigned (3 downto 0);
@@ -151,7 +152,7 @@ architecture a_TopLevel of TopLevel is
     signal carry, zero, overflow, sinal, sel0_ULA_out, sel1_ULA_out : std_logic;
     signal wr_en_flags, carry_out, overflow_out, negativo_out, zero_out : std_logic;
     signal qual_reg_le_OUT, qual_reg_escreve_OUT: unsigned (3 downto 0);
-    signal eh_jump, eh_nop, eh_branch, wr_RAM, eh_comparacao, wr_en_pc, op_com_cte: std_logic; 
+    signal eh_jump, eh_nop, eh_branch, wr_RAM, eh_comparacao, eh_excecao, wr_en_pc, op_com_cte: std_logic; 
     signal op_ld_acc, op_mov_p_reg, op_mov_p_acc, op_load: std_logic;
     signal endereco_jump, offset : unsigned(6 downto 0);
 
@@ -213,6 +214,6 @@ begin
     op_load => op_load,  op_mov_p_acc => op_mov_p_acc, op_ld_acc => op_ld_acc, op_mov_p_reg => op_mov_p_reg, 
     cte => cte, op_com_cte => op_com_cte, qual_reg_le => qual_reg_le_OUT, qual_reg_escreve => qual_reg_escreve_OUT, 
     escreve_banco=> escreve_banco,  wr_en_pc => wr_en_pc, wr_ir => wr_ir, carry => carry_out, overflow => overflow_out,
-    negativo => negativo_out, zero => zero_out, wr_en_flags => wr_en_flags);
+    negativo => negativo_out, zero => zero_out, wr_en_flags => wr_en_flags, eh_excecao => eh_excecao);
 
 end a_TopLevel; 

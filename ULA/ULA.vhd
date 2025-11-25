@@ -19,7 +19,7 @@ architecture struct of ULA is
 
 begin
     ResSoma      <= in_A + in_B;
-    ResSubtracao <= in_B - in_A; -- DESTROQUEI  -- Supondo que o valor maior está no acc e vamos diminuir a cte no caso do SUBI
+    ResSubtracao <= in_B - in_A; 
     ResAND       <= in_A AND in_B;
     ResOR        <= in_A OR in_B;
 

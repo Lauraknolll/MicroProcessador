@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Mon Nov 24 19:30:54 2025
+[*] Tue Nov 25 01:19:48 2025
 [*]
 [dumpfile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\processador_tb.ghw"
-[dumpfile_mtime] "Mon Nov 24 19:28:25 2025"
-[dumpfile_size] 4962196
+[dumpfile_mtime] "Tue Nov 25 01:13:21 2025"
+[dumpfile_size] 8887781
 [savefile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\EntregaLab7.gtkw"
-[timestart] 3332773000000
-[size] 1366 697
-[pos] -1 -1
-*-29.000000 2867074000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 11460743000000
+[size] 1376 697
+[pos] 72 25
+*-28.931568 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.processador_tb.
 [treeopen] top.processador_tb.uut.
@@ -155,6 +155,11 @@ top.processador_tb.uut.mem_ram.conteudo_ram[16][0]
 #{top.processador_tb.uut.uutaccb.data_out[15:0]} top.processador_tb.uut.uutaccb.data_out[15] top.processador_tb.uut.uutaccb.data_out[14] top.processador_tb.uut.uutaccb.data_out[13] top.processador_tb.uut.uutaccb.data_out[12] top.processador_tb.uut.uutaccb.data_out[11] top.processador_tb.uut.uutaccb.data_out[10] top.processador_tb.uut.uutaccb.data_out[9] top.processador_tb.uut.uutaccb.data_out[8] top.processador_tb.uut.uutaccb.data_out[7] top.processador_tb.uut.uutaccb.data_out[6] top.processador_tb.uut.uutaccb.data_out[5] top.processador_tb.uut.uutaccb.data_out[4] top.processador_tb.uut.uutaccb.data_out[3] top.processador_tb.uut.uutaccb.data_out[2] top.processador_tb.uut.uutaccb.data_out[1] top.processador_tb.uut.uutaccb.data_out[0]
 @200
 -
+@28
+top.processador_tb.uut.eh_excecao
+@201
+-
+@200
 -registradores
 @24
 #{top.processador_tb.uut.banco.out_r0[15:0]} top.processador_tb.uut.banco.out_r0[15] top.processador_tb.uut.banco.out_r0[14] top.processador_tb.uut.banco.out_r0[13] top.processador_tb.uut.banco.out_r0[12] top.processador_tb.uut.banco.out_r0[11] top.processador_tb.uut.banco.out_r0[10] top.processador_tb.uut.banco.out_r0[9] top.processador_tb.uut.banco.out_r0[8] top.processador_tb.uut.banco.out_r0[7] top.processador_tb.uut.banco.out_r0[6] top.processador_tb.uut.banco.out_r0[5] top.processador_tb.uut.banco.out_r0[4] top.processador_tb.uut.banco.out_r0[3] top.processador_tb.uut.banco.out_r0[2] top.processador_tb.uut.banco.out_r0[1] top.processador_tb.uut.banco.out_r0[0]
