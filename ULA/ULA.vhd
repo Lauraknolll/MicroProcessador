@@ -34,8 +34,8 @@ begin
     
     carry_soma <= soma_17(16);  -- o carry eh o MSB da soma 17 bits
 
-    carry_subtr <= '1' when in_A <= in_B else 
-                   '0';
+    carry_subtr <= '0' when in_A <= in_B else 
+                   '1';
 
     Carry <= carry_soma when (Sel0 = '0' AND Sel1 = '0') else
              carry_subtr when (Sel0 = '1' AND Sel1 = '0');
