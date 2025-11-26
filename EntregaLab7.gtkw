@@ -1,14 +1,14 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Tue Nov 25 01:19:48 2025
+[*] Wed Nov 26 15:30:06 2025
 [*]
 [dumpfile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\processador_tb.ghw"
-[dumpfile_mtime] "Tue Nov 25 01:13:21 2025"
-[dumpfile_size] 8887781
+[dumpfile_mtime] "Wed Nov 26 15:16:41 2025"
+[dumpfile_size] 8887952
 [savefile] "C:\Users\samsu\OneDrive\Documentos\faculdade\2025.2\Arq Comp\vhdl\uProcessador\EntregaLab7.gtkw"
-[timestart] 11460743000000
+[timestart] 0
 [size] 1376 697
-[pos] 72 25
+[pos] -18 -48
 *-28.931568 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.processador_tb.
@@ -157,9 +157,8 @@ top.processador_tb.uut.mem_ram.conteudo_ram[16][0]
 -
 @28
 top.processador_tb.uut.eh_excecao
-@201
--
 @200
+-
 -registradores
 @24
 #{top.processador_tb.uut.banco.out_r0[15:0]} top.processador_tb.uut.banco.out_r0[15] top.processador_tb.uut.banco.out_r0[14] top.processador_tb.uut.banco.out_r0[13] top.processador_tb.uut.banco.out_r0[12] top.processador_tb.uut.banco.out_r0[11] top.processador_tb.uut.banco.out_r0[10] top.processador_tb.uut.banco.out_r0[9] top.processador_tb.uut.banco.out_r0[8] top.processador_tb.uut.banco.out_r0[7] top.processador_tb.uut.banco.out_r0[6] top.processador_tb.uut.banco.out_r0[5] top.processador_tb.uut.banco.out_r0[4] top.processador_tb.uut.banco.out_r0[3] top.processador_tb.uut.banco.out_r0[2] top.processador_tb.uut.banco.out_r0[1] top.processador_tb.uut.banco.out_r0[0]
@@ -210,6 +209,7 @@ top.processador_tb.uut.uc.escolhe_acc_a
 -
 -flags
 @28
+top.processador_tb.uut.uc.wr_en_flags
 top.processador_tb.uut.flags.z_out
 top.processador_tb.uut.flags.n_out
 top.processador_tb.uut.flags.v_out
@@ -223,17 +223,7 @@ top.processador_tb.uut.reset_uc
 top.processador_tb.uut.reset_mqe
 top.processador_tb.uut.reset_acc
 top.processador_tb.uut.reset_b
-top.processador_tb.uut.uc.define_maior_menor
-top.processador_tb.uut.uc.wr_en_flags
-top.processador_tb.uut.uc.eh_comparacao
-top.processador_tb.uut.uc.eh_branch
-top.processador_tb.uut.uc.eh_jump
-@22
-#{top.processador_tb.uut.pc0.data_in[6:0]} top.processador_tb.uut.pc0.data_in[6] top.processador_tb.uut.pc0.data_in[5] top.processador_tb.uut.pc0.data_in[4] top.processador_tb.uut.pc0.data_in[3] top.processador_tb.uut.pc0.data_in[2] top.processador_tb.uut.pc0.data_in[1] top.processador_tb.uut.pc0.data_in[0]
 @200
 -
-@24
-#{top.processador_tb.uut.ula_comp.in_b[15:0]} top.processador_tb.uut.ula_comp.in_b[15] top.processador_tb.uut.ula_comp.in_b[14] top.processador_tb.uut.ula_comp.in_b[13] top.processador_tb.uut.ula_comp.in_b[12] top.processador_tb.uut.ula_comp.in_b[11] top.processador_tb.uut.ula_comp.in_b[10] top.processador_tb.uut.ula_comp.in_b[9] top.processador_tb.uut.ula_comp.in_b[8] top.processador_tb.uut.ula_comp.in_b[7] top.processador_tb.uut.ula_comp.in_b[6] top.processador_tb.uut.ula_comp.in_b[5] top.processador_tb.uut.ula_comp.in_b[4] top.processador_tb.uut.ula_comp.in_b[3] top.processador_tb.uut.ula_comp.in_b[2] top.processador_tb.uut.ula_comp.in_b[1] top.processador_tb.uut.ula_comp.in_b[0]
-#{top.processador_tb.uut.ula_comp.in_a[15:0]} top.processador_tb.uut.ula_comp.in_a[15] top.processador_tb.uut.ula_comp.in_a[14] top.processador_tb.uut.ula_comp.in_a[13] top.processador_tb.uut.ula_comp.in_a[12] top.processador_tb.uut.ula_comp.in_a[11] top.processador_tb.uut.ula_comp.in_a[10] top.processador_tb.uut.ula_comp.in_a[9] top.processador_tb.uut.ula_comp.in_a[8] top.processador_tb.uut.ula_comp.in_a[7] top.processador_tb.uut.ula_comp.in_a[6] top.processador_tb.uut.ula_comp.in_a[5] top.processador_tb.uut.ula_comp.in_a[4] top.processador_tb.uut.ula_comp.in_a[3] top.processador_tb.uut.ula_comp.in_a[2] top.processador_tb.uut.ula_comp.in_a[1] top.processador_tb.uut.ula_comp.in_a[0]
 [pattern_trace] 1
 [pattern_trace] 0
